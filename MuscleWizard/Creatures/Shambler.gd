@@ -26,7 +26,20 @@ func _process(delta):
 	else:
 		pass
 
+func take_damage(damageTaken):
+	print("Damage: ", damageTaken)
+	health -= damageTaken
+	if health <= 0:
+		start_dying()
 
+func start_dying():
+	# play sound effects + animations,
+	# then call finish_dying at end of animation
+	finish_dying()
+
+# Remove enemy from level
+func finish_dying():
+	queue_free()
 
 #Shambler sight radius stuff
 func _on_Sight_body_entered(body):
