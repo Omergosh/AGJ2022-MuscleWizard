@@ -7,7 +7,7 @@ extends KinematicBody2D
 export var moveSpeed = 200
 var health = 10
 var damage = 5
-var onfire = false
+var dead = false
 var alive = true
 var aggro = false
 var direction = 0

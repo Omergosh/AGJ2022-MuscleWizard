@@ -1,0 +1,33 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/_art_/Effects/Ball/Bubble1.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/_art_/Effects/Ball/Bubble4.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge2.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/_art_/Effects/Ball/Bubble2.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/_art_/Effects/Ball/Bubble3.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge6.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge8.png" type="Texture" id=8]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge3.png" type="Texture" id=9]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge9.png" type="Texture" id=10]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge4.png" type="Texture" id=11]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge10.png" type="Texture" id=12]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge5.png" type="Texture" id=13]
+[ext_resource path="res://Sprites/_art_/Effects/WhiteCharge/WCharge7.png" type="Texture" id=14]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 2 ) ],
+"loop": true,
+"name": "Bubble",
+"speed": 24.0
+}, {
+"frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 3 ) ],
+"loop": false,
+"name": "Pop",
+"speed": 24.0
+} ]
+
+[node name="ArcaneBubble" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "Bubble"
