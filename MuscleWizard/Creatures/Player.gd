@@ -27,6 +27,7 @@ func handle_staff():
 			if Input.is_action_pressed("ui_accept"):
 				currentStaffState = staffStates.SWINGING
 				$AnimationPlayer.play("StaffSwing")
+				$Sprite/Staff/AnimationPlayer.play("bonk")
 		#staffStates.SWINGING:
 			#$Staff.position.x += 5
 			#$Staff.rotation += 2
