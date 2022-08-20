@@ -5,7 +5,7 @@ extends KinematicBody2D
 # var a = 2
 # var b = "text"
 export var moveSpeed = 400
-
+var velocity = Vector2.ZERO
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -14,13 +14,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	var velocity = Vector2.ZERO
+	move_player()
+
+func move_player():
+	var newVelocity = Vector2.ZERO
 	if Input.is_action_pressed("move_left"):
-		velocity.x -= moveSpeed
+		newVelocity.x -= moveSpeed
+		$Sprite.flip_h = true
 	if Input.is_action_pressed("move_right"):
-		velocity.x += moveSpeed
+		$Sprite.flip_h = false
+		newVelocity.x += moveSpeed
 	if Input.is_action_pressed("move_up"):
-		velocity.y -= moveSpeed
+		newVelocity.y -= moveSpeed
 	if Input.is_action_pressed("move_down"):
-		velocity.y += moveSpeed
+		newVelocity.y += moveSpeed
+	velocity = newVelocity
 	move_and_slide(velocity)
