@@ -1,8 +1,34 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm2.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.gd" type="Script" id=2]
 [ext_resource path="res://Weapons/Staff.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/_art_/player/jackedneutral.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/_art_/player/jackedpose1.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/Placeholder/brownwizardarm1.png" type="Texture" id=6]
+
+[sub_resource type="SpriteFrames" id=4]
+animations = [ {
+"frames": [ ExtResource( 5 ) ],
+"loop": true,
+"name": "CastBuff",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ) ],
+"loop": true,
+"name": "CastThin",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "IdleBuff",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "IdleThin",
+"speed": 5.0
+} ]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 22, 38 )
@@ -44,10 +70,14 @@ tracks/1/keys = {
 position = Vector2( -1, -1 )
 z_index = 1
 script = ExtResource( 2 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Sprite" type="Sprite" parent="."]
+[node name="Sprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 0.5, 0.5 )
-texture = ExtResource( 1 )
+frames = SubResource( 4 )
+animation = "IdleBuff"
 
 [node name="Staff" parent="Sprite" instance=ExtResource( 3 )]
 position = Vector2( 54, 12 )
@@ -56,6 +86,9 @@ scale = Vector2( 2, 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8.5 )
 shape = SubResource( 1 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
