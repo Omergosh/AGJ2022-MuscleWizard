@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Moan1P.mp3-1476272ff8e53376d0c013b7f06aa369.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/ShamblerSounds/Moan1P.mp3"
+dest_files=[ "res://.import/Moan1P.mp3-1476272ff8e53376d0c013b7f06aa369.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

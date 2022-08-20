@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShadeVoice.mp3-5d8e4e7e1063cb3d531d451666fafd48.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/BossVoiceLines/ShadeVoice.mp3"
+dest_files=[ "res://.import/ShadeVoice.mp3-5d8e4e7e1063cb3d531d451666fafd48.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

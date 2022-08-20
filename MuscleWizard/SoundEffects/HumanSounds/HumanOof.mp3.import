@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HumanOof.mp3-8e7f54c2d9d4c520f5dfc209182f68ec.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/HumanSounds/HumanOof.mp3"
+dest_files=[ "res://.import/HumanOof.mp3-8e7f54c2d9d4c520f5dfc209182f68ec.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/LightExplodeReverb.mp3-5814f4d87e64358f856f8697d2fdf8af.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/MagicSounds/LightExplodeReverb.mp3"
+dest_files=[ "res://.import/LightExplodeReverb.mp3-5814f4d87e64358f856f8697d2fdf8af.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

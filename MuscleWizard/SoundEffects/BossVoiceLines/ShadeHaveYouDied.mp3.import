@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShadeHaveYouDied.mp3-5d93d0ed226a5c8fafdf3ad1403324df.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/BossVoiceLines/ShadeHaveYouDied.mp3"
+dest_files=[ "res://.import/ShadeHaveYouDied.mp3-5d93d0ed226a5c8fafdf3ad1403324df.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

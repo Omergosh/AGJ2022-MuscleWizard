@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShadeYouCantKillMe.mp3-3a09f2802c653a32eb4a6ae87d9fe15e.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/BossVoiceLines/ShadeYouCantKillMe.mp3"
+dest_files=[ "res://.import/ShadeYouCantKillMe.mp3-3a09f2802c653a32eb4a6ae87d9fe15e.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

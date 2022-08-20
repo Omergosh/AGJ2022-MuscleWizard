@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShadeAttack.mp3-efec559ac3db46c71e9b0c43d2a2344f.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/BossVoiceLines/ShadeAttack.mp3"
+dest_files=[ "res://.import/ShadeAttack.mp3-efec559ac3db46c71e9b0c43d2a2344f.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Bonk.mp3-cd6133acfb0825d7b85fb4cc3b6d3581.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/PhysicalSounds/Bonk.mp3"
+dest_files=[ "res://.import/Bonk.mp3-cd6133acfb0825d7b85fb4cc3b6d3581.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

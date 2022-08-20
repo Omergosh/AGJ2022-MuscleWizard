@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/AirSwing2.mp3-3b23db74c311ec1e2d82c4e93bea9a95.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/PhysicalSounds/AirSwing2.mp3"
+dest_files=[ "res://.import/AirSwing2.mp3-3b23db74c311ec1e2d82c4e93bea9a95.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

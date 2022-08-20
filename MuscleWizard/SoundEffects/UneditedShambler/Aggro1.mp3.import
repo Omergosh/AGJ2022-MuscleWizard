@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Aggro1.mp3-0ac298fea5365d1399daabebb6e944ef.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/UneditedShambler/Aggro1.mp3"
+dest_files=[ "res://.import/Aggro1.mp3-0ac298fea5365d1399daabebb6e944ef.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

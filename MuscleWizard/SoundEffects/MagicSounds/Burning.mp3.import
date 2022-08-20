@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Burning.mp3-cd62be7b880ae9cfc977a2fe95672a54.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/MagicSounds/Burning.mp3"
+dest_files=[ "res://.import/Burning.mp3-cd62be7b880ae9cfc977a2fe95672a54.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

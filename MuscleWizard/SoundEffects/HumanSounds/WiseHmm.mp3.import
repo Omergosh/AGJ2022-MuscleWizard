@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WiseHmm.mp3-2534520eb3dfa33dd070e7686aa63292.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/HumanSounds/WiseHmm.mp3"
+dest_files=[ "res://.import/WiseHmm.mp3-2534520eb3dfa33dd070e7686aa63292.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Whush.mp3-c97570e46571b65f486cd6b68e78268d.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/PhysicalSounds/Whush.mp3"
+dest_files=[ "res://.import/Whush.mp3-c97570e46571b65f486cd6b68e78268d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

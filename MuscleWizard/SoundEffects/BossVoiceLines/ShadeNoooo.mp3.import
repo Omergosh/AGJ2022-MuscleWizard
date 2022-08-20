@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShadeNoooo.mp3-09f18aed49d4129bf9c66b2ad5be7b4d.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/BossVoiceLines/ShadeNoooo.mp3"
+dest_files=[ "res://.import/ShadeNoooo.mp3-09f18aed49d4129bf9c66b2ad5be7b4d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

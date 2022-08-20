@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BoingMagic.mp3-6a86f885c619e531b52d18e30d8cd10b.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/MagicSounds/BoingMagic.mp3"
+dest_files=[ "res://.import/BoingMagic.mp3-6a86f885c619e531b52d18e30d8cd10b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

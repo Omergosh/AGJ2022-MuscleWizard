@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/ShadowBolt.mp3-6646939950e13c05785acfc2d8c0e0ab.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/MagicSounds/ShadowBolt.mp3"
+dest_files=[ "res://.import/ShadowBolt.mp3-6646939950e13c05785acfc2d8c0e0ab.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

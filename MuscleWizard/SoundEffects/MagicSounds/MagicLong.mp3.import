@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MagicLong.mp3-37744142c8b49d101c7fbd909ff1710d.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/MagicSounds/MagicLong.mp3"
+dest_files=[ "res://.import/MagicLong.mp3-37744142c8b49d101c7fbd909ff1710d.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

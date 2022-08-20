@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Hit3.mp3-e745dff8bb9da61603eb0375a41e1c72.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/Hit3.mp3"
+dest_files=[ "res://.import/Hit3.mp3-e745dff8bb9da61603eb0375a41e1c72.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

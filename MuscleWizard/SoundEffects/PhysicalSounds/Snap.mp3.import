@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Snap.mp3-5759f224b9a968bc9c3678000ad59baf.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/PhysicalSounds/Snap.mp3"
+dest_files=[ "res://.import/Snap.mp3-5759f224b9a968bc9c3678000ad59baf.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/StoneDoorOpen.mp3-7e61d5025e88e46d5b23e3f80d8e3050.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/PhysicalSounds/StoneDoorOpen.mp3"
+dest_files=[ "res://.import/StoneDoorOpen.mp3-7e61d5025e88e46d5b23e3f80d8e3050.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
