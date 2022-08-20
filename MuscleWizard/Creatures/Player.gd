@@ -20,7 +20,9 @@ func move_player():
 	var newVelocity = Vector2.ZERO
 	if Input.is_action_pressed("move_left"):
 		newVelocity.x -= moveSpeed
+		$Sprite.flip_h = true
 	if Input.is_action_pressed("move_right"):
+		$Sprite.flip_h = false
 		newVelocity.x += moveSpeed
 	if Input.is_action_pressed("move_up"):
 		newVelocity.y -= moveSpeed
