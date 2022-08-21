@@ -1,0 +1,173 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=1]
+[ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Sprites/_art_/Environment/RedLines1.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/_art_/Environment/DarkGreyBlueBlock.png" type="Texture" id=4]
+[ext_resource path="res://Sprites/_art_/Environment/DarkGreyBlock.png" type="Texture" id=5]
+[ext_resource path="res://Sprites/_art_/Environment/DarkGreyBrickWall.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/_art_/Environment/GreyTile.png" type="Texture" id=7]
+[ext_resource path="res://Sprites/_art_/Environment/BlueBrickWall.png" type="Texture" id=8]
+
+[sub_resource type="NavigationPolygon" id=2]
+vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=3]
+vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 ) ]
+
+[sub_resource type="NavigationPolygon" id=4]
+vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+polygons = [ PoolIntArray( 0, 1, 2, 3 ) ]
+outlines = [ PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 ) ]
+
+[sub_resource type="TileSet" id=1]
+0/name = "RedLines1.png 0"
+0/texture = ExtResource( 3 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "DarkBlock.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 256, 256 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/navigation = SubResource( 2 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+2/name = "DarkGreyBlock.png 2"
+2/texture = ExtResource( 5 )
+2/tex_offset = Vector2( 0, 0 )
+2/modulate = Color( 1, 1, 1, 1 )
+2/region = Rect2( 0, 0, 256, 256 )
+2/tile_mode = 0
+2/occluder_offset = Vector2( 0, 0 )
+2/navigation_offset = Vector2( 0, 0 )
+2/navigation = SubResource( 3 )
+2/shape_offset = Vector2( 0, 0 )
+2/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+2/shape_one_way = false
+2/shape_one_way_margin = 0.0
+2/shapes = [  ]
+2/z_index = 0
+3/name = "DarkGreyBlueBlock.png 3"
+3/texture = ExtResource( 4 )
+3/tex_offset = Vector2( 0, 0 )
+3/modulate = Color( 1, 1, 1, 1 )
+3/region = Rect2( 0, 0, 256, 256 )
+3/tile_mode = 0
+3/occluder_offset = Vector2( 0, 0 )
+3/navigation_offset = Vector2( 0, 0 )
+3/shape_offset = Vector2( 0, 0 )
+3/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+3/shape_one_way = false
+3/shape_one_way_margin = 0.0
+3/shapes = [  ]
+3/z_index = 0
+4/name = "GreyTile.png 4"
+4/texture = ExtResource( 7 )
+4/tex_offset = Vector2( 0, 0 )
+4/modulate = Color( 1, 1, 1, 1 )
+4/region = Rect2( 0, 0, 256, 256 )
+4/tile_mode = 0
+4/occluder_offset = Vector2( 0, 0 )
+4/navigation_offset = Vector2( 0, 0 )
+4/navigation = SubResource( 4 )
+4/shape_offset = Vector2( 0, 0 )
+4/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+4/shape_one_way = false
+4/shape_one_way_margin = 0.0
+4/shapes = [  ]
+4/z_index = 0
+
+[sub_resource type="ConvexPolygonShape2D" id=5]
+points = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+
+[sub_resource type="ConvexPolygonShape2D" id=6]
+points = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
+
+[sub_resource type="TileSet" id=7]
+0/name = "DarkGreyBrickWall.png 0"
+0/texture = ExtResource( 6 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape = SubResource( 5 )
+0/shape_one_way = false
+0/shape_one_way_margin = 1.0
+0/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 5 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+0/z_index = 0
+1/name = "BlueBrickWall.png 1"
+1/texture = ExtResource( 8 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 256, 256 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape = SubResource( 6 )
+1/shape_one_way = false
+1/shape_one_way_margin = 1.0
+1/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 6 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+1/z_index = 0
+
+[node name="Node2D" type="Node2D"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Floor" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( -1310716, 536870914, 0, -1310712, 536870913, 0, -1310708, 536870914, 0, -1310704, 536870913, 0, -1310700, 536870914, 0, -1310696, 536870913, 0, -1310692, 536870914, 0, -1310664, 536870915, 0, -1310660, 536870915, 0, -1310656, 536870915, 0, -1310652, 536870915, 0, -1048572, 536870913, 0, -1048548, 536870913, 0, -1048520, 536870915, 0, -1048516, 536870915, 0, -1048512, 536870915, 0, -1048508, 536870915, 0, -786428, 536870914, 0, -786404, 536870914, 0, -786376, 536870915, 0, -786372, 536870915, 0, -786368, 536870915, 0, -786364, 536870915, 0, -524284, 536870913, 0, -524268, 536870913, 0, -524264, 536870914, 0, -524260, 536870913, 0, -524256, 536870914, 0, -524252, 536870913, 0, -524228, 536870913, 0, -524224, 536870914, 0, -262144, 536870913, 0, -262140, 536870914, 0, -262136, 536870913, 0, -262124, 536870914, 0, -262120, 536870913, 0, -262116, 536870914, 0, -262112, 536870913, 0, -262108, 536870914, 0, -262084, 536870914, 0, -262080, 536870913, 0, 65532, 536870913, 0, 0, 536870914, 0, 4, 536870913, 0, 8, 536870914, 0, 12, 536870913, 0, 16, 536870914, 0, 20, 536870913, 0, 24, 536870914, 0, 28, 536870913, 0, 32, 536870914, 0, 36, 536870913, 0, 40, 536870914, 0, 44, 536870913, 0, 48, 536870914, 0, 52, 536870913, 0, 56, 536870914, 0, 60, 536870913, 0, 64, 536870914, 0, 262144, 536870913, 0, 262148, 536870914, 0, 262152, 536870913, 0, 262164, 536870914, 0, 262168, 536870913, 0, 262172, 536870914, 0, 262176, 536870913, 0, 262180, 536870914, 0, 262204, 536870914, 0, 262208, 536870913, 0, 524308, 536870913, 0, 524312, 536870914, 0, 524316, 536870913, 0, 524320, 536870914, 0, 524324, 536870913, 0, 524348, 536870913, 0, 524352, 536870914, 0, 786460, 536870914, 0, 786492, 536870914, 0, 786496, 536870913, 0, 1048604, 536870913, 0, 1310748, 536870914, 0, 1310752, 536870913, 0, 1310756, 536870914, 0, 1310760, 536870913, 0, 1572904, 536870914, 0, 1835036, 536870914, 0, 1835040, 536870913, 0, 1835044, 536870914, 0, 1835048, 536870913, 0, 2097180, 536870913, 0, 2097200, 536870915, 0, 2097204, 536870915, 0, 2359312, 536870913, 0, 2359316, 536870914, 0, 2359320, 536870913, 0, 2359324, 536870914, 0, 2359328, 536870913, 0, 2359332, 536870914, 0, 2359336, 536870913, 0, 2359340, 536870915, 0, 2359344, 536870915, 0, 2359348, 536870915, 0, 2621468, 536870913, 0, 2621488, 536870915, 0, 2621492, 536870915, 0, 2883612, 536870914, 0, 3145756, 536870913, 0, 3407900, 536870914, 0, 3670044, 536870913, 0, 3932188, 536870914, 0, 4194332, 536870913, 0, 4456476, 536870914, 0, 4718620, 536870915, 0 )
+
+[node name="Doodads" type="TileMap" parent="Floor"]
+format = 1
+
+[node name="Walls" type="TileMap" parent="."]
+tile_set = SubResource( 7 )
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+position = Vector2( -133, 130 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
