@@ -19,10 +19,10 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	if alive == true and aggro == true:
 		direction = (player.position - position).normalized()
-		move_and_slide(direction * moveSpeed)
+		var _moveData = move_and_slide(direction * moveSpeed)
 	else:
 		pass
 
@@ -43,8 +43,10 @@ func finish_dying():
 
 #Shambler sight radius stuff
 func _on_Sight_body_entered(body):
-	aggro = true
+	if body.is_in_group("Player"):
+		aggro = true
 
 
 func _on_Sight_body_exited(body):
-	aggro = false
+	if body.is_in_group("Player"):
+		aggro = false

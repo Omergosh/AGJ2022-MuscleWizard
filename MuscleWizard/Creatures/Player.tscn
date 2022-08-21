@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm2.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.gd" type="Script" id=2]
@@ -6,6 +6,7 @@
 [ext_resource path="res://Sprites/_art_/player/jackedneutral.png" type="Texture" id=4]
 [ext_resource path="res://Sprites/_art_/player/jackedpose1.png" type="Texture" id=5]
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm1.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/_art_/Effects/BlueLine/BB1.png" type="Texture" id=7]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -119,6 +120,9 @@ animation = "IdleBuff"
 position = Vector2( 54, 12 )
 scale = Vector2( 2, 2 )
 
+[node name="ProjectileOrigin" type="Position2D" parent="Sprite/Staff"]
+position = Vector2( 3, -71 )
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8.5 )
 shape = SubResource( 1 )
@@ -129,3 +133,10 @@ __meta__ = {
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/RESET = SubResource( 3 )
 anims/StaffSwing = SubResource( 2 )
+
+[node name="AimIndicator" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite" parent="AimIndicator"]
+texture = ExtResource( 7 )
+centered = false
+offset = Vector2( 55, -29 )

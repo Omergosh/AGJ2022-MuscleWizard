@@ -18,7 +18,9 @@ func transitionTo(strPath):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	match anim_name:
 		"FadeToBlack":
-			get_tree().change_scene(levelToGoTo)
+			var error = get_tree().change_scene(levelToGoTo)
+			if error:
+				print("Level transition failed???", error)
 			$AnimationPlayer.play("FadeFromBlack")
 		"FadeFromBlack":
 			pass
