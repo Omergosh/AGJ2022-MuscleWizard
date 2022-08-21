@@ -1,6 +1,7 @@
 extends Control
 
-# Manager for main menu buttons
+# Manager for main menu logic
+var wasBuff = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -29,3 +30,14 @@ func _on_Exit_pressed():
 func _on_Back_pressed():
 	$MainButtons.show()
 	$CreditsContainer.hide()
+
+
+func _on_AnimationPlayer_animation_finished(anim_name):
+	if wasBuff:
+		$AnimatedSprite.play("default")
+	else:
+		$AnimatedSprite.play("buff")
+	
+	wasBuff = !wasBuff
+	
+	$AnimationPlayer.play("default")
