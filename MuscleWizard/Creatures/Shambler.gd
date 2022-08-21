@@ -23,7 +23,9 @@ func _process(_delta):
 	if alive == true and aggro == true:
 		direction = (player.position - position).normalized()
 		var _moveData = move_and_slide(direction * moveSpeed)
+		$AnimationPlayer.play("Attack")
 	else:
+		$AnimationPlayer.play("Idle")
 		pass
 
 func take_damage(damageTaken, damageType):

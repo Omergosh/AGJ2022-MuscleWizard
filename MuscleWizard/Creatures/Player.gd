@@ -1,5 +1,7 @@
 extends KinematicBody2D
 
+# Health and wellness
+var health = 20
 
 # Movement variables
 export var moveSpeed = 400
@@ -14,7 +16,12 @@ var staffOffset
 func _ready():
 	staffOffset = $Sprite/Staff.position
 	var _error = connect("shoot", self, "_on_Player_shoot")
-	
+
+func take_damage(damageTaken, damageType):
+	print("Player Damage: ", damageTaken)
+	health -= damageTaken
+	if health <= 0:
+		queue_free()
 
 ### BASIC MAGIC ATTACK ###
 var ArcaneProjectile = preload("res://Spells/ArcaneBlast.tscn")
