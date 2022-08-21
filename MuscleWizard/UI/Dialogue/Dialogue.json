@@ -83,7 +83,7 @@
 			"text": "Fantastic! You are truly my top student. Let’s move on.",
 		}
 	],
-	"DoorMagic":[
+	"FinalChoice":[
 		{
 			"name": "Mentor",
 			"portrait": "res://Sprites/_art_/MentorExpressions/Neutral.png",

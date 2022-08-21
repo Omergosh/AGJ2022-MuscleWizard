@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/GreyBrickWall.png" type="Texture" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=11]
 [ext_resource path="res://SoundEffects/PhysicalSounds/StoneDoorOpen.mp3" type="AudioStream" id=12]
 [ext_resource path="res://PuzzlesAndDoors/DialogueDoor.gd" type="Script" id=13]
+[ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=14]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DarkGreyBlueBlock.png 0"
@@ -202,6 +203,10 @@ shape = SubResource( 6 )
 __meta__ = {
 "_edit_lock_": true
 }
+
+[node name="Portal" parent="." instance=ExtResource( 14 )]
+position = Vector2( 4225, 137 )
+LevelToGoTo = "res://Levels/Level1Actual.tscn"
 
 [connection signal="keys" from="Sconce" to="Sconce/Door" method="_on_Sconce_keys"]
 [connection signal="lock" from="Sconce" to="Sconce/Door" method="_on_Sconce_lock"]

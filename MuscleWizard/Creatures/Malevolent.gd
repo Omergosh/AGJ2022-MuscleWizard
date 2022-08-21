@@ -12,6 +12,7 @@ onready var sayperish = get_node("Attack2")
 onready var player = get_node("../Player")
 var rng = RandomNumberGenerator.new()
 var toss = 0
+signal victory
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -34,6 +35,7 @@ func take_damage(instigatorHitBox):
 
 func start_dying():
 	$Death.play()
+	emit_signal('victory')
 	# then call finish_dying at end of animation
 	$AnimationPlayer.play("Death")
 	pass

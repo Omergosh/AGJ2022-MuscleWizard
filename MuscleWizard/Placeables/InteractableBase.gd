@@ -73,9 +73,10 @@ func _on_Door_unlocked():
 func _on_FinalDialogue_body_entered(body):
 	if body.is_in_group('Player'):
 		position.x = 3934
-		dialogueKeyToPlay = "DoorMagic"
+		dialogueKeyToPlay = "FinalChoice"
 		#print('dialogueKeyToPlay')
 		var _err = DialogueChoice.connect("optionMade", self, 'choice_made')
 
 func choice_made(_choice):
 	SceneTransition.transitionTo("res://Levels/Level1Actual.tscn")
+	pass

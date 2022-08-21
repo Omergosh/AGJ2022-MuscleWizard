@@ -325,3 +325,4 @@ position = Vector2( 7776, 3174 )
 
 [node name="Portal" parent="." instance=ExtResource( 18 )]
 position = Vector2( 8833, 3207 )
+LevelToGoTo = "res://Levels/Level2.tscn"
