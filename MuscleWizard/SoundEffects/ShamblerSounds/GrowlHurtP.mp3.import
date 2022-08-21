@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GrowlHurtP.mp3-f7d762c26a5b6520f887c04b114eb799.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

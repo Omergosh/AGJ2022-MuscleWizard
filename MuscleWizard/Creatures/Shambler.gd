@@ -5,6 +5,7 @@ var health = 10
 var damage = 5
 var dead = false
 var alive = true
+var hurt = false
 var aggro = false
 var direction = 0
 onready var player = get_node("../Player")
@@ -37,7 +38,10 @@ func take_damage(instigatorHitBox):
 	var damageTaken = instigatorHitBox.damage
 	print("Damage: ", damageTaken)
 	health -= damageTaken
-	
+	if hurt == false:
+		$HurtTime.start()
+		hurt = true
+		$Hurt.play()
 	var p = bloodParticles.instance()
 	var delta = instigatorHitBox.global_position - global_position
 	get_parent().add_child(p)
@@ -61,8 +65,13 @@ func finish_dying():
 func _on_Sight_body_entered(body):
 	if body.is_in_group("Player"):
 		aggro = true
+		$Aggro.play()
 
 
 func _on_Sight_body_exited(body):
 	if body.is_in_group("Player"):
 		aggro = false
+
+
+func _on_HurtTime_timeout():
+	hurt = false

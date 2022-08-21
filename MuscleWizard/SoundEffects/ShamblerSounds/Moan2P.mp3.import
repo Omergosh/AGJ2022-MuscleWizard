@@ -11,5 +11,5 @@ dest_files=[ "res://.import/Moan2P.mp3-cf19bebc6037b573ded6875975b14dd5.mp3str" 
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

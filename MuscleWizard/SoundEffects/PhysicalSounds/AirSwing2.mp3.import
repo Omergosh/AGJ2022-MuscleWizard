@@ -11,5 +11,5 @@ dest_files=[ "res://.import/AirSwing2.mp3-3b23db74c311ec1e2d82c4e93bea9a95.mp3st
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

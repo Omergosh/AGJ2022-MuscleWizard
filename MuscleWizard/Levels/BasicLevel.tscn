@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Levels/basic_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=2]
@@ -6,7 +6,6 @@
 [ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=5]
 [ext_resource path="res://PuzzlesAndDoors/Sconce.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Creatures/Malevolent.tscn" type="PackedScene" id=7]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -40,6 +39,3 @@ position = Vector2( 353, 544 )
 
 [node name="Sconce" parent="." instance=ExtResource( 6 )]
 position = Vector2( 710, -290 )
-
-[node name="Malevolent" parent="." instance=ExtResource( 7 )]
-position = Vector2( 760, 319 )
