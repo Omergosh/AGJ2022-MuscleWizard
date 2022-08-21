@@ -94,9 +94,10 @@ script = ExtResource( 1 )
 [node name="MarginContainer" type="MarginContainer" parent="."]
 anchor_right = 0.999
 anchor_bottom = 0.998
-margin_left = 285.0
-margin_right = -284.976
-margin_bottom = 0.200012
+margin_left = 286.0
+margin_top = -2.0
+margin_right = -239.976
+margin_bottom = -1.79999
 
 [node name="Title" type="Label" parent="MarginContainer"]
 margin_top = 268.0
@@ -120,19 +121,33 @@ margin_bottom = 165.0
 
 [node name="Play" type="Button" parent="MainButtons/VBoxContainer"]
 margin_right = 259.0
-margin_bottom = 52.0
+margin_bottom = 29.0
 size_flags_vertical = 3
 text = "Play"
 
-[node name="Credits" type="Button" parent="MainButtons/VBoxContainer"]
-margin_top = 56.0
+[node name="Controls" type="Button" parent="MainButtons/VBoxContainer"]
+margin_top = 33.0
 margin_right = 259.0
-margin_bottom = 108.0
+margin_bottom = 63.0
+size_flags_vertical = 3
+text = "Controls"
+
+[node name="LoreB" type="Button" parent="MainButtons/VBoxContainer"]
+margin_top = 67.0
+margin_right = 259.0
+margin_bottom = 97.0
+size_flags_vertical = 3
+text = "Lore"
+
+[node name="Credits" type="Button" parent="MainButtons/VBoxContainer"]
+margin_top = 101.0
+margin_right = 259.0
+margin_bottom = 131.0
 size_flags_vertical = 3
 text = "Credits"
 
 [node name="Exit" type="Button" parent="MainButtons/VBoxContainer"]
-margin_top = 112.0
+margin_top = 135.0
 margin_right = 259.0
 margin_bottom = 165.0
 size_flags_vertical = 3
@@ -149,6 +164,26 @@ margin_bottom = 561.0
 margin_right = 419.0
 margin_bottom = 176.0
 
+[node name="Lore" type="RichTextLabel" parent="CreditsContainer/VBoxContainer"]
+visible = false
+margin_right = 419.0
+margin_bottom = 56.0
+size_flags_vertical = 3
+text = "The Wizards of the Arcanum has protected the civilized nation of Galthuum for centuries with their magical might. Flanked to the east by the Demon Empire of Agmore, to the West The Seas of Mir, full of pirates and aquatic beasts. And to the North, the Decrepit Old Kingdom full of Immortal Malevolents with their ruinous tombs and treasures.
+
+Your master shall prepare you to enter one of these lands, and defeat a monster of great power. This shall be your trial. Should you fail, only death will await you. It will not be easy. It will require a full understanding of the principles that guide the sorcery that flows through the veins of the world.
+
+Do you have what it takes?
+"
+
+[node name="Controls" type="RichTextLabel" parent="CreditsContainer/VBoxContainer"]
+visible = false
+margin_top = 4.0
+margin_right = 419.0
+margin_bottom = 58.0
+size_flags_vertical = 3
+text = "WASD to move. Space to whack things with staff. Click and aim to fire arcane blast. Click to progress dialogue."
+
 [node name="CreditsLbl" type="RichTextLabel" parent="CreditsContainer/VBoxContainer"]
 margin_right = 419.0
 margin_bottom = 86.0
@@ -160,9 +195,9 @@ Art, Programming, Design, Narrative? - Omer Ahmed
 Additional Support - Boris Fleysher
 [/center][/wave]"
 text = "
-Programmer, Design, Narrative - Isaac Cantine
-Art, Programming, Design, Narrative? - Omer Ahmed
-Additional Support - Boris Fleysher
+Assistant Programmer, Design, Narrative, Art - Isaac Cantine
+Lead Programmer, Design, Narrative - Omer Ahmed
+Additional Support, Menus - Boris Fleysher
 "
 
 [node name="Back" type="Button" parent="CreditsContainer/VBoxContainer"]
@@ -180,7 +215,6 @@ anims/default = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -129, 181 )
 frames = SubResource( 3 )
-frame = 2
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
@@ -196,6 +230,8 @@ lifetime = 1.5
 process_material = SubResource( 10 )
 
 [connection signal="pressed" from="MainButtons/VBoxContainer/Play" to="." method="_on_Play_pressed"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/Controls" to="." method="_on_ControlsLore_pressed"]
+[connection signal="pressed" from="MainButtons/VBoxContainer/LoreB" to="." method="_on_LoreB_pressed"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/Credits" to="." method="_on_Credits_pressed"]
 [connection signal="pressed" from="MainButtons/VBoxContainer/Exit" to="." method="_on_Exit_pressed"]
 [connection signal="pressed" from="CreditsContainer/VBoxContainer/Back" to="." method="_on_Back_pressed"]
