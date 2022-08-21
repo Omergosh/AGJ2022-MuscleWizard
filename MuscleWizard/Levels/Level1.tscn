@@ -21,4 +21,4 @@ __meta__ = {
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
-zoom = Vector2( 1.5, 1.5 )
+zoom = Vector2( 3, 3 )

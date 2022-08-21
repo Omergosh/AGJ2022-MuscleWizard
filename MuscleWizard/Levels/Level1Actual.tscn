@@ -316,6 +316,7 @@ position = Vector2( -133, 130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+zoom = Vector2( 2, 2 )
 
 [node name="Shambler" parent="." instance=ExtResource( 17 )]
 position = Vector2( 3154, 3300 )

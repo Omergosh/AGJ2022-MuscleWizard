@@ -149,6 +149,7 @@ position = Vector2( -133, 130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
 current = true
+zoom = Vector2( 2, 2 )
 
 [node name="Sconce" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2181, 316 )
