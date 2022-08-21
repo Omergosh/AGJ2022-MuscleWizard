@@ -104,3 +104,7 @@ func _on_InteractableBase_talking():
 
 func _on_InteractableBase_stopped_talking():
 	pass # toggle spellcasting on
+
+
+func _on_Dummy_smashed():
+	pass # Replace with function body.

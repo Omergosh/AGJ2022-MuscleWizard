@@ -48,8 +48,8 @@ func optionPicked(choiceMade):
 
 
 func _on_Dummy_smashed():
-	pass # Replace with function body.
+	dialogueKeyToPlay = "DummyBrawn"
 
 
 func _on_Dummy_zapped():
-	pass # Replace with function body.
+	dialogueKeyToPlay = "DummyMagic"

@@ -19,7 +19,6 @@ func take_damage(damageTaken, damageType):
 		cause_of_death[damageType] += damageTaken
 	if damageType == 'Physical':
 		emit_signal("smashed")
-		print('s')
 	elif damageType == 'Magic':
 		emit_signal('zapped')
-		print('z')
+	queue_free()
