@@ -195,9 +195,9 @@ Art, Programming, Design, Narrative? - Omer Ahmed
 Additional Support - Boris Fleysher
 [/center][/wave]"
 text = "
-Assistant Programmer, Design, Narrative, Art - Isaac Cantine
-Lead Programmer, Design, Narrative - Omer Ahmed
-Additional Support, Menus - Boris Fleysher
+Programmer, Design, Narrative - Isaac Cantine
+Art, Programming, Design, Narrative? - Omer Ahmed
+Additional Support - Boris Fleysher
 "
 
 [node name="Back" type="Button" parent="CreditsContainer/VBoxContainer"]
@@ -215,6 +215,7 @@ anims/default = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -129, 181 )
 frames = SubResource( 3 )
+frame = 1
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]

@@ -1,6 +1,6 @@
 extends Node
 
-
+var alive = true
 var playerChoices = []
 
 # Called when the node enters the scene tree for the first time.

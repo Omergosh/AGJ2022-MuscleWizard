@@ -245,7 +245,7 @@ tracks/5/keys = {
 extents = Vector2( 13, 13 )
 
 [sub_resource type="CircleShape2D" id=2]
-radius = 248.073
+radius = 382.692
 
 [node name="Shambler" type="KinematicBody2D"]
 script = ExtResource( 2 )

@@ -5,7 +5,7 @@ var health = 20
 export var isBusyReadingDialogue = false
 export var jacked = false
 var hurt = false
-
+var alive = true
 # Movement variables
 export var moveSpeed = 400
 var velocity = Vector2.ZERO
@@ -30,8 +30,9 @@ func take_damage(instigatorHitBox):
 		$HurtTimer.start()
 		hurt = true
 	if health <= 0:
+		GameManager.alive = false
+		SceneTransition.transitionTo("res://UI/EndingWIP.tscn")
 		queue_free()
-
 ### BASIC MAGIC ATTACK ###
 var ArcaneProjectile = preload("res://Spells/ArcaneBlast.tscn")
 

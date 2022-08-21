@@ -339,6 +339,7 @@ process_material = SubResource( 19 )
 visible = false
 position = Vector2( 1918, 7044 )
 monitoring = false
+LevelToGoTo = "res://UI/EndingWIP.tscn"
 
 [node name="BossTrigger" type="Area2D" parent="."]
 position = Vector2( 1910, 5197 )

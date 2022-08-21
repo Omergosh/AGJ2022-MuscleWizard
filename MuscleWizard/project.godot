@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="MuscleWizard"
+config/name="Arcanum"
 config/description="Break the rules, be a wizard of Strength!"
 run/main_scene="res://UI/MainMenu.tscn"
 config/icon="res://Sprites/Placeholder/brownwizardarm1.png"
