@@ -146,7 +146,7 @@ anims/default = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -129, 181 )
 frames = SubResource( 3 )
-frame = 1
+frame = 2
 playing = true
 
 [connection signal="pressed" from="MainButtons/VBoxContainer/Play" to="." method="_on_Play_pressed"]
