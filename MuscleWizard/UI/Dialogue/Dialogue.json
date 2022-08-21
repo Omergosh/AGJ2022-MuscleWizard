@@ -59,14 +59,14 @@
 		{
 			"name": "Mentor",
 			"portrait": "res://Sprites/_art_/MentorExpressions/Confused.png",
-			"text": "Uhm. That… wasn’t an arcane blast. Well I’m sure you understand the concept, let’s move on. There are some problems that cannot be solved with brute force. It requires a honed mind! Take for example this Runic Seal. It is impervious to magical attacks! Yet there is always a magical solution!",
+			"text": "Uhm. That… wasn’t an arcane blast. Well I’m sure you understand the concept, let’s move on. There are some problems that cannot be solved with brute force. Try this runic seal puzzle.",
 		},
 	],
 	"DummyMagic":[
 		{
 			"name": "Mentor",
 			"portrait": "res://Sprites/_art_/MentorExpressions/Smile.png",
-			"text": "Well done! But remember, whatever beasts the Immortal Malevolents of the Old Kingdom send at you won’t be stationary! Let’s move on. There are some problems that cannot be solved with brute force. It requires a honed mind! Take for example this Runic Seal. It is impervious to magical attacks! Yet there is always a magical solution!",
+			"text": "Well done! But remember, whatever beasts the Immortal Malevolents of the Old Kingdom send at you won’t be stationary! Let’s move on. There are some problems that cannot be solved with brute force. It requires a honed mind! Take for example this Runic Seal puzzle",
 		}
 	],
 	"DoorBrawn":[

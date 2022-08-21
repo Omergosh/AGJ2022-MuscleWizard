@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ShadeAttack2.mp3-5fbef8129fba8896fc3f0f5f91934c1c.mp
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
