@@ -11,7 +11,7 @@
 			"text": "Can you try again?",
 		},
 		{
-			"name": "Aggrivated Mentor",
+			"name": "Mentor",
 			"portrait": "res://Sprites/_art_/MentorExpressions/AngryTalk.png",
 			"text": "You must keep up or you will fail!",
 		},

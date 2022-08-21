@@ -63,7 +63,7 @@ tracks/1/keys = {
 "values": [ false, true ]
 }
 
-[node name="Staff" type="Node2D"]
+[node name="Staff" type="Node2D" groups=["Physical"]]
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

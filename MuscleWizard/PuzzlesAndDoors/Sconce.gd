@@ -23,9 +23,10 @@ func _process(delta):
 	if lit == true:
 		$Hurtbox/Lit.visible = true
 
-func take_damage(damageTaken):
-	print("Damage: ", damageTaken)
-	health -= damageTaken
+func take_damage(damageTaken, damageType):
+	#print("Damage: ", damageTaken)
+	if damageType == 'Magic':
+		health -= damageTaken
 	if health <= 0:
 		if lit == false:
 			$On.play()

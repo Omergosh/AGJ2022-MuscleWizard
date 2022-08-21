@@ -7,7 +7,7 @@
 [sub_resource type="CircleShape2D" id=1]
 radius = 20.0
 
-[node name="Node2D" type="Node2D"]
+[node name="Node2D" type="Node2D" groups=["Magic"]]
 script = ExtResource( 3 )
 
 [node name="ArcaneBubble" parent="." instance=ExtResource( 1 )]

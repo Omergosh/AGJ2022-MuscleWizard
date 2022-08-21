@@ -26,7 +26,7 @@ func _process(_delta):
 	else:
 		pass
 
-func take_damage(damageTaken):
+func take_damage(damageTaken, damageType):
 	print("Damage: ", damageTaken)
 	health -= damageTaken
 	if health <= 0:
