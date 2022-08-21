@@ -1,0 +1,31 @@
+{
+	"testDialogue":[
+		{
+			"name": "Isaac",
+			"portrait": "res://icon.png",
+			"text": "You're not going to stop training.",
+		},
+		{
+			"name": "Muscle",
+			"portrait": "res://icon.png",
+			"text": "Can you try again?",
+		},
+		{
+			"name": "Isaac",
+			"portrait": "res://icon.png",
+			"text": "Right, lets do this",
+		}
+	],
+	"intro":[
+		{
+			"name": "Isaac",
+			"portrait": "res://icon.png",
+			"text": "Game on!",
+		},
+		{
+			"name": "Muscle",
+			"portrait": "res://icon.png",
+			"text": "I am defeated!",
+		},
+	],
+}
