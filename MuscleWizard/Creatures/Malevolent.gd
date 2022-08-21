@@ -3,12 +3,13 @@ extends KinematicBody2D
 
 # Declare member variables here. Examples:
 var health = 50
-var aggro = true
+var aggro = false
 var cast = true
 onready var shadow = preload("res://Creatures/SquiggleAttack.tscn")
 onready var spawnpoint = get_node("ShadowSpawn")
 onready var saydie = get_node("Attack1")
 onready var sayperish = get_node("Attack2")
+onready var player = get_node("../Player")
 var rng = RandomNumberGenerator.new()
 var toss = 0
 # Called when the node enters the scene tree for the first time.
@@ -17,10 +18,14 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	if not is_instance_valid(player):
+		aggro = false
 	if aggro == true:
 		_attacking()
 
-func take_damage(damageTaken, damageType):
+func take_damage(instigatorHitBox):
+	var damageType = instigatorHitBox.owner.get_groups()[0]
+	var damageTaken = instigatorHitBox.damage
 	print("Boss Damage: ", damageTaken)
 	health -= damageTaken
 	if health <= 0:
@@ -60,3 +65,12 @@ func _on_AnimTimer_timeout():
 	spawnpoint.add_child(p)
 	p.rotation = p.direction
 	$Body.play("BodyIdle")
+
+
+func _on_Spook2_body_entered(body):
+	pass
+
+
+func _on_BossTrigger_body_entered(body):
+	aggro = true
+	print('angy')

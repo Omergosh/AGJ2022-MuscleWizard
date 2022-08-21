@@ -19,9 +19,24 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	#direction = (player.position - position).normalized()
-	global_position = global_position.linear_interpolate(player.global_position, delta * moveSpeed)
+	if is_instance_valid(player):
+		global_position = global_position.linear_interpolate(player.global_position, delta * moveSpeed)
 	#velocity = direction
 
 func _on_Timer_timeout():
+	queue_free()
+
+
+
+
+
+func _on_PlayerHurter_body_entered(body):
+	if body.is_in_group('Player'):
+		$Timer2.start()
+		pass
+	else:
+		pass
+
+
+func _on_Timer2_timeout():
 	queue_free()

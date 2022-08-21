@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Doodads/Rock.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://Sprites/Doodads/Grass0.png" type="Texture" id=15]
 [ext_resource path="res://Sprites/_art_/Environment/DarkGreyBrickWall.png" type="Texture" id=16]
 [ext_resource path="res://Creatures/Shambler.tscn" type="PackedScene" id=17]
+[ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=18]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Grass.png 0"
@@ -321,3 +322,6 @@ position = Vector2( 3154, 3300 )
 
 [node name="Shambler2" parent="." instance=ExtResource( 17 )]
 position = Vector2( 7776, 3174 )
+
+[node name="Portal" parent="." instance=ExtResource( 18 )]
+position = Vector2( 8833, 3207 )

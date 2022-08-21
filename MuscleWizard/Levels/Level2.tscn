@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=2]
@@ -16,6 +16,7 @@
 [ext_resource path="res://Levels/Level2.gd" type="Script" id=14]
 [ext_resource path="res://SoundEffects/BossVoiceLines/ShadeVoice.mp3" type="AudioStream" id=15]
 [ext_resource path="res://SoundEffects/BossVoiceLines/ShadeHaveYouDied.mp3" type="AudioStream" id=16]
+[ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=17]
 
 [sub_resource type="NavigationPolygon" id=9]
 vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -251,6 +252,9 @@ scale = 15.0
 scale_curve = SubResource( 18 )
 color = Color( 0.447059, 0, 0, 1 )
 
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 721.5, 159.5 )
+
 [node name="Crypt" type="Node2D"]
 script = ExtResource( 14 )
 __meta__ = {
@@ -295,14 +299,12 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Voice1" type="AudioStreamPlayer2D" parent="."]
-position = Vector2( 532, 160 )
+[node name="Voice1" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 15 )
 volume_db = 1.765
-max_distance = 5222.0
 
 [node name="Spook2" type="Area2D" parent="."]
-position = Vector2( 1920, 4732 )
+position = Vector2( 3438, 2422 )
 __meta__ = {
 "_edit_group_": true
 }
@@ -322,5 +324,20 @@ position = Vector2( 1919, 6011 )
 lifetime = 3.0
 process_material = SubResource( 19 )
 
+[node name="Portal" parent="." instance=ExtResource( 17 )]
+position = Vector2( 1921, 7948 )
+
+[node name="BossTrigger" type="Area2D" parent="."]
+position = Vector2( 1927, 5300 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossTrigger"]
+position = Vector2( 3.5, 3.5 )
+shape = SubResource( 20 )
+
 [connection signal="body_entered" from="Spook1" to="." method="_on_Spook1_body_entered"]
 [connection signal="body_entered" from="Spook2" to="." method="_on_Spook2_body_entered"]
+[connection signal="body_entered" from="Spook2" to="Malevolent" method="_on_Spook2_body_entered"]
+[connection signal="body_entered" from="BossTrigger" to="Malevolent" method="_on_BossTrigger_body_entered"]
