@@ -18,6 +18,7 @@ var staffOffset
 func _ready():
 	staffOffset = $Sprite/Staff.position
 	var _error = connect("shoot", self, "_on_Player_shoot")
+	loadPlayerChoices()
 
 func take_damage(damageTaken, damageType):
 	print("Player Damage: ", damageTaken)
@@ -98,6 +99,9 @@ func loadPlayerChoices():
 	for choice in GameManager.playerChoices:
 		match choice:
 			"WentToGym":
+				$Sprite.play("IdleBuff")
+				health += 10
+				
 				print("This wizard went to the gym! Apply the gym buff!")
 			"StudiedBooks":
 				print("This wizard read his books! Apply the book buff!")
