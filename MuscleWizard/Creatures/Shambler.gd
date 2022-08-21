@@ -24,6 +24,10 @@ func _process(_delta):
 		direction = (player.position - position).normalized()
 		var _moveData = move_and_slide(direction * moveSpeed)
 		$AnimationPlayer.play("Attack")
+		if player.position.x < position.x:
+			$Sprite.scale.x = -1
+		elif player.position.x > position.x:
+			$Sprite.scale.x = 1
 	else:
 		$AnimationPlayer.play("Idle")
 		pass
