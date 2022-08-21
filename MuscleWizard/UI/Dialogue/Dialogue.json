@@ -82,5 +82,23 @@
 			"portrait": "res://Sprites/_art_/MentorExpressions/Smile.png",
 			"text": "Fantastic! You are truly my top student. Let’s move on.",
 		}
-	]
+	],
+	"DoorMagic":[
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Neutral.png",
+			"text": "Well. Finally and most importantly a wizard must have the wisdom to choose the right course of action. As my final advice to you I suggest you head to the library to study before you set off on your quest. Best of luck my young apprentice.",
+		},
+	
+		{
+			"choicesEffects": [
+				"StudiedBooks",
+				"WentToGym"
+			],
+			"choicesText": [
+				"Read",
+				"Work Out"
+			]
+		}
+	],
 }

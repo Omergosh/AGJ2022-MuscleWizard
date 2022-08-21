@@ -3,6 +3,7 @@ extends KinematicBody2D
 # Health and wellness
 var health = 20
 export var isBusyReadingDialogue = false
+export var jacked = false
 
 # Movement variables
 export var moveSpeed = 400

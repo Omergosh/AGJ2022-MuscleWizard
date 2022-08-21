@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/GreyBrickWall.png" type="Texture" id=2]
@@ -110,6 +110,9 @@ points = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
 } ]
 1/z_index = 0
 
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 113, 137 )
+
 [node name="Level" type="Node2D"]
 __meta__ = {
 "_edit_lock_": true
@@ -151,7 +154,7 @@ position = Vector2( 2181, 316 )
 scale = Vector2( 0.75, 0.75 )
 
 [node name="Door" parent="Sconce" instance=ExtResource( 9 )]
-position = Vector2( 665.333, -250.667 )
+position = Vector2( 666.666, -250.667 )
 rotation = 1.5708
 scale = Vector2( 1.7, 1.7 )
 
@@ -185,7 +188,20 @@ position = Vector2( 637, 105 )
 scale = Vector2( 0.5, 0.5 )
 
 [node name="RuneCounter" type="Node2D" parent="."]
-position = Vector2( 1357, -54 )
+position = Vector2( 2678, 135 )
+
+[node name="FinalDialogue" type="Area2D" parent="."]
+position = Vector2( 3934, 135 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="FinalDialogue"]
+position = Vector2( 1, -1 )
+shape = SubResource( 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [connection signal="keys" from="Sconce" to="Sconce/Door" method="_on_Sconce_keys"]
 [connection signal="lock" from="Sconce" to="Sconce/Door" method="_on_Sconce_lock"]
@@ -200,3 +216,4 @@ position = Vector2( 1357, -54 )
 [connection signal="smashed" from="Dummy" to="InteractableBase" method="_on_Dummy_smashed"]
 [connection signal="zapped" from="Dummy" to="DialogueDoor" method="_on_Dummy_zapped"]
 [connection signal="zapped" from="Dummy" to="InteractableBase" method="_on_Dummy_zapped"]
+[connection signal="body_entered" from="FinalDialogue" to="InteractableBase" method="_on_FinalDialogue_body_entered"]

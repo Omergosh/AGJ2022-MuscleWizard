@@ -61,11 +61,22 @@ func _on_Dummy_zapped():
 
 
 func _on_Door_bashed():
-	position.x = 665
+	position.x = 2678
 	dialogueKeyToPlay = "DoorBrawn"
 	print('dialogueKeyToPlay')
 
 func _on_Door_unlocked():
-	position.x = 665
+	position.x = 2678
 	dialogueKeyToPlay = "DoorMagic"
 	print('dialogueKeyToPlay')
+
+
+
+func _on_FinalDialogue_body_entered(body):
+	if body.is_in_group('Player'):
+		position.x = 3934
+		dialogueKeyToPlay = "DoorMagic"
+		#print('dialogueKeyToPlay')
+		DialogueChoice.connect("optionMade", self, 'quest_started')
+func quest_started(yee):
+	SceneTransition.transitionTo("res://Levels/Level1Actual.tscn")
