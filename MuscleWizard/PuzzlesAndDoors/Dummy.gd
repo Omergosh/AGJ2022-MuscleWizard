@@ -15,7 +15,9 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func take_damage(damageTaken, damageType):
+func take_damage(instigatorHitBox):
+	var damageType = instigatorHitBox.owner.get_groups()[0]
+	var damageTaken = instigatorHitBox.damage
 	if damageType in cause_of_death:
 		cause_of_death[damageType] += damageTaken
 	if damageType == 'Physical':

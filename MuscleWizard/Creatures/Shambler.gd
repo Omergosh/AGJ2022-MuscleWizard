@@ -1,9 +1,5 @@
 extends KinematicBody2D
 
-
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
 export var moveSpeed = 200
 var health = 10
 var damage = 5
@@ -13,6 +9,8 @@ var aggro = false
 var direction = 0
 onready var player = get_node("../Player")
 var velocity = Vector2()
+export(PackedScene) var bloodParticles
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -32,9 +30,19 @@ func _process(_delta):
 		$AnimationPlayer.play("Idle")
 		pass
 
-func take_damage(damageTaken, _damageType):
+func take_damage(instigatorHitBox):
+	var _damageType = instigatorHitBox.owner.get_groups()[0]
+	var damageTaken = instigatorHitBox.damage
 	print("Damage: ", damageTaken)
 	health -= damageTaken
+	
+	var p = bloodParticles.instance()
+	var delta = instigatorHitBox.global_position - global_position
+	get_parent().add_child(p)
+	p.global_position = global_position
+	p.look_at(global_position - delta)
+	p.emitting = true
+	
 	if health <= 0:
 		start_dying()
 

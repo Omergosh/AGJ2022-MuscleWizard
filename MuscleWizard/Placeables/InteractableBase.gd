@@ -9,8 +9,8 @@ signal talking
 signal stopped_talking
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	var err = $"/root/DialogueBox".connect("finished", self, "afterDialogueEffect")
-	err = DialogueChoice.connect("optionMade", self, "optionPicked")
+	var _err = $"/root/DialogueBox".connect("finished", self, "afterDialogueEffect")
+	_err = DialogueChoice.connect("optionMade", self, "optionPicked")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -75,7 +75,7 @@ func _on_FinalDialogue_body_entered(body):
 		position.x = 3934
 		dialogueKeyToPlay = "DoorMagic"
 		#print('dialogueKeyToPlay')
-		DialogueChoice.connect("optionMade", self, 'choice_made')
+		var _err = DialogueChoice.connect("optionMade", self, 'choice_made')
 
-func choice_made(choice):
+func choice_made(_choice):
 	SceneTransition.transitionTo("res://Levels/Level1Actual.tscn")

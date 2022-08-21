@@ -15,9 +15,8 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	health = lerp(health, 2, 0.01)
-	#print(health)
 	if health > 1:
 		lit = false
 	if lit == false:
@@ -32,7 +31,9 @@ func _process(delta):
 			emit_signal("keys")
 			doorsent = true
 
-func take_damage(damageTaken, damageType):
+func take_damage(instigatorHitBox):
+	var damageType = instigatorHitBox.owner.get_groups()[0]
+	var damageTaken = instigatorHitBox.damage
 	if damageType == 'Magic':
 		health -= damageTaken
 	if health <= 0:

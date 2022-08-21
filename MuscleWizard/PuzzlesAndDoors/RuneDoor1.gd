@@ -17,7 +17,10 @@ func _process(delta):
 		emit_signal("unlocked")
 		_opening()
 
-func take_damage(damageTaken, damageType):
+func take_damage(instigatorHitBox):
+	var damageType = instigatorHitBox.owner.get_groups()[0]
+	var damageTaken = instigatorHitBox.damage
+	
 	if damageType == 'Physical':
 		health -= damageTaken
 	if health <= 0:
