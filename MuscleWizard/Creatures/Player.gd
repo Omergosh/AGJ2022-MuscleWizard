@@ -13,13 +13,36 @@ var staffOffset
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	staffOffset = $Sprite/Staff.position
+	connect("shoot", self, "_on_Player_shoot")
 	pass # Replace with function body.
 
+### BASIC MAGIC ATTACK ###
+var ArcaneProjectile = preload("res://Spells/ArcaneBlast.tscn")
+
+signal shoot(bullet, direction, location)
+
+func _input(event):
+	if event is InputEventMouseButton:
+		if event.button_index == BUTTON_LEFT and event.pressed:
+			emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
+
+func _on_Player_shoot(bullet, direction, location):
+	var p = ArcaneProjectile.instance()
+	owner.add_child(p)
+	p.rotation = direction
+	p.position = location
+	p.velocity = p.velocity.rotated(direction)
+	print("shooting")
+
+### STAFF ATTACK + MOVEMENT ###
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	move_player()
 	handle_staff()
+	$AimIndicator.look_at(get_global_mouse_position())
+
+func _physics_process(delta):
+	move_player()
 
 func handle_staff():
 	match currentStaffState:
