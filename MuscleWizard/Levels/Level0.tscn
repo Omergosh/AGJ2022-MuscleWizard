@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=17 format=2]
 
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/GreyBrickWall.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://PuzzlesAndDoors/Dummy.tscn" type="PackedScene" id=8]
 [ext_resource path="res://PuzzlesAndDoors/RuneDoor1.tscn" type="PackedScene" id=9]
 [ext_resource path="res://PuzzlesAndDoors/DialogueDoor.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=11]
 
 [sub_resource type="TileSet" id=1]
 0/name = "DarkGreyBlueBlock.png 0"
@@ -151,11 +152,21 @@ position = Vector2( 509, -190 )
 rotation = 1.5708
 scale = Vector2( 1.3, 1.3 )
 
-[node name="Dummy" parent="." instance=ExtResource( 8 )]
-position = Vector2( 637, 105 )
-scale = Vector2( 0.5, 0.5 )
-
 [node name="DialogueDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1151, 128 )
 rotation = 1.5708
 scale = Vector2( 1.3, 1.3 )
+
+[node name="InteractableBase" parent="." instance=ExtResource( 11 )]
+position = Vector2( -129, 113 )
+dialogueKeyToPlay = "Dummy"
+InteractTrigger = "OnOverlap"
+
+[node name="Dummy" parent="InteractableBase" instance=ExtResource( 8 )]
+position = Vector2( 766, -8 )
+scale = Vector2( 0.5, 0.5 )
+
+[connection signal="stopped_talking" from="InteractableBase" to="Player" method="_on_InteractableBase_stopped_talking"]
+[connection signal="talking" from="InteractableBase" to="Player" method="_on_InteractableBase_talking"]
+[connection signal="smashed" from="InteractableBase/Dummy" to="InteractableBase" method="_on_Dummy_smashed"]
+[connection signal="zapped" from="InteractableBase/Dummy" to="InteractableBase" method="_on_Dummy_zapped"]

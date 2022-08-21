@@ -89,3 +89,11 @@ func loadPlayerChoices():
 				print("This wizard went to the gym! Apply the gym buff!")
 			"StudiedBooks":
 				print("This wizard read his books! Apply the book buff!")
+
+
+func _on_InteractableBase_talking():
+	pass # toggle spellcasting off
+
+
+func _on_InteractableBase_stopped_talking():
+	pass # toggle spellcasting on

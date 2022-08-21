@@ -5,7 +5,8 @@ var inRange = false
 var alreadyInteracting = false
 var playerRef = null
 export(String, "OnOverlap", "OnInteract") var InteractTrigger
-
+signal talking
+signal stopped_talking
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$"/root/DialogueBox".connect("finished", self, "afterDialogueEffect")
@@ -21,6 +22,7 @@ func _input(event):
 	if event.is_action_pressed("interact") and inRange and not alreadyInteracting:
 		if InteractTrigger == "OnInteract":
 			alreadyInteracting = true
+			emit_signal('talking')
 			$"/root/DialogueBox".playDialogue(dialogueKeyToPlay)
 
 func _on_Area2D_body_entered(body):
@@ -38,7 +40,16 @@ func _on_Area2D_body_exited(body):
 
 func afterDialogueEffect():
 	alreadyInteracting = false
+	emit_signal("stopped_talking")
 
 func optionPicked(choiceMade):
 	GameManager.playerChoices.append(choiceMade)
 	playerRef.loadPlayerChoices()
+
+
+func _on_Dummy_smashed():
+	pass # Replace with function body.
+
+
+func _on_Dummy_zapped():
+	pass # Replace with function body.

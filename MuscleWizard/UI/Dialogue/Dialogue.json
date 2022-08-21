@@ -38,4 +38,35 @@
 			"text": "I am defeated!",
 		},
 	],
+	"Dummy":[
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Neutral.png",
+			"text": "The time will soon be upon you, my young apprentice for you to go on your The Quest of Initiation, a test of your magical mettle against truly fearsome foes. I will not be able to accompany you on this journey, although I will keep in contact with my scrying to keep an eye on you. ",
+		},
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Neutral.png",
+			"text": "I have prepared a simple refresher course to reacquaint you with the mystic arts.",
+		},
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Neutral.png",
+			"text": "Let’s start simple with the basics of conjuring arcane energies. Simply click to charge an arcane blast and fire it at the target dummy!",
+		}
+	],
+	"DummyBrawn":[
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Confused.png",
+			"text": "Uhm. That… wasn’t an arcane blast. Well I’m sure you understand the concept, let’s move on.",
+		},
+	],
+	"DummyMagic":[
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Smile.png",
+			"text": "Well done! But remember, whatever beasts the Immortal Malevolents of the Old Kingdom send at you won’t be stationary! Let’s move on.",
+		}
+	]
 }

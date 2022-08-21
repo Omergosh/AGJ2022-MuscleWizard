@@ -1,9 +1,10 @@
+# Declare member variables here. Examples:
 extends Node2D
 
-
-# Declare member variables here. Examples:
 var health = 5
-signal smashed
+signal smashed 
+signal zapped
+var cause_of_death = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	pass # Replace with function body.
@@ -14,8 +15,11 @@ func _ready():
 #	pass
 
 func take_damage(damageTaken, damageType):
+	if damageType in cause_of_death:
+		cause_of_death[damageType] += damageTaken
 	if damageType == 'Physical':
-		health -= damageTaken
-	if health <= 0:
-		emit_signal('smashed')
-		#put in sound + death 
+		emit_signal("smashed")
+		print('s')
+	elif damageType == 'Magic':
+		emit_signal('zapped')
+		print('z')
