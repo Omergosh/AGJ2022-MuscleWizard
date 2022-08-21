@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ShadeVoice.mp3-5d8e4e7e1063cb3d531d451666fafd48.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

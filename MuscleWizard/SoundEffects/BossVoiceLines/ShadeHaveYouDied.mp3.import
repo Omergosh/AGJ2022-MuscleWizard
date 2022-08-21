@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ShadeHaveYouDied.mp3-5d93d0ed226a5c8fafdf3ad1403324d
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
