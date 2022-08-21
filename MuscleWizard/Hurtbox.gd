@@ -6,7 +6,7 @@ func _init() -> void:
 	collision_mask = 2
 
 func _ready() -> void:
-	connect("area_entered", self, "_on_area_entered")
+	var _error = connect("area_entered", self, "_on_area_entered")
 
 func _on_area_entered(hitbox: Hitbox) -> void:
 	if hitbox == null:

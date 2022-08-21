@@ -13,8 +13,8 @@ var staffOffset
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	staffOffset = $Sprite/Staff.position
-	connect("shoot", self, "_on_Player_shoot")
-	pass # Replace with function body.
+	var _error = connect("shoot", self, "_on_Player_shoot")
+	
 
 ### BASIC MAGIC ATTACK ###
 var ArcaneProjectile = preload("res://Spells/ArcaneBlast.tscn")
@@ -26,7 +26,7 @@ func _input(event):
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
 
-func _on_Player_shoot(bullet, direction, location):
+func _on_Player_shoot(_bullet, direction, location):
 	var p = ArcaneProjectile.instance()
 	owner.add_child(p)
 	p.rotation = direction
@@ -37,11 +37,11 @@ func _on_Player_shoot(bullet, direction, location):
 ### STAFF ATTACK + MOVEMENT ###
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
+func _process(_delta):
 	handle_staff()
 	$AimIndicator.look_at(get_global_mouse_position())
 
-func _physics_process(delta):
+func _physics_process(_delta):
 	move_player()
 
 func handle_staff():
@@ -73,7 +73,7 @@ func move_player():
 	if Input.is_action_pressed("move_down"):
 		newVelocity.y += moveSpeed
 	velocity = newVelocity
-	move_and_slide(velocity)
+	var _moveData = move_and_slide(velocity)
 
 func set_player_facing_direction(facingLeft: bool):
 	#$Sprite.flip_h = facingLeft
