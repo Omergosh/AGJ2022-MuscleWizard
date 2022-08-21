@@ -211,13 +211,13 @@ shape = SubResource( 1 )
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "BodyIdle"
-frame = 2
+frame = 1
 playing = true
 
 [node name="Head" type="AnimatedSprite" parent="Body"]
 frames = SubResource( 2 )
 animation = "EyeShine"
-frame = 7
+frame = 9
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -250,7 +250,10 @@ autostart = true
 one_shot = true
 
 [node name="ShadowSpawn" type="Node2D" parent="."]
-position = Vector2( -137, -127 )
+position = Vector2( -104, -117 )
+
+[node name="ShadowSpawn2" type="Node2D" parent="."]
+position = Vector2( 105, -106 )
 
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 [connection signal="timeout" from="AnimTimer" to="." method="_on_AnimTimer_timeout"]

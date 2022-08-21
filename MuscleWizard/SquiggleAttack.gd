@@ -4,16 +4,16 @@ onready var player = get_tree().get_nodes_in_group("Player")[0]
 var rng = RandomNumberGenerator.new()
 var type = 0
 var velocity = Vector2()
-export var moveSpeed = 1
+export var moveSpeed = 2
 var direction = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start()
 	type = rng.randf_range(-1,1)
 	if type >=0:
-		$ShadowBolt.play("Fly1")
+		$ShadowBolt.play("Impact1")
 	if type <0:
-		$ShadowBolt.play("Fly2")
+		$ShadowBolt.play("Impact2")
 	
 
 

@@ -7,6 +7,7 @@ var aggro = false
 var cast = true
 onready var shadow = preload("res://Creatures/SquiggleAttack.tscn")
 onready var spawnpoint = get_node("ShadowSpawn")
+onready var spawnpoint2 = get_node("ShadowSpawn2")
 onready var saydie = get_node("Attack1")
 onready var sayperish = get_node("Attack2")
 onready var player = get_node("../Player")
@@ -64,8 +65,11 @@ func _on_AttackTimer_timeout():
 
 func _on_AnimTimer_timeout():
 	var p = shadow.instance()
+	var d = shadow.instance()
 	spawnpoint.add_child(p)
+	spawnpoint2.add_child(d)
 	p.rotation = p.direction
+	d.rotation = d.direction
 	$Body.play("BodyIdle")
 
 
