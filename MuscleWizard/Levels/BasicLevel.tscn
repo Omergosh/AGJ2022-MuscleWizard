@@ -32,6 +32,7 @@ position = Vector2( -148, -336 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 701, 383 )
+LevelToGoTo = "res://Levels/Level0.tscn"
 
 [node name="InteractableBase" parent="." instance=ExtResource( 5 )]
 position = Vector2( 353, 544 )
