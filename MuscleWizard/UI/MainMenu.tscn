@@ -100,10 +100,10 @@ margin_bottom = 0.200012
 
 [node name="Title" type="Label" parent="MarginContainer"]
 margin_top = 268.0
-margin_right = 453.0
+margin_right = 497.0
 margin_bottom = 330.0
 custom_fonts/font = SubResource( 5 )
-text = "Muscle Wizard"
+text = "Arcanum: Rise from Ruin"
 align = 1
 
 [node name="MainButtons" type="MarginContainer" parent="."]
