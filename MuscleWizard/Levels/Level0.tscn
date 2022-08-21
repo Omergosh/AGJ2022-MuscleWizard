@@ -126,7 +126,7 @@ __meta__ = {
 [node name="Doodads" type="TileMap" parent="Floor"]
 tile_set = SubResource( 2 )
 format = 1
-tile_data = PoolIntArray( 8, 0, 0, 64, 0, 0, 262176, 0, 0 )
+tile_data = PoolIntArray( -262112, 0, 0, 8, 0, 0, 64, 0, 0, 262176, 0, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -148,11 +148,16 @@ current = true
 
 [node name="Sconce" parent="." instance=ExtResource( 7 )]
 position = Vector2( 2181, 316 )
+scale = Vector2( 0.75, 0.75 )
 
 [node name="Door" parent="Sconce" instance=ExtResource( 9 )]
-position = Vector2( 509, -190 )
+position = Vector2( 665.333, -250.667 )
 rotation = 1.5708
-scale = Vector2( 1.3, 1.3 )
+scale = Vector2( 1.7, 1.7 )
+
+[node name="Sconce2" parent="." instance=ExtResource( 7 )]
+position = Vector2( 2173, -173 )
+scale = Vector2( 0.75, 0.75 )
 
 [node name="DialogueDoor" parent="." instance=ExtResource( 10 )]
 position = Vector2( 1151, 128 )
@@ -169,6 +174,9 @@ wait_time = 0.5
 
 [node name="InteractableBase" parent="." instance=ExtResource( 11 )]
 position = Vector2( -129, 113 )
+__meta__ = {
+"_edit_lock_": true
+}
 dialogueKeyToPlay = "Dummy"
 InteractTrigger = "OnOverlap"
 
@@ -176,6 +184,13 @@ InteractTrigger = "OnOverlap"
 position = Vector2( 637, 105 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="RuneCounter" type="Node2D" parent="."]
+position = Vector2( 1357, -54 )
+
+[connection signal="keys" from="Sconce" to="Sconce/Door" method="_on_Sconce_keys"]
+[connection signal="lock" from="Sconce" to="Sconce/Door" method="_on_Sconce_lock"]
+[connection signal="keys" from="Sconce2" to="Sconce/Door" method="_on_Sconce2_keys"]
+[connection signal="lock" from="Sconce2" to="Sconce/Door" method="_on_Sconce2_lock"]
 [connection signal="timeout" from="DialogueDoor/OpenTimer" to="DialogueDoor" method="_on_OpenTimer_timeout"]
 [connection signal="stopped_talking" from="InteractableBase" to="Player" method="_on_InteractableBase_stopped_talking"]
 [connection signal="talking" from="InteractableBase" to="Player" method="_on_InteractableBase_talking"]

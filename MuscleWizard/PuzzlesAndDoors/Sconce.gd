@@ -5,7 +5,9 @@ extends Node2D
 # var a = 2
 var health = 1
 var lit = false
-
+var doorsent = false
+signal keys
+signal lock
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -19,9 +21,17 @@ func _process(delta):
 	if health > 1:
 		lit = false
 	if lit == false:
+		if doorsent == true:
+			emit_signal("lock")
+			print('lock')
+			doorsent = false
 		$Hurtbox/Lit.visible = false
 	if lit == true:
 		$Hurtbox/Lit.visible = true
+		if doorsent == false:
+			emit_signal("keys")
+			print('turn')
+			doorsent = true
 
 func take_damage(damageTaken, damageType):
 	#print("Damage: ", damageTaken)
