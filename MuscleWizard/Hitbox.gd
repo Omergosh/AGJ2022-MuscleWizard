@@ -2,6 +2,7 @@ class_name Hitbox
 extends Area2D
 
 export var damage := 5
+export var magic = true
 
 func _init() -> void:
 	collision_layer = 2

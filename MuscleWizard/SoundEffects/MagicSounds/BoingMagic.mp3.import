@@ -11,5 +11,5 @@ dest_files=[ "res://.import/BoingMagic.mp3-6a86f885c619e531b52d18e30d8cd10b.mp3s
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
