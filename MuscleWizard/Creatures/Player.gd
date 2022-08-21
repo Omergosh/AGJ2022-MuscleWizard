@@ -4,6 +4,7 @@ extends KinematicBody2D
 var health = 20
 export var isBusyReadingDialogue = false
 export var jacked = false
+var hurt = false
 
 # Movement variables
 export var moveSpeed = 400
@@ -24,6 +25,10 @@ func take_damage(instigatorHitBox):
 	var damageType = instigatorHitBox.owner.get_groups()[0]
 	var damageTaken = instigatorHitBox.damage
 	health -= damageTaken
+	if hurt == false:
+		$Ouch.play()
+		$HurtTimer.start()
+		hurt = true
 	if health <= 0:
 		queue_free()
 
@@ -122,3 +127,7 @@ func _on_InteractableBase_stopped_talking():
 
 func _on_Dummy_smashed():
 	pass # Replace with function body.
+
+
+func _on_HurtTimer_timeout():
+	hurt = false
