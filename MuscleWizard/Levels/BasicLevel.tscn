@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/basic_tileset.tres" type="TileSet" id=1]
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Creatures/Shambler.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=5]
 
 [node name="Node2D" type="Node2D"]
 __meta__ = {
@@ -27,3 +28,6 @@ position = Vector2( -148, -336 )
 
 [node name="Portal" parent="." instance=ExtResource( 4 )]
 position = Vector2( 701, 383 )
+
+[node name="InteractableBase" parent="." instance=ExtResource( 5 )]
+position = Vector2( 353, 544 )

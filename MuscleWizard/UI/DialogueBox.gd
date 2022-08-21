@@ -1,4 +1,4 @@
-extends Control
+extends CanvasLayer
 
 
 var Text
@@ -25,8 +25,6 @@ func _ready():
 	if err.result == null:
 		print(err)
 	txtDictionary = JSON.parse(txtDictionary).result
-	if debug:
-		showDialogue("testDialogue", 0)
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -42,6 +40,9 @@ func playDialogue(dialogueKey):
 # name - The name to display for who is speaking
 # portrait - The sprite to use for the portrait, as a str path
 func showDialogue(dialogueKey, index):
+	if !(dialogueKey in txtDictionary):
+		print("Invalid dialogue key given, returning early! Bad key: ", dialogueKey)
+		return
 	var dialogueData = txtDictionary[dialogueKey][index]
 	Text.text = dialogueData["text"]
 	Name.text = dialogueData["name"]

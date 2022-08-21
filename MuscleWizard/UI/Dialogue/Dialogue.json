@@ -1,19 +1,19 @@
 {
 	"testDialogue":[
 		{
-			"name": "Isaac",
-			"portrait": "res://icon.png",
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Neutral.png",
 			"text": "You're not going to stop training.",
 		},
 		{
-			"name": "Muscle",
-			"portrait": "res://icon.png",
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/NeutralTalk.png",
 			"text": "Can you try again?",
 		},
 		{
-			"name": "Isaac",
-			"portrait": "res://icon.png",
-			"text": "Right, lets do this",
+			"name": "Aggrivated Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/AngryTalk.png",
+			"text": "You must keep up or you will fail!",
 		}
 	],
 	"intro":[
