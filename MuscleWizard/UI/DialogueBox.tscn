@@ -13,7 +13,6 @@ margin_right = 40.0
 margin_bottom = 14.0
 
 [node name="Popup" type="PopupDialog" parent="."]
-visible = true
 margin_right = 438.0
 margin_bottom = 99.0
 
@@ -34,6 +33,7 @@ margin_bottom = 89.0
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 10.0
 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+align = 1
 autowrap = true
 
 [node name="MarginContainer" type="MarginContainer" parent="Popup/HBoxContainer"]
@@ -71,3 +71,5 @@ margin_left = 430.0
 margin_right = 435.0
 margin_bottom = 96.0
 rect_min_size = Vector2( 5, 0 )
+
+[connection signal="popup_hide" from="Popup" to="." method="_on_Popup_popup_hide"]

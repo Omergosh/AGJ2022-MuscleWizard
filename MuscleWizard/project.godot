@@ -34,6 +34,8 @@ config/icon="res://Sprites/Placeholder/brownwizardarm1.png"
 [autoload]
 
 SceneTransition="*res://UI/SceneTransition.tscn"
+DialogueBox="*res://UI/DialogueBox.tscn"
+DialogueChoice="*res://UI/DialogueChoice.tscn"
 
 [display]
 
