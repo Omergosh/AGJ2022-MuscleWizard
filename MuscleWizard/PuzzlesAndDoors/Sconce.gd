@@ -23,21 +23,20 @@ func _process(delta):
 	if lit == false:
 		if doorsent == true:
 			emit_signal("lock")
-			print('lock')
 			doorsent = false
+			$Hurtbox/Particles2D.emitting = false
 		$Hurtbox/Lit.visible = false
 	if lit == true:
 		$Hurtbox/Lit.visible = true
 		if doorsent == false:
 			emit_signal("keys")
-			print('turn')
 			doorsent = true
 
 func take_damage(damageTaken, damageType):
-	#print("Damage: ", damageTaken)
 	if damageType == 'Magic':
 		health -= damageTaken
 	if health <= 0:
 		if lit == false:
 			$On.play()
+			$Hurtbox/Particles2D.emitting = true
 		lit = true
