@@ -48,8 +48,11 @@ func optionPicked(choiceMade):
 
 
 func _on_Dummy_smashed():
+	position.x = 1151
 	dialogueKeyToPlay = "DummyBrawn"
-
+	print('dialogueKeyToPlay')
 
 func _on_Dummy_zapped():
+	position.x = 1151
 	dialogueKeyToPlay = "DummyMagic"
+	print('dialogueKeyToPlay')

@@ -172,18 +172,14 @@ position = Vector2( -129, 113 )
 dialogueKeyToPlay = "Dummy"
 InteractTrigger = "OnOverlap"
 
-[node name="Dummy" parent="InteractableBase" instance=ExtResource( 8 )]
-position = Vector2( 766, -8 )
+[node name="Dummy" parent="." instance=ExtResource( 8 )]
+position = Vector2( 637, 105 )
 scale = Vector2( 0.5, 0.5 )
-
-[node name="InteractableBase2" parent="." instance=ExtResource( 11 )]
-position = Vector2( 911, 122 )
-InteractTrigger = "OnOverlap"
 
 [connection signal="timeout" from="DialogueDoor/OpenTimer" to="DialogueDoor" method="_on_OpenTimer_timeout"]
 [connection signal="stopped_talking" from="InteractableBase" to="Player" method="_on_InteractableBase_stopped_talking"]
 [connection signal="talking" from="InteractableBase" to="Player" method="_on_InteractableBase_talking"]
-[connection signal="smashed" from="InteractableBase/Dummy" to="DialogueDoor" method="_on_Dummy_smashed"]
-[connection signal="smashed" from="InteractableBase/Dummy" to="InteractableBase" method="_on_Dummy_smashed"]
-[connection signal="zapped" from="InteractableBase/Dummy" to="DialogueDoor" method="_on_Dummy_zapped"]
-[connection signal="zapped" from="InteractableBase/Dummy" to="InteractableBase" method="_on_Dummy_zapped"]
+[connection signal="smashed" from="Dummy" to="DialogueDoor" method="_on_Dummy_smashed"]
+[connection signal="smashed" from="Dummy" to="InteractableBase" method="_on_Dummy_smashed"]
+[connection signal="zapped" from="Dummy" to="DialogueDoor" method="_on_Dummy_zapped"]
+[connection signal="zapped" from="Dummy" to="InteractableBase" method="_on_Dummy_zapped"]

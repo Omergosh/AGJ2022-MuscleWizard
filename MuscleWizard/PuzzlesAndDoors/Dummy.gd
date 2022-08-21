@@ -4,6 +4,7 @@ extends Node2D
 var health = 5
 signal smashed 
 signal zapped
+signal died
 var cause_of_death = {}
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -21,4 +22,5 @@ func take_damage(damageTaken, damageType):
 		emit_signal("smashed")
 	elif damageType == 'Magic':
 		emit_signal('zapped')
+	emit_signal('died')
 	queue_free()
