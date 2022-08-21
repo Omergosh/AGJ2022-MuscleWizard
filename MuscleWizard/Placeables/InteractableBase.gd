@@ -4,6 +4,7 @@ export(String) var dialogueKeyToPlay
 var inRange = false
 var alreadyInteracting = false
 var playerRef = null
+export(String, "OnOverlap", "OnInteract") var InteractTrigger
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,13 +19,16 @@ func _ready():
 func _input(event):
 	
 	if event.is_action_pressed("interact") and inRange and not alreadyInteracting:
-		alreadyInteracting = true
-		$"/root/DialogueBox".playDialogue(dialogueKeyToPlay)
+		if InteractTrigger == "OnInteract":
+			alreadyInteracting = true
+			$"/root/DialogueBox".playDialogue(dialogueKeyToPlay)
 
 func _on_Area2D_body_entered(body):
 	if body.is_in_group("Player"):
 		inRange = true
 		playerRef = body
+		if InteractTrigger == "OnOverlap":
+			$"/root/DialogueBox".playDialogue(dialogueKeyToPlay)
 
 
 func _on_Area2D_body_exited(body):

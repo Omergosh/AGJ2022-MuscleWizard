@@ -10,6 +10,7 @@ export(bool) var debug = false
 var lastUsedDialogueKey
 var lastUsedDialogueIndex
 
+
 signal finished
 
 # Called when the node enters the scene tree for the first time.

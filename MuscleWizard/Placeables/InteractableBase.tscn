@@ -9,6 +9,7 @@ extents = Vector2( 143, 176 )
 [node name="InteractableBase" type="Node2D"]
 script = ExtResource( 2 )
 dialogueKeyToPlay = "testDialogue"
+InteractTrigger = "OnOverlap"
 
 [node name="Area2D" type="Area2D" parent="."]
 
