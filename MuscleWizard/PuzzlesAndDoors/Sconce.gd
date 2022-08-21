@@ -15,7 +15,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	health = lerp(health, 2, 0.01)
-	print(health)
+	#print(health)
 	if health > 1:
 		lit = false
 	if lit == false:
