@@ -47,7 +47,6 @@ func optionPicked(choiceMade):
 	GameManager.playerChoices.append(choiceMade)
 	playerRef.loadPlayerChoices()
 
-
 func _on_Dummy_smashed():
 	position.x = 1151
 	dialogueKeyToPlay = "DummyBrawn"
@@ -56,4 +55,17 @@ func _on_Dummy_smashed():
 func _on_Dummy_zapped():
 	position.x = 1151
 	dialogueKeyToPlay = "DummyMagic"
+	print('dialogueKeyToPlay')
+
+
+
+
+func _on_Door_bashed():
+	position.x = 665
+	dialogueKeyToPlay = "DoorBrawn"
+	print('dialogueKeyToPlay')
+
+func _on_Door_unlocked():
+	position.x = 665
+	dialogueKeyToPlay = "DoorMagic"
 	print('dialogueKeyToPlay')

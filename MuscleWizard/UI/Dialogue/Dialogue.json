@@ -68,5 +68,19 @@
 			"portrait": "res://Sprites/_art_/MentorExpressions/Smile.png",
 			"text": "Well done! But remember, whatever beasts the Immortal Malevolents of the Old Kingdom send at you won’t be stationary! Let’s move on.",
 		}
+	],
+	"DoorBrawn":[
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Angry.png",
+			"text": "No no no! I just said there are problems you can’t solve with brute force!! Hmph, Nevermind. Just read the scrolls I owled you this week. This last part is the most important lesson anyways.",
+		}
+	],
+	"DoorMagic":[
+		{
+			"name": "Mentor",
+			"portrait": "res://Sprites/_art_/MentorExpressions/Smile.png",
+			"text": "Fantastic! You are truly my top student. Let’s move on.",
+		}
 	]
 }

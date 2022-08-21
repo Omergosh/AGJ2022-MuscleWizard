@@ -189,6 +189,8 @@ position = Vector2( 1357, -54 )
 
 [connection signal="keys" from="Sconce" to="Sconce/Door" method="_on_Sconce_keys"]
 [connection signal="lock" from="Sconce" to="Sconce/Door" method="_on_Sconce_lock"]
+[connection signal="bashed" from="Sconce/Door" to="InteractableBase" method="_on_Door_bashed"]
+[connection signal="unlocked" from="Sconce/Door" to="InteractableBase" method="_on_Door_unlocked"]
 [connection signal="keys" from="Sconce2" to="Sconce/Door" method="_on_Sconce2_keys"]
 [connection signal="lock" from="Sconce2" to="Sconce/Door" method="_on_Sconce2_lock"]
 [connection signal="timeout" from="DialogueDoor/OpenTimer" to="DialogueDoor" method="_on_OpenTimer_timeout"]
