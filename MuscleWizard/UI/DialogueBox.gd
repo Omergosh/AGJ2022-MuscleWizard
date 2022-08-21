@@ -6,11 +6,11 @@ var Name
 var Portrait
 var filePath = "res://UI/Dialogue/dialogue.json"
 var txtDictionary
-var dialogueIndex = 0
-var currentTextScene = []
 export(bool) var debug = false
 var lastUsedDialogueKey
 var lastUsedDialogueIndex
+
+signal finished
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,13 +44,16 @@ func showDialogue(dialogueKey, index):
 		print("Invalid dialogue key given, returning early! Bad key: ", dialogueKey)
 		return
 	var dialogueData = txtDictionary[dialogueKey][index]
-	Text.text = dialogueData["text"]
-	Name.text = dialogueData["name"]
-	Portrait.texture = load(dialogueData["portrait"])
+	if "choicesEffects" in dialogueData:
+		DialogueChoice.setup(dialogueData["choicesEffects"], dialogueData["choicesText"])
+	else:
+		Text.text = dialogueData["text"]
+		Name.text = dialogueData["name"]
+		Portrait.texture = load(dialogueData["portrait"])
+		$Popup.popup()
 	
 	lastUsedDialogueKey = dialogueKey
 	lastUsedDialogueIndex = index
-	$Popup.popup()
 
 
 func _on_Popup_popup_hide():
@@ -60,3 +63,5 @@ func tryNextDialogue():
 	var dialogueData = txtDictionary[lastUsedDialogueKey]
 	if len(dialogueData)-1 > lastUsedDialogueIndex:
 		showDialogue(lastUsedDialogueKey, lastUsedDialogueIndex+1)
+	else:
+		emit_signal("finished")

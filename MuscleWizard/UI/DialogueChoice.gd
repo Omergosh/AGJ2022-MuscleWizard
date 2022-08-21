@@ -1,12 +1,11 @@
 extends CanvasLayer
 
 
-signal optionA
-signal optionB
+signal optionMade
+var options = ["placeholderA", "placeholderB"]
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	#setup("Fight", "Die")
 	pass
 
 
@@ -14,15 +13,19 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func setup(firstText, secondText):
-	$PopupMenu/MarginContainer/HBoxContainer/OptionA.text = firstText
-	$PopupMenu/MarginContainer/HBoxContainer/OptionB.text = secondText
+# NewOptions is an array of length 2 of strings
+func setup(Effects, Text):
+	options = Effects
+	$PopupMenu/MarginContainer/HBoxContainer/OptionA.text = Text[0]
+	$PopupMenu/MarginContainer/HBoxContainer/OptionB.text = Text[1]
 	$PopupMenu.popup_centered()
 
 
 func _on_OptionA_pressed():
-	emit_signal("optionA")
+	emit_signal("optionMade", options[0])
+	$PopupMenu.hide()
 
 
 func _on_OptionB_pressed():
-	emit_signal("optionB")
+	emit_signal("optionMade", options[1])
+	$PopupMenu.hide()

@@ -32,7 +32,6 @@ func _on_Player_shoot(_bullet, direction, location):
 	p.rotation = direction
 	p.position = location
 	p.velocity = p.velocity.rotated(direction)
-	print("shooting")
 
 ### STAFF ATTACK + MOVEMENT ###
 
@@ -82,3 +81,11 @@ func set_player_facing_direction(facingLeft: bool):
 		#scale.x = -1 if facingLeft else 1
 		#var newStaffX = staffOffset.x + (staffOffset.x * -2 * int(facingLeft))
 		#$Sprite/Staff.position.x = newStaffX
+
+func loadPlayerChoices():
+	for choice in GameManager.playerChoices:
+		match choice:
+			"WentToGym":
+				print("This wizard went to the gym! Apply the gym buff!")
+			"StudiedBooks":
+				print("This wizard read his books! Apply the book buff!")
