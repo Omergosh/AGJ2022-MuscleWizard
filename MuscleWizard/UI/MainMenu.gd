@@ -15,7 +15,7 @@ func _ready():
 
 
 func _on_Play_pressed():
-	SceneTransition.transitionTo("res://Levels/BasicLevel.tscn")
+	SceneTransition.transitionTo('res://Levels/Level0.tscn')
 
 
 func _on_Credits_pressed():
