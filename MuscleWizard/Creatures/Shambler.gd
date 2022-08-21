@@ -32,7 +32,7 @@ func _process(_delta):
 		$AnimationPlayer.play("Idle")
 		pass
 
-func take_damage(damageTaken, damageType):
+func take_damage(damageTaken, _damageType):
 	print("Damage: ", damageTaken)
 	health -= damageTaken
 	if health <= 0:

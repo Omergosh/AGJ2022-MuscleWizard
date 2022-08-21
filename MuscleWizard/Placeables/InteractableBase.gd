@@ -9,8 +9,8 @@ signal talking
 signal stopped_talking
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	$"/root/DialogueBox".connect("finished", self, "afterDialogueEffect")
-	DialogueChoice.connect("optionMade", self, "optionPicked")
+	var err = $"/root/DialogueBox".connect("finished", self, "afterDialogueEffect")
+	err = DialogueChoice.connect("optionMade", self, "optionPicked")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -47,6 +47,7 @@ func optionPicked(choiceMade):
 	GameManager.playerChoices.append(choiceMade)
 	playerRef.loadPlayerChoices()
 
+
 func _on_Dummy_smashed():
 	position.x = 1151
 	dialogueKeyToPlay = "DummyBrawn"
@@ -56,8 +57,6 @@ func _on_Dummy_zapped():
 	position.x = 1151
 	dialogueKeyToPlay = "DummyMagic"
 	print('dialogueKeyToPlay')
-
-
 
 
 func _on_Door_bashed():
@@ -71,12 +70,12 @@ func _on_Door_unlocked():
 	print('dialogueKeyToPlay')
 
 
-
 func _on_FinalDialogue_body_entered(body):
 	if body.is_in_group('Player'):
 		position.x = 3934
 		dialogueKeyToPlay = "DoorMagic"
 		#print('dialogueKeyToPlay')
-		DialogueChoice.connect("optionMade", self, 'quest_started')
-func quest_started(yee):
+		DialogueChoice.connect("optionMade", self, 'choice_made')
+
+func choice_made(choice):
 	SceneTransition.transitionTo("res://Levels/Level1Actual.tscn")

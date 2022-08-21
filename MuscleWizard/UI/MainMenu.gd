@@ -32,7 +32,7 @@ func _on_Back_pressed():
 	$CreditsContainer.hide()
 
 
-func _on_AnimationPlayer_animation_finished(anim_name):
+func _on_AnimationPlayer_animation_finished(_anim_name):
 	if wasBuff:
 		$AnimatedSprite.play("default")
 	else:

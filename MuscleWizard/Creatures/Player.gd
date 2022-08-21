@@ -20,7 +20,7 @@ func _ready():
 	var _error = connect("shoot", self, "_on_Player_shoot")
 	loadPlayerChoices()
 
-func take_damage(damageTaken, damageType):
+func take_damage(damageTaken, _damageType):
 	print("Player Damage: ", damageTaken)
 	health -= damageTaken
 	if health <= 0:

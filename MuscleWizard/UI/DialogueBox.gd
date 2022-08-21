@@ -4,7 +4,7 @@ extends CanvasLayer
 var Text
 var Name
 var Portrait
-var filePath = "res://UI/Dialogue/dialogue.json"
+var filePath = "res://UI/Dialogue/Dialogue.json"
 var txtDictionary
 export(bool) var debug = false
 var lastUsedDialogueKey
