@@ -22,7 +22,7 @@ func _input(event):
 	if event.is_action_pressed("interact") and inRange and not alreadyInteracting:
 		if InteractTrigger == "OnInteract":
 			alreadyInteracting = true
-			emit_signal('talking')
+			emit_signal("talking")
 			$"/root/DialogueBox".playDialogue(dialogueKeyToPlay)
 
 func _on_Area2D_body_entered(body):
@@ -30,6 +30,7 @@ func _on_Area2D_body_entered(body):
 		inRange = true
 		playerRef = body
 		if InteractTrigger == "OnOverlap":
+			emit_signal("talking")
 			$"/root/DialogueBox".playDialogue(dialogueKeyToPlay)
 
 

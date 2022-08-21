@@ -2,6 +2,7 @@ extends KinematicBody2D
 
 # Health and wellness
 var health = 20
+export var isBusyReadingDialogue = false
 
 # Movement variables
 export var moveSpeed = 400
@@ -29,7 +30,7 @@ var ArcaneProjectile = preload("res://Spells/ArcaneBlast.tscn")
 signal shoot(bullet, direction, location)
 
 func _input(event):
-	if event is InputEventMouseButton:
+	if !isBusyReadingDialogue and event is InputEventMouseButton:
 		if event.button_index == BUTTON_LEFT and event.pressed:
 			emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
 
@@ -44,11 +45,14 @@ func _on_Player_shoot(_bullet, direction, location):
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	handle_staff()
-	$AimIndicator.look_at(get_global_mouse_position())
+	#print(isBusyReadingDialogue)
+	if isBusyReadingDialogue == false:
+		handle_staff()
+		$AimIndicator.look_at(get_global_mouse_position())
 
 func _physics_process(_delta):
-	move_player()
+	if !isBusyReadingDialogue:
+		move_player()
 
 func handle_staff():
 	match currentStaffState:
@@ -99,10 +103,14 @@ func loadPlayerChoices():
 
 
 func _on_InteractableBase_talking():
+	isBusyReadingDialogue = true
+	print("start talking", isBusyReadingDialogue)
 	pass # toggle spellcasting off
 
 
 func _on_InteractableBase_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking", isBusyReadingDialogue)
 	pass # toggle spellcasting on
 
 
