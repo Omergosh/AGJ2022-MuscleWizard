@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://Hurtbox.gd" type="Script" id=1]
 [ext_resource path="res://Creatures/Malevolent.gd" type="Script" id=2]
@@ -18,10 +18,17 @@
 [ext_resource path="res://SoundEffects/BossVoiceLines/ShadeAttack.mp3" type="AudioStream" id=16]
 [ext_resource path="res://SoundEffects/BossVoiceLines/ShadeAttack2.mp3" type="AudioStream" id=17]
 [ext_resource path="res://SoundEffects/BossVoiceLines/ShadeNoooo.mp3" type="AudioStream" id=18]
+[ext_resource path="res://Hitbox.gd" type="Script" id=19]
+[ext_resource path="res://SoundEffects/BossVoiceLines/ShadeYouCantKillMe.mp3" type="AudioStream" id=20]
+[ext_resource path="res://SpecialEffectAnimations/ShadeMelee.tscn" type="PackedScene" id=21]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 28.0
 height = 180.0
+
+[sub_resource type="CapsuleShape2D" id=8]
+radius = 160.5
+height = 40.0
 
 [sub_resource type="SpriteFrames" id=3]
 animations = [ {
@@ -208,6 +215,19 @@ script = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
 
+[node name="ShadeMelee" parent="." instance=ExtResource( 21 )]
+visible = false
+
+[node name="Hitbox" type="Area2D" parent="ShadeMelee"]
+script = ExtResource( 19 )
+damage = 3
+is_player_attack = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ShadeMelee/Hitbox"]
+position = Vector2( 2.5, 8.5 )
+shape = SubResource( 8 )
+disabled = true
+
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "BodyIdle"
@@ -217,7 +237,6 @@ playing = true
 [node name="Head" type="AnimatedSprite" parent="Body"]
 frames = SubResource( 2 )
 animation = "EyeShine"
-frame = 9
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -255,5 +274,17 @@ position = Vector2( -104, -117 )
 [node name="ShadowSpawn2" type="Node2D" parent="."]
 position = Vector2( 105, -106 )
 
+[node name="MeleeDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[node name="VineActive" type="Timer" parent="."]
+one_shot = true
+
+[node name="Phase2" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 20 )
+
 [connection signal="timeout" from="AttackTimer" to="." method="_on_AttackTimer_timeout"]
 [connection signal="timeout" from="AnimTimer" to="." method="_on_AnimTimer_timeout"]
+[connection signal="timeout" from="MeleeDelay" to="." method="_on_MeleeDelay_timeout"]
+[connection signal="timeout" from="VineActive" to="." method="_on_VineActive_timeout"]

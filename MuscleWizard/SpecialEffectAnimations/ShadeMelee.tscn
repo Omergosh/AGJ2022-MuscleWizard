@@ -1,0 +1,29 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/_art_/ShadeSprites/ShadeMelee3opacity10%greyx2flip.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/_art_/ShadeSprites/ShadeMelee2opacity10%greyx2.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/_art_/ShadeSprites/ShadeMelee3opacity10%greyx2.png" type="Texture" id=6]
+[ext_resource path="res://Sprites/_art_/ShadeSprites/ShadeMelee1opacity10%greyx2.png" type="Texture" id=7]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 7 ), ExtResource( 3 ), ExtResource( 6 ), ExtResource( 1 ) ],
+"loop": false,
+"name": "GreyVines",
+"speed": 10.0
+}, {
+"frames": [ ExtResource( 7 ) ],
+"loop": true,
+"name": "Vine",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 3 ), ExtResource( 7 ) ],
+"loop": false,
+"name": "VineRetract",
+"speed": 5.0
+} ]
+
+[node name="ShadeMelee" type="AnimatedSprite"]
+frames = SubResource( 1 )
+animation = "Vine"
+playing = true

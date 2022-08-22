@@ -9,12 +9,12 @@ var direction = 0
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Timer.start()
-	type = rng.randf_range(-1,1)
+	print(type)
 	if type >=0:
 		$ShadowBolt.play("Impact1")
 	if type <0:
 		$ShadowBolt.play("Impact2")
-	
+	#randomized animations don't work yet
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

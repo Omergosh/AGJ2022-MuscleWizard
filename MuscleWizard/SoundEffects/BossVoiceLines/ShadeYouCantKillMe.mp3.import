@@ -11,5 +11,5 @@ dest_files=[ "res://.import/ShadeYouCantKillMe.mp3-3a09f2802c653a32eb4a6ae87d9fe
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
