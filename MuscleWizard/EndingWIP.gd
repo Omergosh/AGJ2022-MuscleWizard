@@ -29,4 +29,6 @@ func _ready():
 
 
 func _on_Returntomenu_pressed():
+	GameManager.alive = true
+	GameManager.playerChoices = []
 	SceneTransition.transitionTo('res://UI/MainMenu.tscn')
