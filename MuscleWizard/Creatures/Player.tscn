@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm2.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.gd" type="Script" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Sprites/_art_/Effects/BlueLine/BB1.png" type="Texture" id=7]
 [ext_resource path="res://Hurtbox.gd" type="Script" id=8]
 [ext_resource path="res://SoundEffects/HumanSounds/HumanOof.mp3" type="AudioStream" id=9]
+[ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=10]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -124,5 +125,11 @@ stream = ExtResource( 9 )
 
 [node name="HurtTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+
+[node name="HUD" parent="Camera2D" instance=ExtResource( 10 )]
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]

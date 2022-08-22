@@ -23,10 +23,6 @@ __meta__ = {
 [node name="Player" parent="." instance=ExtResource( 2 )]
 position = Vector2( 386, 169 )
 
-[node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
-zoom = Vector2( 1.5, 1.5 )
-
 [node name="Shambler" parent="." instance=ExtResource( 3 )]
 position = Vector2( -148, -336 )
 

@@ -315,7 +315,6 @@ tile_data = PoolIntArray( -720900, 1, 0, -786432, 0, 0, -786428, 0, 0, -786424, 
 position = Vector2( -133, 130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
 zoom = Vector2( 2, 2 )
 
 [node name="Shambler" parent="." instance=ExtResource( 17 )]

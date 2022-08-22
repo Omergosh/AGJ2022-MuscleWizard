@@ -215,7 +215,7 @@ anims/default = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -129, 181 )
 frames = SubResource( 3 )
-frame = 1
+frame = 2
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]

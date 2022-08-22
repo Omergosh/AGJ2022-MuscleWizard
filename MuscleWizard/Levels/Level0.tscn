@@ -148,7 +148,6 @@ __meta__ = {
 position = Vector2( -133, 130 )
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-current = true
 zoom = Vector2( 2, 2 )
 
 [node name="Sconce" parent="." instance=ExtResource( 7 )]
@@ -207,6 +206,7 @@ __meta__ = {
 
 [node name="Portal" parent="." instance=ExtResource( 14 )]
 position = Vector2( 4225, 137 )
+monitoring = false
 LevelToGoTo = "res://Levels/Level1Actual.tscn"
 
 [connection signal="keys" from="Sconce" to="Sconce/Door" method="_on_Sconce_keys"]

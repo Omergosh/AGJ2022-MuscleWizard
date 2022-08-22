@@ -1,7 +1,7 @@
 extends KinematicBody2D
 
 # Health and wellness
-var health = 20
+export var health = 20
 export var isBusyReadingDialogue = false
 export var jacked = false
 var hurt = false
@@ -9,6 +9,14 @@ var alive = true
 # Movement variables
 export var moveSpeed = 400
 var velocity = Vector2.ZERO
+
+#spells known
+var pyromancy = false
+var abjure = false
+var arcane = true
+
+#hud
+onready var hud = $Camera2D/HUD
 
 # Staff / weapon variables
 enum staffStates {IN_HAND, SWINGING}
@@ -58,6 +66,7 @@ func _process(_delta):
 	if isBusyReadingDialogue == false:
 		handle_staff()
 		$AimIndicator.look_at(get_global_mouse_position())
+	_update_hud()
 
 func _physics_process(_delta):
 	if !isBusyReadingDialogue:
@@ -125,6 +134,11 @@ func _on_InteractableBase_stopped_talking():
 	print("stop talking", isBusyReadingDialogue)
 	pass # toggle spellcasting on
 
+func _update_hud():
+	hud.hp = health
+	hud.pyro = pyromancy
+	hud.abjur = abjure
+	hud.arcane = arcane
 
 func _on_Dummy_smashed():
 	pass # Replace with function body.
