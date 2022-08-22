@@ -22,6 +22,11 @@ animations = [ {
 "name": "Bubble",
 "speed": 24.0
 }, {
+"frames": [ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 13 ), ExtResource( 7 ), ExtResource( 14 ), ExtResource( 8 ), ExtResource( 10 ), ExtResource( 12 ) ],
+"loop": false,
+"name": "Form",
+"speed": 32.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 10 ), ExtResource( 8 ), ExtResource( 14 ), ExtResource( 7 ), ExtResource( 13 ), ExtResource( 9 ), ExtResource( 11 ), ExtResource( 4 ), ExtResource( 3 ) ],
 "loop": true,
 "name": "Pop",

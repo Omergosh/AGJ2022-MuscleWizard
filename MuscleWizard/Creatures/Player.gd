@@ -14,6 +14,8 @@ var velocity = Vector2.ZERO
 var pyromancy = false
 var abjure = false
 var arcane = true
+#spell cooldown
+var cooldown = false
 
 #hud
 onready var hud = $Camera2D/HUD
@@ -48,9 +50,14 @@ signal shoot(bullet, direction, location)
 
 func _input(event):
 	if !isBusyReadingDialogue and event is InputEventMouseButton:
-		if event.button_index == BUTTON_LEFT and event.pressed:
-			emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
-
+		if event.button_index == BUTTON_LEFT and event.pressed and cooldown == false:
+			cooldown = true
+			$CastDelay.start()
+			$SpellBlast.play()
+			$Sprite/Staff/ProjectileOrigin/ArcaneBubble.visible = true
+			$Sprite/Staff/ProjectileOrigin/ArcaneBubble.play("Form")
+			
+		
 func _on_Player_shoot(_bullet, direction, location):
 	var p = ArcaneProjectile.instance()
 	owner.add_child(p)
@@ -146,3 +153,14 @@ func _on_Dummy_smashed():
 
 func _on_HurtTimer_timeout():
 	hurt = false
+
+#timer resets cooldown on arcane blast
+func _on_CastTimer_timeout():
+	cooldown = false
+
+#timer triggers arcane blast effect
+func _on_CastDelay_timeout():
+	emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
+	$Sprite/Staff/ProjectileOrigin/ArcaneBubble.play("Bubble")
+	$CastTimer.start()
+	$Sprite/Staff/ProjectileOrigin/ArcaneBubble.visible = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm2.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.gd" type="Script" id=2]
@@ -10,6 +10,8 @@
 [ext_resource path="res://Hurtbox.gd" type="Script" id=8]
 [ext_resource path="res://SoundEffects/HumanSounds/HumanOof.mp3" type="AudioStream" id=9]
 [ext_resource path="res://UI/HUD.tscn" type="PackedScene" id=10]
+[ext_resource path="res://SpecialEffectAnimations/ArcaneBubble.tscn" type="PackedScene" id=11]
+[ext_resource path="res://SoundEffects/MagicSounds/LightExplodeReverb.mp3" type="AudioStream" id=12]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -95,6 +97,10 @@ scale = Vector2( 2, 2 )
 [node name="ProjectileOrigin" type="Position2D" parent="Sprite/Staff"]
 position = Vector2( 3, -71 )
 
+[node name="ArcaneBubble" parent="Sprite/Staff/ProjectileOrigin" instance=ExtResource( 11 )]
+visible = false
+animation = "Form"
+
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
 script = ExtResource( 8 )
 is_player_hurtbox = true
@@ -132,4 +138,17 @@ zoom = Vector2( 1.5, 1.5 )
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 10 )]
 
+[node name="CastTimer" type="Timer" parent="."]
+wait_time = 0.6
+one_shot = true
+
+[node name="CastDelay" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="SpellBlast" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
+
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
+[connection signal="timeout" from="CastTimer" to="." method="_on_CastTimer_timeout"]
+[connection signal="timeout" from="CastDelay" to="." method="_on_CastDelay_timeout"]

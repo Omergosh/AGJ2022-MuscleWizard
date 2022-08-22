@@ -11,5 +11,5 @@ dest_files=[ "res://.import/LightExplodeReverb.mp3-5814f4d87e64358f856f8697d2fdf
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
