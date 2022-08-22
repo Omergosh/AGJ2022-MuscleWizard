@@ -1,6 +1,6 @@
 extends Node2D
 
-
+var popped = false
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -12,4 +12,19 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta):
-	position += velocity * delta
+	if popped == false:
+		position += velocity * delta
+
+
+func _on_DespawnBox_body_entered(body):
+	if body.is_in_group('Player'):
+		pass
+	else:
+		popped = true
+		$Despawn.start()
+		$ArcaneBubble.play("Pop")
+		$Pop.play()
+
+
+func _on_Despawn_timeout():
+	queue_free()

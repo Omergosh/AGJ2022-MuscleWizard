@@ -5,6 +5,7 @@ extends KinematicBody2D
 var health = 70
 var aggro = false
 var followphase = false
+var chase = false
 var cast = true
 onready var moveSpeed = 1
 onready var shadow = preload("res://Creatures/SquiggleAttack.tscn")
@@ -26,8 +27,9 @@ func _process(delta):
 		aggro = false
 	if aggro == true:
 		_attacking()
-	if health <= 35 and followphase == false:
+	if health <= 35 and chase == false:
 		followphase = true
+		chase = true
 		_phase2()
 	if followphase == true:
 		if is_instance_valid(player):

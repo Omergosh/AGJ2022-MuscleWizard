@@ -231,12 +231,12 @@ disabled = true
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "BodyIdle"
-frame = 1
 playing = true
 
 [node name="Head" type="AnimatedSprite" parent="Body"]
 frames = SubResource( 2 )
 animation = "EyeShine"
+frame = 9
 playing = true
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
