@@ -127,6 +127,7 @@ func loadPlayerChoices():
 				
 				print("This wizard went to the gym! Apply the gym buff!")
 			"StudiedBooks":
+				$CastTimer.wait_time = 0.3
 				print("This wizard read his books! Apply the book buff!")
 
 

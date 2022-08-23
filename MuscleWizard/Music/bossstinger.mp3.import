@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/bossstinger.mp3-4a047b39ce66d57fc41c82942d09c76c.mp3str"
+
+[deps]
+
+source_file="res://Music/bossstinger.mp3"
+dest_files=[ "res://.import/bossstinger.mp3-4a047b39ce66d57fc41c82942d09c76c.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

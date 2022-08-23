@@ -18,7 +18,8 @@ func _ready():
 
 func _on_BossTrigger_body_entered(body):
 	position.x = 1919
-	position.y = 4736
+	position.y = 3973
 	if closed == false:
 		$Close2.play()
+		$BossMusic.play()
 		closed = true

@@ -28,6 +28,8 @@ func _on_Spook2_body_entered(body):
 
 func _on_Malevolent_victory():
 	exit.visible = true
+	$Wall/BossMusic.stop()
+	$VictorySound.play()
 	exit.monitoring = true
 
 

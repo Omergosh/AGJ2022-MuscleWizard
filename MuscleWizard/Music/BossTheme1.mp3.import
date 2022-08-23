@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/BossTheme1.mp3-e1f1fe0bda8519ea04e72c4b6c8f62aa.mp3str"
+
+[deps]
+
+source_file="res://Music/BossTheme1.mp3"
+dest_files=[ "res://.import/BossTheme1.mp3-e1f1fe0bda8519ea04e72c4b6c8f62aa.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
