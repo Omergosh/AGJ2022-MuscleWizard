@@ -5,6 +5,7 @@ extends KinematicBody2D
 var health = 80
 var aggro = false
 var followphase = false
+var dead = false
 
 var unique_line = false #to keep boss from talking over itself too much, if true generic
 #attack lines dont play
@@ -30,7 +31,7 @@ func _process(delta):
 	#print(unique_line)
 	if not is_instance_valid(player):
 		aggro = false
-	if aggro == true:
+	if aggro == true and dead == false:
 		_attacking()
 	if health <= 40 and chase == false:
 		followphase = true
@@ -58,7 +59,9 @@ func _phase2():
 	
 func start_dying():
 	followphase = false
-	$Death.play()
+	if dead == false: 
+		$Death.play()
+		dead = true
 	emit_signal('victory')
 	# then call finish_dying at end of animation
 	$AnimationPlayer.play("Death")
@@ -109,9 +112,12 @@ func _on_BossTrigger_body_entered(body):
 
 
 func _on_MeleeDelay_timeout():
-	get_node("ShadeMelee/Hitbox/CollisionShape2D").disabled = false
-	$ShadeMelee.play("GreyVines")
-	$VineActive.start()
+	if dead == false:
+		get_node("ShadeMelee/Hitbox/CollisionShape2D").disabled = false
+		$ShadeMelee.play("GreyVines")
+		$VineActive.start()
+	else:
+		pass
 
 func _on_VineActive_timeout():
 	get_node("ShadeMelee/Hitbox/CollisionShape2D").disabled = true
