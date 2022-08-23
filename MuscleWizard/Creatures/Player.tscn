@@ -155,6 +155,9 @@ stream = ExtResource( 13 )
 volume_db = -10.309
 pitch_scale = 0.9
 
+[node name="FireDelay" type="Timer" parent="."]
+
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="timeout" from="CastTimer" to="." method="_on_CastTimer_timeout"]
 [connection signal="timeout" from="CastDelay" to="." method="_on_CastDelay_timeout"]
+[connection signal="timeout" from="FireDelay" to="." method="_on_FireDelay_timeout"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=32 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Sprites/Doodads/Rock.png" type="Texture" id=2]
@@ -22,6 +22,8 @@
 [ext_resource path="res://SpecialEffectAnimations/MagicBook.tscn" type="PackedScene" id=20]
 [ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=21]
 [ext_resource path="res://Placeables/InteractZone.tscn" type="PackedScene" id=22]
+[ext_resource path="res://SoundEffects/MagicSounds/MagicLong.mp3" type="AudioStream" id=23]
+[ext_resource path="res://SpecialEffectAnimations/MagicBook.gd" type="Script" id=25]
 
 [sub_resource type="TileSet" id=1]
 0/name = "Grass.png 0"
@@ -335,15 +337,31 @@ LevelToGoTo = "res://Levels/Level2.tscn"
 [node name="MagicBook" parent="." instance=ExtResource( 20 )]
 position = Vector2( 3068, 5372 )
 scale = Vector2( 1.12, 1.12 )
-frame = 2
+script = ExtResource( 25 )
 
 [node name="InteractableBase" parent="MagicBook" instance=ExtResource( 21 )]
 scale = Vector2( 0.5, 0.4 )
-dialogueKeyToPlay = "spellbook"
+dialogueKeyToPlay = "spellbookj"
 InteractTrigger = "OnInteract"
 
 [node name="InteractZone" parent="MagicBook" instance=ExtResource( 22 )]
 scale = Vector2( 2, 1.5 )
 
+[node name="InteractableBase2" parent="MagicBook" instance=ExtResource( 21 )]
+scale = Vector2( 0.5, 0.4 )
+dialogueKeyToPlay = "spellbooks"
+InteractTrigger = "OnInteract"
+
+[node name="Knawledge" type="AudioStreamPlayer2D" parent="MagicBook"]
+scale = Vector2( 0.5, 0.4 )
+stream = ExtResource( 23 )
+volume_db = 11.064
+
+[node name="Timer" type="Timer" parent="MagicBook"]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="ReadPyro" from="Player" to="MagicBook" method="_on_Player_ReadPyro"]
 [connection signal="body_entered" from="MagicBook/InteractZone" to="." method="_on_InteractZone_body_entered"]
 [connection signal="body_exited" from="MagicBook/InteractZone" to="." method="_on_InteractZone_body_exited"]
+[connection signal="timeout" from="MagicBook/Timer" to="MagicBook" method="_on_Timer_timeout"]

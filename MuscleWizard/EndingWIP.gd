@@ -3,7 +3,7 @@ extends Control
 
 # Declare member variables here. Examples:
 # var a = 2
-# var b = "text"
+var BurningSoul = false
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,14 +14,27 @@ func _ready():
 				$VBoxContainer/BuffEnd.show()
 				$VBoxContainer/NormalEnd.hide()
 				$VBoxContainer/DeathEnd.hide()
+			if choice == "LearnPyro":
+				$VBoxContainer/DeniedKnowledge.hide()
+				$VBoxContainer/ChoseKnowledge.show()
+				BurningSoul = true
+			if choice == "Leave":
+				$VBoxContainer/DeniedKnowledge.show()
+				$VBoxContainer/ChoseKnowledge.hide()
 			else:
-				$VBoxContainer/BuffEnd.hide()
-				$VBoxContainer/NormalEnd.show()
-				$VBoxContainer/DeathEnd.hide()
+				$VBoxContainer/EmberSoul.hide()
 	if GameManager.alive == false:
+		for choice in GameManager.playerChoices:
+			if choice == "LearnPyro":
+				$VBoxContainer/EmberSoul.show()
+				BurningSoul = true
 		$VBoxContainer/BuffEnd.hide()
+		$VBoxContainer/DeniedKnowledge.hide()
+		$VBoxContainer/ChoseKnowledge.hide()
 		$VBoxContainer/NormalEnd.hide()
 		$VBoxContainer/DeathEnd.show()
+
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

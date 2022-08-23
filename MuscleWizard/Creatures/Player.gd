@@ -3,7 +3,10 @@ extends KinematicBody2D
 # Health and wellness
 export var health = 20
 export var isBusyReadingDialogue = false
+
 export var jacked = false
+export var smart = false
+
 var hurt = false
 var alive = true
 
@@ -13,12 +16,14 @@ export var moveSpeed = 400
 var velocity = Vector2.ZERO
 
 #spells known
-var pyromancy = false
+var denied_knowledge = false
+var pyromancy = false #should be false at start
 var abjure = false
 var arcane = true
 #cooldowns
 var cooldown = false #arcane cooldown
 var swinging = false #swingsound
+var fire_cooldown = false #fireball cooldown
 
 #hud
 onready var hud = $Camera2D/HUD
@@ -33,6 +38,7 @@ var staffOffset
 func _ready():
 	staffOffset = $Sprite/Staff.position
 	var _error = connect("shoot", self, "_on_Player_shoot")
+	var _conflag = connect('spark', self, "_on_Player_fireball") #copying omer's code on shooting for fireball. it jank. im bad at this
 	loadPlayerChoices()
 
 func take_damage(instigatorHitBox):
@@ -69,17 +75,37 @@ func _on_Player_shoot(_bullet, direction, location):
 	p.position = location
 	p.velocity = p.velocity.rotated(direction)
 
+
+### Fire magic attack ###
+var FireBall = preload('res://Spells/Fireball.tscn')
+
+signal spark(ball, direction, location)
+
+func _on_Player_fireball(_ball, direction, location):
+	var b = FireBall.instance()
+	owner.add_child(b)
+	b.rotation = direction
+	b.position = location
+	b.velocity = b.velocity.rotated(direction)
+
+func _cast_pose():
+	$Sprite.play("CastThin")
+	$Sprite.position.x = -50
+	isBusyReadingDialogue = true
+
 ### STAFF ATTACK + MOVEMENT ###
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#print(isBusyReadingDialogue)
 	#print(swinging)
+	#print(cooldown)
 	_check_interact()
 	if isBusyReadingDialogue == false:
 		handle_staff()
 		$AimIndicator.look_at(get_global_mouse_position())
 	_update_hud()
+	_check_spells()
 	if not Input.is_action_pressed("ui_accept"):
 		swinging = false
 	if swinging == false:
@@ -87,7 +113,14 @@ func _process(_delta):
 		$whack.stream_paused = true
 	if swinging == true:
 		$whack.stream_paused = false
-		
+	if pyromancy == true:
+		if fire_cooldown == false:
+			if Input.is_action_just_pressed("fireball"):
+				emit_signal("spark", FireBall, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
+				fire_cooldown = true
+				$FireDelay.start()
+				_cast_pose()
+
 
 func _physics_process(_delta):
 	if !isBusyReadingDialogue:
@@ -133,19 +166,36 @@ func set_player_facing_direction(facingLeft: bool):
 		#scale.x = -1 if facingLeft else 1
 		#var newStaffX = staffOffset.x + (staffOffset.x * -2 * int(facingLeft))
 		#$Sprite/Staff.position.x = newStaffX
+signal ReadPyro
 
 func loadPlayerChoices():
 	for choice in GameManager.playerChoices:
 		match choice:
 			"WentToGym":
 				$Sprite.play("IdleBuff")
-				health += 10
-				
+				health += 20
+				jacked = true
 				print("This wizard went to the gym! Apply the gym buff!")
 			"StudiedBooks":
 				$CastTimer.wait_time = 0.3
+				smart = true
 				print("This wizard read his books! Apply the book buff!")
+			"LearnPyro":
+				pyromancy = true
+				emit_signal("ReadPyro")
+				print("This wizard learned forbidden knowledge!")
+			"Leave":
+				denied_knowledge = true
+				print("This wizard denied forbidden knowledge!")
 
+#checks spells known for HUD
+func _check_spells():
+	if pyromancy == true:
+		hud.pyro = true
+	if abjure == true:
+		hud.abjur = true
+	if arcane == true:
+		hud.arcane = true
 
 func _on_InteractableBase_talking():
 	isBusyReadingDialogue = true
@@ -187,3 +237,11 @@ func _on_CastDelay_timeout():
 	$Sprite/Staff/ProjectileOrigin/ArcaneBubble.play("Bubble")
 	$CastTimer.start()
 	$Sprite/Staff/ProjectileOrigin/ArcaneBubble.visible = false
+
+
+func _on_FireDelay_timeout():
+	fire_cooldown = false
+	$Sprite.play("IdleThin")
+	$Sprite.position.x = 0
+	isBusyReadingDialogue = false
+

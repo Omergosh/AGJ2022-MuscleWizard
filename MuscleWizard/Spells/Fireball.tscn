@@ -1,32 +1,63 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Fireball.gd" type="Script" id=1]
 [ext_resource path="res://SpecialEffectAnimations/Fireball.tscn" type="PackedScene" id=2]
 [ext_resource path="res://SpecialEffectAnimations/FireForm.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Hitbox.gd" type="Script" id=4]
+[ext_resource path="res://SoundEffects/PhysicalSounds/StoneDoorOpen.mp3" type="AudioStream" id=5]
+[ext_resource path="res://SoundEffects/MagicSounds/Burning.mp3" type="AudioStream" id=6]
 
 [sub_resource type="CircleShape2D" id=1]
-radius = 91.0055
+radius = 90.0222
+
+[sub_resource type="CircleShape2D" id=2]
+radius = 72.0
 
 [node name="Fireball" type="Node2D"]
 script = ExtResource( 1 )
 
 [node name="Fire" parent="." instance=ExtResource( 2 )]
+visible = false
+scale = Vector2( 1.5, 1.5 )
 animation = "Fireball"
 frame = 0
 
 [node name="FireForm" parent="." instance=ExtResource( 3 )]
-scale = Vector2( 2, 2 )
-frame = 0
-playing = false
+visible = false
+scale = Vector2( 5, 5 )
+
+[node name="FireForm2" parent="." instance=ExtResource( 3 )]
 
 [node name="SummonTimer" type="Timer" parent="."]
-wait_time = 0.3
 one_shot = true
-autostart = true
 
-[node name="ExplosionRad" type="Area2D" parent="."]
+[node name="ExplosionTrigger" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionRad"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ExplosionTrigger"]
 shape = SubResource( 1 )
 
+[node name="Explode" type="Timer" parent="."]
+wait_time = 0.8
+one_shot = true
+
+[node name="BurnSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+pitch_scale = 1.83
+autoplay = true
+
+[node name="Hitbox" type="Area2D" parent="."]
+script = ExtResource( 4 )
+damage = 10
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource( 2 )
+
+[node name="Explosion" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 19.915
+pitch_scale = 0.57
+
 [connection signal="timeout" from="SummonTimer" to="." method="_on_SummonTimer_timeout"]
+[connection signal="body_entered" from="ExplosionTrigger" to="." method="_on_ExplosionTrigger_body_entered"]
+[connection signal="timeout" from="Explode" to="." method="_on_Explode_timeout"]
+[connection signal="body_entered" from="Hitbox" to="." method="_on_Hitbox_body_entered"]

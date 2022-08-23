@@ -182,7 +182,7 @@ margin_top = 4.0
 margin_right = 419.0
 margin_bottom = 58.0
 size_flags_vertical = 3
-text = "WASD to move. Space to whack things with staff. Click and aim to fire arcane blast. Click to progress dialogue. E to examine/interact."
+text = "WASD to move. Space to whack things with staff. Click and aim to fire arcane blast. Click to progress dialogue. E to examine/interact. F to cast learned spells."
 
 [node name="CreditsLbl" type="RichTextLabel" parent="CreditsContainer/VBoxContainer"]
 margin_right = 419.0
@@ -217,7 +217,6 @@ anims/default = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -129, 181 )
 frames = SubResource( 3 )
-frame = 1
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]

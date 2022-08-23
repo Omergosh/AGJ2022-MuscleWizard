@@ -24,14 +24,36 @@ size_flags_vertical = 3
 text = "So you have defeated one of the Malevolent Immortals from the Old Kingdom and taken your place as one of the Wizards of the Arcanum! Although your mentor does not approve of your methods, he has begrudgingly accepted you, as the Muscle Wizard. A jock amongst nerds, whose physique rivals that of the most jacked of warriors!"
 
 [node name="NormalEnd" type="RichTextLabel" parent="VBoxContainer"]
-visible = false
 margin_right = 595.0
 margin_bottom = 294.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+size_flags_stretch_ratio = 0.3
 text = "So you have defeated one of the Malevolent Immortals from the Old Kingdom and taken your place as one of the Wizards of the Arcanum! Like others before you, you have secured your place through deeds of valor and conventional wizardly means!"
 
+[node name="ChoseKnowledge" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+margin_top = 49.0
+margin_right = 595.0
+margin_bottom = 169.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+text = "More than that, you discovered an ancient tome of power, The fiery magicks within are indeed formidible and you are quickly known for your pyromancy skills. But deep down you feel a knawing at your soul, a consumptive urge to burn. While it is but an ember now, only time will tell if you can keep it from getting out of control."
+
+[node name="DeniedKnowledge" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+margin_top = 83.0
+margin_right = 595.0
+margin_bottom = 293.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.8
+text = "You also staved off the temptation to delve deep into mysteries you were not yet prepared for. After alerting the Arcanum, a team was dispatched to retrieve the tome. They are currently working on decoding its powers in the safest way possible!"
+
 [node name="DeathEnd" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+margin_top = 198.0
 margin_right = 595.0
 margin_bottom = 294.0
 size_flags_horizontal = 3
@@ -40,6 +62,15 @@ text = "You have met your end at the hands of the Old Kingdom!
 
 You are dead!!
 "
+
+[node name="EmberSoul" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+margin_top = 294.0
+margin_right = 595.0
+margin_bottom = 294.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Yet a hint of your soul lingers on... trapped in the Old Kingdom as a lost ember looking to consume. The living are now nothing but kindling to rebuild your flame."
 
 [node name="Returntomenu" type="Button" parent="VBoxContainer"]
 margin_top = 298.0

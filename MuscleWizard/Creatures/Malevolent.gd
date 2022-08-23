@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
-var health = 80
+var health = 100
 var aggro = false
 var followphase = false
 var dead = false
@@ -33,7 +33,7 @@ func _process(delta):
 		aggro = false
 	if aggro == true and dead == false:
 		_attacking()
-	if health <= 40 and chase == false:
+	if health <= 55 and chase == false:
 		followphase = true
 		chase = true
 		_phase2()
