@@ -2,9 +2,13 @@ extends KinematicBody2D
 
 
 # Declare member variables here. Examples:
-var health = 70
+var health = 80
 var aggro = false
 var followphase = false
+
+var unique_line = false #to keep boss from talking over itself too much, if true generic
+#attack lines dont play
+
 var chase = false
 var cast = true
 onready var moveSpeed = 1
@@ -23,11 +27,12 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	#print(unique_line)
 	if not is_instance_valid(player):
 		aggro = false
 	if aggro == true:
 		_attacking()
-	if health <= 35 and chase == false:
+	if health <= 40 and chase == false:
 		followphase = true
 		chase = true
 		_phase2()
@@ -45,6 +50,8 @@ func take_damage(instigatorHitBox):
 		start_dying()
 	
 func _phase2():
+	unique_line = true
+	$TalkDelay.start()
 	$Phase2.play()
 	$ShadeMelee.visible = true
 	$MeleeDelay.start()
@@ -64,10 +71,11 @@ func finish_dying():
 func _attacking():
 	if cast == false:
 		$AttackTimer.start()
-		if toss >= 0:
-			saydie.play()
-		if toss < 0:
-			sayperish.play()
+		if unique_line == false:
+			if toss >= 0:
+				saydie.play()
+			if toss < 0:
+				sayperish.play()
 		cast = true
 		$AnimTimer.start()
 		$Body.play("Cast")
@@ -96,7 +104,7 @@ func _on_Spook2_body_entered(body):
 
 
 func _on_BossTrigger_body_entered(body):
-	aggro = true
+	$AggroDelay.start()
 	print('angy')
 
 
@@ -109,3 +117,11 @@ func _on_VineActive_timeout():
 	get_node("ShadeMelee/Hitbox/CollisionShape2D").disabled = true
 	$ShadeMelee.play("VineRetract")
 	$MeleeDelay.start()
+
+
+func _on_TalkDelay_timeout():
+	unique_line = false
+
+
+func _on_AggroDelay_timeout():
+	aggro = true

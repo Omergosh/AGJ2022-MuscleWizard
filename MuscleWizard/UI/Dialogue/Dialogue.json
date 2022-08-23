@@ -1,9 +1,9 @@
 {
 	"artefact":[
 		{
-			"name": "Artefact",
-			"portrait": "res://icon.png",
-			"text": "This strange object eminates a mysterious aura. It is oddly pleasant and you wonder how it ended up here.",
+			"name": "Examine",
+			"portrait": "res://Sprites/Doodads/Skull.png",
+			"text": "This area seems somewhat sanctified compared to the rest of the ruinous crypt.",
 		},
 	],
 	"testDialogue":[

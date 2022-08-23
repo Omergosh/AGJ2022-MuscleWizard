@@ -14,8 +14,9 @@ var velocity = Vector2.ZERO
 var pyromancy = false
 var abjure = false
 var arcane = true
-#spell cooldown
-var cooldown = false
+#cooldowns
+var cooldown = false #arcane cooldown
+var swinging = false #swingsound
 
 #hud
 onready var hud = $Camera2D/HUD
@@ -70,10 +71,19 @@ func _on_Player_shoot(_bullet, direction, location):
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#print(isBusyReadingDialogue)
+	#print(swinging)
 	if isBusyReadingDialogue == false:
 		handle_staff()
 		$AimIndicator.look_at(get_global_mouse_position())
 	_update_hud()
+	if not Input.is_action_pressed("ui_accept"):
+		swinging = false
+	if swinging == false:
+		$whack.play()
+		$whack.stream_paused = true
+	if swinging == true:
+		$whack.stream_paused = false
+		
 
 func _physics_process(_delta):
 	if !isBusyReadingDialogue:
@@ -83,9 +93,11 @@ func handle_staff():
 	match currentStaffState:
 		staffStates.IN_HAND:
 			if Input.is_action_pressed("ui_accept"):
+				swinging = true
 				currentStaffState = staffStates.SWINGING
 				$AnimationPlayer.play("StaffSwing")
 				$Sprite/Staff/AnimationPlayer.play("bonk")
+
 		#staffStates.SWINGING:
 			#$Staff.position.x += 5
 			#$Staff.rotation += 2

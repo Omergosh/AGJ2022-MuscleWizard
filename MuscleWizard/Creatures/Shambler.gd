@@ -19,26 +19,29 @@ func _ready():
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	if not is_instance_valid(player):
+	if dead == false:
+		if not is_instance_valid(player):
+			aggro = false
+		if alive == true and aggro == true:
+			direction = (player.position - position).normalized()
+			var _moveData = move_and_slide(direction * moveSpeed)
+			$AnimationPlayer.play("Attack")
+			if player.position.x < position.x:
+				$Sprite.scale.x = -1
+			elif player.position.x > position.x:
+				$Sprite.scale.x = 1
+		else:
+			$AnimationPlayer.play("Idle")
+			pass
+	if dead == true:
 		aggro = false
-	if alive == true and aggro == true:
-		direction = (player.position - position).normalized()
-		var _moveData = move_and_slide(direction * moveSpeed)
-		$AnimationPlayer.play("Attack")
-		if player.position.x < position.x:
-			$Sprite.scale.x = -1
-		elif player.position.x > position.x:
-			$Sprite.scale.x = 1
-	else:
-		$AnimationPlayer.play("Idle")
-		pass
 
 func take_damage(instigatorHitBox):
 	var _damageType = instigatorHitBox.owner.get_groups()[0]
 	var damageTaken = instigatorHitBox.damage
 	print("Damage: ", damageTaken)
 	health -= damageTaken
-	if hurt == false:
+	if hurt == false and dead == false:
 		$HurtTime.start()
 		hurt = true
 		$Hurt.play()
@@ -53,17 +56,23 @@ func take_damage(instigatorHitBox):
 		start_dying()
 
 func start_dying():
-	# play sound effects + animations,
+	if dead == false:
+		$Moan1.play()
 	# then call finish_dying at end of animation
+		dead = true
+		$CollisionShape2D.disabled = true
+		$Sprite/Corpse.visible = true
+		$Sprite/ShamblerSprite.visible = false
 	finish_dying()
-
+#having them remain as static death images didn't work as intended and I havent fixed it yet
+# so I've kept in the queue free death for now
 # Remove enemy from level
 func finish_dying():
 	queue_free()
 
 #Shambler sight radius stuff
 func _on_Sight_body_entered(body):
-	if body.is_in_group("Player"):
+	if body.is_in_group("Player") and dead == false:
 		aggro = true
 		$Aggro.play()
 
