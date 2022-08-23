@@ -191,13 +191,15 @@ size_flags_vertical = 3
 bbcode_enabled = true
 bbcode_text = "[wave amp=50 freq=2]
 [center]Programmer, Design, Narrative - Isaac Cantine
-Art, Programming, Design, Narrative? - Omer Ahmed
+Art, Programming, Design, Narrative - Omer Ahmed
 Additional Support - Boris Fleysher
+Music - Liam McClean
 [/center][/wave]"
 text = "
 Programmer, Design, Narrative - Isaac Cantine
-Art, Programming, Design, Narrative? - Omer Ahmed
+Art, Programming, Design, Narrative - Omer Ahmed
 Additional Support - Boris Fleysher
+Music - Liam McClean
 "
 
 [node name="Back" type="Button" parent="CreditsContainer/VBoxContainer"]
@@ -215,7 +217,7 @@ anims/default = SubResource( 2 )
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 position = Vector2( -129, 181 )
 frames = SubResource( 3 )
-frame = 2
+frame = 1
 playing = true
 
 [node name="Particles2D" type="Particles2D" parent="."]
