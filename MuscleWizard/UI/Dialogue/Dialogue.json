@@ -6,6 +6,13 @@
 			"text": "This area seems somewhat sanctified compared to the rest of the ruinous crypt.",
 		},
 	],
+	"spellbook":[
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "This tome is full of awesome arcane knowledge! Too bad I can't read.",
+		},
+	],
 	"testDialogue":[
 		{
 			"name": "Mentor",

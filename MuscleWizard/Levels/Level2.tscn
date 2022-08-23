@@ -1,4 +1,4 @@
-[gd_scene load_steps=45 format=2]
+[gd_scene load_steps=46 format=2]
 
 [ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=25]
 [ext_resource path="res://Sprites/Doodads/skellington.png" type="Texture" id=26]
 [ext_resource path="res://Sprites/Doodads/Broken staff.png" type="Texture" id=27]
+[ext_resource path="res://Placeables/InteractZone.tscn" type="PackedScene" id=28]
 
 [sub_resource type="NavigationPolygon" id=9]
 vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -399,6 +400,9 @@ InteractTrigger = "OnInteract"
 position = Vector2( -7, -41 )
 scale = Vector2( 0.5, 0.5 )
 
+[node name="InteractZone" parent="InteractableBase" instance=ExtResource( 28 )]
+scale = Vector2( 4, 4 )
+
 [node name="Skelly" type="Sprite" parent="."]
 position = Vector2( 4114, -879 )
 rotation = -0.991347
@@ -417,3 +421,5 @@ offset = Vector2( 5, 0 )
 [connection signal="body_entered" from="Spook2" to="Malevolent" method="_on_Spook2_body_entered"]
 [connection signal="body_entered" from="BossTrigger" to="Malevolent" method="_on_BossTrigger_body_entered"]
 [connection signal="body_entered" from="BossTrigger" to="Wall" method="_on_BossTrigger_body_entered"]
+[connection signal="body_entered" from="InteractableBase/InteractZone" to="." method="_on_InteractZone_body_entered"]
+[connection signal="body_exited" from="InteractableBase/InteractZone" to="." method="_on_InteractZone_body_exited"]

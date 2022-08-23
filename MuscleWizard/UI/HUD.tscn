@@ -14,10 +14,10 @@ text = "Health: 0"
 
 [node name="Interact" type="Label" parent="."]
 visible = false
-margin_left = 370.0
-margin_top = 356.0
-margin_right = 492.0
-margin_bottom = 370.0
+margin_left = 461.0
+margin_top = 321.0
+margin_right = 583.0
+margin_bottom = 335.0
 text = "Press 'E' to interact"
 
 [node name="SpellsKnown" type="Label" parent="."]

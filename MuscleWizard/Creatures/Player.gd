@@ -6,6 +6,8 @@ export var isBusyReadingDialogue = false
 export var jacked = false
 var hurt = false
 var alive = true
+
+
 # Movement variables
 export var moveSpeed = 400
 var velocity = Vector2.ZERO
@@ -20,6 +22,7 @@ var swinging = false #swingsound
 
 #hud
 onready var hud = $Camera2D/HUD
+var use_e = false
 
 # Staff / weapon variables
 enum staffStates {IN_HAND, SWINGING}
@@ -72,6 +75,7 @@ func _on_Player_shoot(_bullet, direction, location):
 func _process(_delta):
 	#print(isBusyReadingDialogue)
 	#print(swinging)
+	_check_interact()
 	if isBusyReadingDialogue == false:
 		handle_staff()
 		$AimIndicator.look_at(get_global_mouse_position())
@@ -163,6 +167,12 @@ func _update_hud():
 func _on_Dummy_smashed():
 	pass # Replace with function body.
 
+func _check_interact():
+	if use_e == true:
+		hud.e = true
+	if use_e == false:
+		hud.e = false
+		
 
 func _on_HurtTimer_timeout():
 	hurt = false
