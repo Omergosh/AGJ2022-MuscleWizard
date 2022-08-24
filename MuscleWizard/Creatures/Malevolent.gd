@@ -13,6 +13,7 @@ var unique_line = false #to keep boss from talking over itself too much, if true
 var chase = false
 var cast = true
 onready var moveSpeed = 1
+onready var ShadowBlood = preload("res://Creatures/ShadowBlood0.tscn")
 onready var shadow = preload("res://Creatures/SquiggleAttack.tscn")
 onready var spawnpoint = get_node("ShadowSpawn")
 onready var spawnpoint2 = get_node("ShadowSpawn2")
@@ -46,6 +47,12 @@ func take_damage(instigatorHitBox):
 	var damageTaken = instigatorHitBox.damage
 	print("Boss Damage: ", damageTaken)
 	health -= damageTaken
+	var p = ShadowBlood.instance()
+	var delta = instigatorHitBox.global_position - global_position
+	get_parent().add_child(p)
+	p.global_position = global_position
+	p.look_at(global_position - delta)
+	p.emitting = true
 	if health <= 0:
 		$ShadeMelee.visible = false
 		start_dying()
