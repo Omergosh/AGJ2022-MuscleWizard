@@ -1,35 +1,23 @@
-[gd_scene load_steps=4 format=2]
-
-[sub_resource type="Curve" id=1]
-_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
-
-[sub_resource type="CurveTexture" id=2]
-curve = SubResource( 1 )
+[gd_scene load_steps=2 format=2]
 
 [sub_resource type="ParticlesMaterial" id=3]
-trail_size_modifier = SubResource( 2 )
-emission_shape = 5
-emission_ring_radius = 2.82
-emission_ring_inner_radius = 27.88
-emission_ring_height = 6.9
-emission_ring_axis = Vector3( 0, 0, 1 )
+emission_shape = 1
+emission_sphere_radius = 22.55
 flag_disable_z = true
-spread = 68.08
-gravity = Vector3( 40, 0, 0 )
-angular_velocity = 8.18
-angular_velocity_random = 0.21
-orbit_velocity = 0.0
-orbit_velocity_random = 0.0
-linear_accel_random = 0.4
+spread = 180.0
+gravity = Vector3( 50, 0, 0 )
+initial_velocity = 400.0
+orbit_velocity = 0.1
+orbit_velocity_random = 1.0
+linear_accel = -400.0
+radial_accel = -400.0
 scale = 8.64
-color = Color( 0.0431373, 0.0196078, 0.0196078, 0.937255 )
+color = Color( 0.0666667, 0.0666667, 0.0666667, 0.937255 )
 
 [node name="ShadowBlood" type="Particles2D"]
 emitting = false
-amount = 11
-lifetime = 2.5
+amount = 10
 one_shot = true
-speed_scale = 2.63
-explosiveness = 0.64
-randomness = 0.54
+speed_scale = 1.48
+explosiveness = 0.36
 process_material = SubResource( 3 )

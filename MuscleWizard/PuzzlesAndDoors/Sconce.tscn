@@ -12,7 +12,7 @@ radius = 32.1403
 [sub_resource type="Curve" id=2]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 0.490991, 0.663636 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
 
-[sub_resource type="CurveTexture" id=3]
+[sub_resource type="CurveTexture" id=5]
 curve = SubResource( 2 )
 
 [sub_resource type="ParticlesMaterial" id=4]
@@ -25,7 +25,7 @@ initial_velocity = 12.0
 orbit_velocity = 0.06
 orbit_velocity_random = 0.0
 scale = 7.0
-scale_curve = SubResource( 3 )
+scale_curve = SubResource( 5 )
 color = Color( 0.501961, 0.431373, 1, 1 )
 
 [node name="Sconce" type="Node2D"]

@@ -1,0 +1,98 @@
+[gd_scene load_steps=13 format=2]
+
+[ext_resource path="res://Sprites/_art_/PuzzleAndTargets/RuneDoorAltMauve.png" type="Texture" id=1]
+[ext_resource path="res://Sprites/_art_/PuzzleAndTargets/RuneDoorAltMauveLeft.png" type="Texture" id=2]
+[ext_resource path="res://Sprites/_art_/PuzzleAndTargets/RuneDoorAltMauveBoth.png" type="Texture" id=3]
+[ext_resource path="res://Sprites/_art_/PuzzleAndTargets/RuneDoorAltMauveRight.png" type="Texture" id=4]
+[ext_resource path="res://Hurtbox.gd" type="Script" id=5]
+[ext_resource path="res://SoundEffects/PhysicalSounds/StoneDoorOpen.mp3" type="AudioStream" id=6]
+[ext_resource path="res://RedRuneDoor.gd" type="Script" id=7]
+[ext_resource path="res://SoundEffects/MagicSounds/ShadowBolt.mp3" type="AudioStream" id=8]
+
+[sub_resource type="SpriteFrames" id=1]
+animations = [ {
+"frames": [ ExtResource( 1 ) ],
+"loop": true,
+"name": "Closed",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 2 ) ],
+"loop": true,
+"name": "LeftLit",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 3 ) ],
+"loop": true,
+"name": "Open",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 4 ) ],
+"loop": true,
+"name": "RightLit",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 106.5, 89.5 )
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 100, 82.5 )
+
+[sub_resource type="ParticlesMaterial" id=4]
+emission_shape = 5
+emission_ring_radius = 58.81
+emission_ring_inner_radius = 0.0
+emission_ring_height = 1.0
+emission_ring_axis = Vector3( 0, 0, 1 )
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 8.0
+orbit_velocity = 0.22
+orbit_velocity_random = 0.0
+scale = 3.0
+color = Color( 0.403922, 0.00784314, 0.376471, 1 )
+hue_variation = 0.01
+
+[node name="RedRuneDoor" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 1 )
+animation = "Closed"
+
+[node name="Hurtbox" type="Area2D" parent="."]
+script = ExtResource( 5 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hurtbox"]
+position = Vector2( -0.5, 3.5 )
+shape = SubResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 3 )
+
+[node name="Open" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 3.872
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="Hit" type="AudioStreamPlayer2D" parent="."]
+
+[node name="EatMagic" type="Particles2D" parent="."]
+emitting = false
+amount = 20
+lifetime = 2.0
+one_shot = true
+speed_scale = 1.39
+process_material = SubResource( 4 )
+
+[node name="EatMagicSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = 14.936
+pitch_scale = 0.51
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
