@@ -47,7 +47,6 @@ func _on_Area2D_body_exited(body):
 		#this was breaking the game when multiple interactable bases were present before so I took it out
 		#idk if it broke something else, which is why it's still here
 		#playerRef used to default to body with 'Player' group
-		
 func afterDialogueEffect():
 	alreadyInteracting = false
 	emit_signal("stopped_talking")
