@@ -319,7 +319,7 @@ albedo_color = Color( 0.211765, 0.192157, 0.192157, 1 )
 [sub_resource type="CanvasItemMaterial" id=22]
 next_pass = SubResource( 21 )
 
-[node name="Crypt" type="Node2D"]
+[node name="Level" type="Node2D"]
 script = ExtResource( 14 )
 __meta__ = {
 "_edit_lock_": true
@@ -407,7 +407,7 @@ process_material = SubResource( 19 )
 visible = false
 position = Vector2( 1918, 7044 )
 monitoring = false
-LevelToGoTo = "res://UI/EndingWIP.tscn"
+LevelToGoTo = "res://Levels/Level3.tscn"
 
 [node name="BossTrigger" type="Area2D" parent="."]
 position = Vector2( 1921, 4427 )

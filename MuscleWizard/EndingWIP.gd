@@ -21,6 +21,8 @@ func _ready():
 			if choice == "Leave":
 				$VBoxContainer/DeniedKnowledge.show()
 				$VBoxContainer/ChoseKnowledge.hide()
+			if choice == "AcceptWard":
+				$VBoxContainer/LostArt.show()
 			else:
 				$VBoxContainer/EmberSoul.hide()
 	if GameManager.alive == false:
@@ -32,6 +34,7 @@ func _ready():
 		$VBoxContainer/DeniedKnowledge.hide()
 		$VBoxContainer/ChoseKnowledge.hide()
 		$VBoxContainer/NormalEnd.hide()
+		$VBoxContainer/LostArt.hide()
 		$VBoxContainer/DeathEnd.show()
 
 

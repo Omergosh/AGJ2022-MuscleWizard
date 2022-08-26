@@ -1,9 +1,11 @@
 extends Node2D
 
 export(String) var dialogueKeyToPlay
+var offline = false
 var inRange = false
 var alreadyInteracting = false
-var playerRef = null
+#onready var playerRef = null
+onready var playerRef = get_node("Player")
 export(String, "OnOverlap", "OnInteract") var InteractTrigger
 signal talking
 signal stopped_talking
@@ -14,8 +16,12 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
+	#if offline == true:
+		#$Area2D.monitoring = false
+	#if offline == false:
+		#$Area2D.monitoring = true
+	pass
 
 func _input(event):
 	
@@ -37,8 +43,11 @@ func _on_Area2D_body_entered(body):
 func _on_Area2D_body_exited(body):
 	if body.is_in_group("Player"):
 		inRange = false
-		playerRef = null
-
+		#playerRef = null
+		#this was breaking the game when multiple interactable bases were present before so I took it out
+		#idk if it broke something else, which is why it's still here
+		#playerRef used to default to body with 'Player' group
+		
 func afterDialogueEffect():
 	alreadyInteracting = false
 	emit_signal("stopped_talking")
@@ -82,3 +91,7 @@ func choice_made(_choice):
 	pass
 
 
+
+
+func _on_DebugTimer_timeout():
+	print(playerRef)

@@ -43,12 +43,12 @@ text = "More than that, you discovered an ancient tome of power, The fiery magic
 
 [node name="DeniedKnowledge" type="RichTextLabel" parent="VBoxContainer"]
 visible = false
-margin_top = 83.0
+margin_top = 128.0
 margin_right = 595.0
 margin_bottom = 293.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
-size_flags_stretch_ratio = 0.8
+size_flags_stretch_ratio = 0.4
 text = "You also staved off the temptation to delve deep into mysteries you were not yet prepared for. After alerting the Arcanum, a team was dispatched to retrieve the tome. They are currently working on decoding its powers in the safest way possible!"
 
 [node name="DeathEnd" type="RichTextLabel" parent="VBoxContainer"]
@@ -71,6 +71,16 @@ margin_bottom = 294.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 text = "Yet a hint of your soul lingers on... trapped in the Old Kingdom as a lost ember looking to consume. The living are now nothing but kindling to rebuild your flame."
+
+[node name="LostArt" type="RichTextLabel" parent="VBoxContainer"]
+visible = false
+margin_top = 202.0
+margin_right = 595.0
+margin_bottom = 293.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+size_flags_stretch_ratio = 0.46
+text = "Finally, after escaping the Blood Maze you brought with you the gift of Maazara reviving a long lost branch of abjuration magicks! No amount of grumbling amongst the elite of the Arcanum can underplay this feat."
 
 [node name="Returntomenu" type="Button" parent="VBoxContainer"]
 margin_top = 298.0

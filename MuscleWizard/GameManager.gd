@@ -1,6 +1,7 @@
 extends Node
 
 var alive = true
+var abjure = false
 var playerChoices = []
 
 # Called when the node enters the scene tree for the first time.

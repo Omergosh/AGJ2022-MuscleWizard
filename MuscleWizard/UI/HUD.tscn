@@ -14,10 +14,10 @@ text = "Health: 0"
 
 [node name="Interact" type="Label" parent="."]
 visible = false
-margin_left = 461.0
-margin_top = 321.0
-margin_right = 583.0
-margin_bottom = 335.0
+margin_left = 465.0
+margin_top = 376.0
+margin_right = 587.0
+margin_bottom = 390.0
 text = "Press 'E' to interact"
 
 [node name="SpellsKnown" type="Label" parent="."]
@@ -26,3 +26,29 @@ margin_top = 565.0
 margin_right = 111.0
 margin_bottom = 579.0
 text = "Spells Known:"
+
+[node name="Container" type="Container" parent="."]
+margin_left = -3.0
+margin_top = 495.0
+margin_right = 164.0
+margin_bottom = 535.0
+
+[node name="Fireball" type="Label" parent="Container"]
+visible = false
+margin_left = 22.0
+margin_top = 8.0
+margin_right = 131.0
+margin_bottom = 22.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "F to cast Fireball"
+
+[node name="Ward" type="Label" parent="Container"]
+visible = false
+margin_left = 22.0
+margin_top = 24.0
+margin_right = 127.0
+margin_bottom = 38.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Q to cast Ward"

@@ -1,0 +1,22 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Sprites/NewAssets/MentorModel.png" type="Texture" id=1]
+[ext_resource path="res://Placeables/InteractableBase.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=4]
+
+[node name="Level" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource( 4 )]
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 701, 13 )
+LevelToGoTo = "res://Levels/Level3.tscn"
+
+[node name="InteractableBase" parent="." instance=ExtResource( 2 )]
+position = Vector2( 288, 7 )
+InteractTrigger = "OnOverlap"
+
+[node name="Sprite2" type="Sprite" parent="InteractableBase"]
+scale = Vector2( 0.5, 0.5 )
+texture = ExtResource( 1 )

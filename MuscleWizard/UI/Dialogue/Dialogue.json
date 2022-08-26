@@ -2,8 +2,145 @@
 	"artefact":[
 		{
 			"name": "Examine",
-			"portrait": "res://Sprites/Doodads/Skull.png",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
 			"text": "This area seems somewhat sanctified compared to the rest of the ruinous crypt.",
+		},
+	],
+	"GhostHelp":[
+		{
+			"name": "Ghost",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "You are a mage of some kind, no doubt trapped in this labyrinth? I sense your potential. I will aid you.",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "I am a remnant of the Astral Mage Tera Maazara. ‘She who walked between worlds’ was what they called me in life. I foresaw the downfall of this forsaken kingdom but failed to stop it. It was great hubris to believe that knowledge alone would save us from corruption. Only were it paired with wisdom could this have been averted. I hope you do not repeat my mistakes.",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "This labyrinth was built over our ancient laboratories, you may still find remnants of our uncorrupted crystal magicks buried beneath the rubble. Use them if you can find them.
+
+As for how to escape this maze, there are two paths to take. 
+",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "First is through the inner sanctum of Larrathman. He is a remnant like me, but still has a physical form. He would be known to you as a lich, and has his own secret path outwards to steal corpses from the lands of the living to form these shambling abominations. You would need to destroy him to open this path.",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "The second path is through the labyrinth. Despair only exists with hope. At the end of this bloody deathtrap is an escape but it will not be an easy path to face.",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "As my final gift to you I shall teach you an abjuration of my own devising. It takes a moment to prepare, but should protect you from harm at least for a moment. Follow closely.",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "Though I am but an echo of what once was, should you escape at least my teachings will survive.",
+		},
+		{
+			"name": "Echo of Tera Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "Before I go, should you choose to face Larrathman, let him know that it was Maazara who spelled his doom.",
+		},
+		{
+			"name": "Gift of Maazara",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhost.png",
+			"text": "The Echo of Tera Maazara fades, but you are left with the last vestige of her power.",
+		},
+		{
+			"choicesEffects": [
+				"AcceptWard",
+				"RejectWard"
+			],
+			"choicesText": [
+				"Accept the gift.",
+				"Reject the gift."
+			]
+		}
+	],
+	"GhostShun":[
+		{
+			"name": "Ghost",
+			"portrait": "res://Sprites/_art_/PuzzleAndTargets/WizardGhostFace.png",
+			"text": "I sense the taint of dark pyromancies within you. I will not help you escape this place.",
+		},
+	],
+	"DiarySmart":[
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "This explorer seems to have left a journal of some kind.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "I am done for. And I will not allow the shamblers to turn me into one of them. Before I take my own life with a final spell I will record what I know in my diary so that should another apprentice of the Arcanum overcome the Malevolent spirit that guards this place, perhaps they can avoid my fate.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "I call this place the Blood Maze. Some powerful undead wizard appears to have constructed it over a previous structure from the Old Kingdom.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "It creates these Shambling undead out of fresh corpses. I don’t know where they come from. They autonomously build and rebuild this place. The Maze itself is a deathtrap, with monsters around every corner, dead ends and illusions.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "To the north is a Rune Door. I cannot seem to cast my arcane energies fast enough to overcome the lock. Furthermore, the Rune Door itself seems to absorb magical energies making it stronger. To strike at the door with magic is to strengthen the arcane lock. No man is strong enough to break through sheer force.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "I wish I had solutions for you, but I do not. The only sense of hope I can instill upon you is that there seems to be another presence within the Blood Maze, and I do not think it wishes me harm. If only I could find it.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "Perhaps you can.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": " Please, survive. 
+-Jim the Apprentice",
+		},
+	],
+	"DiaryBuff":[
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "I can’t really read, but this looks important. I may as well try.",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "D-",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "Da- -ry",
+		},
+		{
+			"name": "Diary",
+			"portrait": "res://Sprites/Doodads/Diary.png",
+			"text": "Dairy?",
+		},
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "I give up. I'd be better suited to breaking down these walls brick by brick.",
 		},
 	],
 	"spellbookj":[

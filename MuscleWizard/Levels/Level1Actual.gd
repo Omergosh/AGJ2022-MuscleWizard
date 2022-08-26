@@ -25,7 +25,8 @@ func _process(delta):
 
 func _on_InteractZone_body_entered(body):
 	if body.is_in_group('Player'):
-		body.use_e = true
+		if body.denied_knowledge == false:
+			body.use_e = true
 
 
 func _on_InteractZone_body_exited(body):

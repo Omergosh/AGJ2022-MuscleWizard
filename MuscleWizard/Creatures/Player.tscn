@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm2.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://SpecialEffectAnimations/ArcaneBubble.tscn" type="PackedScene" id=11]
 [ext_resource path="res://SoundEffects/MagicSounds/LightExplodeReverb.mp3" type="AudioStream" id=12]
 [ext_resource path="res://SoundEffects/PhysicalSounds/Smack.mp3" type="AudioStream" id=13]
+[ext_resource path="res://SoundEffects/MagicSounds/MagicLong.mp3" type="AudioStream" id=14]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -76,6 +77,27 @@ tracks/1/keys = {
 "method": "Set_Staff_State"
 } ]
 }
+
+[sub_resource type="Gradient" id=6]
+offsets = PoolRealArray( 0, 0.0196721, 0.347541 )
+colors = PoolColorArray( 0, 0.947266, 1, 1, 0, 0.874023, 1, 1, 0.816406, 0.951054, 1, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 2
+emission_box_extents = Vector3( 30, 55, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 54.12
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+orbit_velocity = 0.01
+orbit_velocity_random = 0.0
+linear_accel = -100.0
+color = Color( 0, 1, 0.984314, 1 )
+color_ramp = SubResource( 7 )
 
 [node name="Player" type="KinematicBody2D" groups=["Player"]]
 position = Vector2( -1, -1 )
@@ -156,6 +178,17 @@ volume_db = -10.309
 pitch_scale = 0.9
 
 [node name="FireDelay" type="Timer" parent="."]
+
+[node name="Ward" type="Particles2D" parent="."]
+emitting = false
+amount = 50
+lifetime = 0.5
+process_material = SubResource( 8 )
+
+[node name="WardSound" type="AudioStreamPlayer" parent="Ward"]
+stream = ExtResource( 14 )
+volume_db = 7.505
+pitch_scale = 1.01
 
 [connection signal="timeout" from="HurtTimer" to="." method="_on_HurtTimer_timeout"]
 [connection signal="timeout" from="CastTimer" to="." method="_on_CastTimer_timeout"]
