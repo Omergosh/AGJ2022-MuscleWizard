@@ -15,8 +15,8 @@ var alive = true
 export var moveSpeed = 400
 var velocity = Vector2.ZERO
 
-#animation variables
-
+#staff variables
+var staff_upgrade = false
 
 #spells known
 var denied_knowledge = false
@@ -44,7 +44,7 @@ var staffOffset
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$Sprite.play("IdleThin")
-	staffOffset = $Sprite/Staff.position
+	staffOffset = $Sprite/StaffHold/Staff.position
 	var _error = connect("shoot", self, "_on_Player_shoot")
 	var _conflag = connect('spark', self, "_on_Player_fireball") #copying omer's code on shooting for fireball. it jank. im bad at this
 	loadPlayerChoices()
@@ -77,8 +77,8 @@ func _input(event):
 			cooldown = true
 			$CastDelay.start()
 			$SpellBlast.play()
-			$Sprite/Staff/ProjectileOrigin/ArcaneBubble.visible = true
-			$Sprite/Staff/ProjectileOrigin/ArcaneBubble.play("Form")
+			$Sprite/StaffHold/Staff/ProjectileOrigin/ArcaneBubble.visible = true
+			$Sprite/StaffHold/Staff/ProjectileOrigin/ArcaneBubble.play("Form")
 			
 		
 func _on_Player_shoot(_bullet, direction, location):
@@ -132,7 +132,7 @@ func _process(_delta):
 	if pyromancy == true:
 		if fire_cooldown == false:
 			if Input.is_action_just_pressed("fireball"):
-				emit_signal("spark", FireBall, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
+				emit_signal("spark", FireBall, $AimIndicator.global_rotation, $Sprite/StaffHold/Staff/ProjectileOrigin.global_position)
 				fire_cooldown = true
 				$FireDelay.start()
 				_cast_pose()
@@ -158,7 +158,7 @@ func handle_staff():
 				swinging = true
 				currentStaffState = staffStates.SWINGING
 				$AnimationPlayer.play("StaffSwing")
-				$Sprite/Staff/AnimationPlayer.play("bonk")
+				$Sprite/StaffHold/Staff/AnimationPlayer.play("bonk")
 
 		#staffStates.SWINGING:
 			#$Staff.position.x += 5
@@ -235,6 +235,21 @@ func _check_spells():
 	if arcane == true:
 		hud.arcane = true
 
+func equip_longer_staff():
+	# Enable LongStaff
+	$Sprite/StaffHold/LongStaff.visible = true
+	var ball_spawn = $Sprite/StaffHold/Staff/ProjectileOrigin
+	$Sprite/StaffHold/Staff.remove_child(ball_spawn)
+	$Sprite/StaffHold/LongStaff.add_child(ball_spawn)
+	#remove_child($Sprite/Staff)
+	
+	$Sprite/StaffHold/Staff.set_name("Blungus")
+	$Sprite/StaffHold/Blungus.visible = false
+	
+	# Rename LongStaff to Staff
+	$Sprite/StaffHold/LongStaff.set_name("Staff")
+	pass
+
 func _on_InteractableBase_talking():
 	isBusyReadingDialogue = true
 	print("start talking", isBusyReadingDialogue)
@@ -271,10 +286,10 @@ func _on_CastTimer_timeout():
 
 #timer triggers arcane blast effect
 func _on_CastDelay_timeout():
-	emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/Staff/ProjectileOrigin.global_position)
-	$Sprite/Staff/ProjectileOrigin/ArcaneBubble.play("Bubble")
+	emit_signal("shoot", ArcaneProjectile, $AimIndicator.global_rotation, $Sprite/StaffHold/Staff/ProjectileOrigin.global_position)
+	$Sprite/StaffHold/Staff/ProjectileOrigin/ArcaneBubble.play("Bubble")
 	$CastTimer.start()
-	$Sprite/Staff/ProjectileOrigin/ArcaneBubble.visible = false
+	$Sprite/StaffHold/Staff/ProjectileOrigin/ArcaneBubble.visible = false
 
 
 func _on_FireDelay_timeout():
@@ -349,3 +364,10 @@ func _on_Buff_talking():
 
 
 
+
+
+func _on_TestWeapon_body_entered(body):
+	if body.is_in_group("Player"):
+		if staff_upgrade == false:
+			equip_longer_staff()
+			staff_upgrade = true

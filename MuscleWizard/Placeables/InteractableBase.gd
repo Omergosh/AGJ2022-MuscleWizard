@@ -93,4 +93,5 @@ func choice_made(_choice):
 
 
 func _on_DebugTimer_timeout():
-	print(playerRef)
+	#print(playerRef)
+	pass

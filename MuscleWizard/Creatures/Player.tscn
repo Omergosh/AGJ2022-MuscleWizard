@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=2]
+[gd_scene load_steps=24 format=2]
 
 [ext_resource path="res://Sprites/Placeholder/brownwizardarm2.png" type="Texture" id=1]
 [ext_resource path="res://Creatures/Player.gd" type="Script" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://SoundEffects/MagicSounds/LightExplodeReverb.mp3" type="AudioStream" id=12]
 [ext_resource path="res://SoundEffects/PhysicalSounds/Smack.mp3" type="AudioStream" id=13]
 [ext_resource path="res://SoundEffects/MagicSounds/MagicLong.mp3" type="AudioStream" id=14]
+[ext_resource path="res://Weapons/LongStaff.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpriteFrames" id=4]
 animations = [ {
@@ -52,7 +53,7 @@ length = 0.001
 resource_name = "StaffSwing"
 length = 0.4
 tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite/Staff:position")
+tracks/0/path = NodePath("Sprite/StaffHold/Staff:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -103,9 +104,6 @@ color_ramp = SubResource( 7 )
 position = Vector2( -1, -1 )
 z_index = 1
 script = ExtResource( 2 )
-__meta__ = {
-"_edit_lock_": true
-}
 moveSpeed = 750
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
@@ -113,23 +111,30 @@ scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 4 )
 animation = "IdleThin"
 
-[node name="Staff" parent="Sprite" instance=ExtResource( 3 )]
-position = Vector2( 54, 12 )
-scale = Vector2( 2, 2 )
-
-[node name="ProjectileOrigin" type="Position2D" parent="Sprite/Staff"]
-position = Vector2( 3, -71 )
-
-[node name="ArcaneBubble" parent="Sprite/Staff/ProjectileOrigin" instance=ExtResource( 11 )]
-visible = false
-animation = "Form"
-
 [node name="Hurtbox" type="Area2D" parent="Sprite"]
 script = ExtResource( 8 )
 is_player_hurtbox = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sprite/Hurtbox"]
 shape = SubResource( 5 )
+
+[node name="StaffHold" type="Node2D" parent="Sprite"]
+
+[node name="Staff" parent="Sprite/StaffHold" instance=ExtResource( 3 )]
+position = Vector2( 54, 12 )
+scale = Vector2( 2, 2 )
+
+[node name="ProjectileOrigin" type="Position2D" parent="Sprite/StaffHold/Staff"]
+position = Vector2( 3, -71 )
+
+[node name="ArcaneBubble" parent="Sprite/StaffHold/Staff/ProjectileOrigin" instance=ExtResource( 11 )]
+visible = false
+animation = "Form"
+
+[node name="LongStaff" parent="Sprite/StaffHold" instance=ExtResource( 15 )]
+visible = false
+position = Vector2( 54, -18 )
+scale = Vector2( 2, 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 8.5 )
@@ -143,6 +148,9 @@ anims/RESET = SubResource( 3 )
 anims/StaffSwing = SubResource( 2 )
 
 [node name="AimIndicator" type="Node2D" parent="."]
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Sprite" type="Sprite" parent="AimIndicator"]
 texture = ExtResource( 7 )
@@ -158,6 +166,9 @@ wait_time = 0.5
 [node name="Camera2D" type="Camera2D" parent="."]
 current = true
 zoom = Vector2( 1.5, 1.5 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="HUD" parent="Camera2D" instance=ExtResource( 10 )]
 
@@ -184,6 +195,9 @@ emitting = false
 amount = 50
 lifetime = 0.5
 process_material = SubResource( 8 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="WardSound" type="AudioStreamPlayer" parent="Ward"]
 stream = ExtResource( 14 )
