@@ -5,7 +5,7 @@ var offline = false
 var inRange = false
 var alreadyInteracting = false
 #onready var playerRef = null
-onready var playerRef = get_node("Player")
+onready var playerRef = null
 export(String, "OnOverlap", "OnInteract") var InteractTrigger
 signal talking
 signal stopped_talking
@@ -53,7 +53,8 @@ func afterDialogueEffect():
 
 func optionPicked(choiceMade):
 	GameManager.playerChoices.append(choiceMade)
-	playerRef.loadPlayerChoices()
+	if playerRef != null:
+		playerRef.loadPlayerChoices()
 
 
 func _on_Dummy_smashed():
