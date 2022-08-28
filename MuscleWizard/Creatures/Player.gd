@@ -106,7 +106,7 @@ func _cast_pose():
 		$Sprite.play("CastBuff")
 	if jacked == false:
 		$Sprite.play("CastThin")
-	$Sprite.position.x = -50
+	$Sprite.position.x = -60
 	isBusyReadingDialogue = true
 
 ### STAFF ATTACK + MOVEMENT ###
@@ -367,7 +367,34 @@ func _on_Buff_talking():
 
 
 func _on_TestWeapon_body_entered(body):
-	if body.is_in_group("Player"):
-		if staff_upgrade == false:
-			equip_longer_staff()
-			staff_upgrade = true
+	#if body.is_in_group("Player"):
+		#if staff_upgrade == false:
+			#equip_longer_staff()
+			#staff_upgrade = true
+	pass
+	#used to test powerup
+
+
+func _on_SmartStaff_talking():
+	isBusyReadingDialogue = true
+	print("start talking", isBusyReadingDialogue)
+
+
+func _on_BuffStaff_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking", isBusyReadingDialogue)
+	if staff_upgrade == false:
+		equip_longer_staff()
+		staff_upgrade = true
+	
+
+func _on_BuffStaff_talking():
+	isBusyReadingDialogue = true
+	print("start talking", isBusyReadingDialogue)
+
+
+func _on_SmartStaff_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking", isBusyReadingDialogue)
+	
+

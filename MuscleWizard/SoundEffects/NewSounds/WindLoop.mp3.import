@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/WindLoop.mp3-addb302247a31d612f53a381afe39782.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/WindLoop.mp3"
+dest_files=[ "res://.import/WindLoop.mp3-addb302247a31d612f53a381afe39782.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

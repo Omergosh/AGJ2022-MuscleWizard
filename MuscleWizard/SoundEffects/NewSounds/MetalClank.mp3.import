@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/MetalClank.mp3-04f5a551a5aacc8f186dfd4e779d2105.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/MetalClank.mp3"
+dest_files=[ "res://.import/MetalClank.mp3-04f5a551a5aacc8f186dfd4e779d2105.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/DeepGrumbleBreath.mp3-d02c0cccda8767598e36d9a0fb751fbe.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/DeepGrumbleBreath.mp3"
+dest_files=[ "res://.import/DeepGrumbleBreath.mp3-d02c0cccda8767598e36d9a0fb751fbe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

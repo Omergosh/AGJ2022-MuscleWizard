@@ -1,4 +1,4 @@
-[gd_scene load_steps=52 format=2]
+[gd_scene load_steps=74 format=2]
 
 [ext_resource path="res://Sprites/_art_/Environment/DarkGreyBlueBlock.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=2]
@@ -30,8 +30,28 @@
 [ext_resource path="res://Sprites/Doodads/Diary.png" type="Texture" id=28]
 [ext_resource path="res://Levels/Level3.gd" type="Script" id=29]
 [ext_resource path="res://Placeables/InteractZone.tscn" type="PackedScene" id=30]
-[ext_resource path="res://Creatures/Shambler.tscn" type="PackedScene" id=31]
+[ext_resource path="res://Sprites/Doodads/BloodStain5.png" type="Texture" id=31]
 [ext_resource path="res://Sprites/_art_/player/LongStaff.png" type="Texture" id=32]
+[ext_resource path="res://Creatures/BloodyShambler.tscn" type="PackedScene" id=33]
+[ext_resource path="res://Sprites/Doodads/Bricks.png" type="Texture" id=34]
+[ext_resource path="res://Levels/Set1.gd" type="Script" id=35]
+[ext_resource path="res://Levels/SetConstant.gd" type="Script" id=36]
+[ext_resource path="res://Levels/Set3.gd" type="Script" id=37]
+[ext_resource path="res://Levels/Set2.gd" type="Script" id=38]
+[ext_resource path="res://Placeables/FalseWallTrap.tscn" type="PackedScene" id=39]
+[ext_resource path="res://Sprites/Doodads/BloodStain2.png" type="Texture" id=40]
+[ext_resource path="res://Sprites/Doodads/BloodStain3.png" type="Texture" id=41]
+[ext_resource path="res://Sprites/Doodads/BloodStain4.png" type="Texture" id=42]
+[ext_resource path="res://Sprites/Doodads/BloodStain1.png" type="Texture" id=43]
+[ext_resource path="res://SoundEffects/NewSounds/GrumbleFan1PaulstretchLoop.mp3" type="AudioStream" id=44]
+[ext_resource path="res://Levels/Ambient.gd" type="Script" id=45]
+[ext_resource path="res://Levels/Layer1.gd" type="Script" id=46]
+[ext_resource path="res://Levels/Layer2.gd" type="Script" id=47]
+[ext_resource path="res://Levels/Layer4.gd" type="Script" id=48]
+[ext_resource path="res://Levels/Layer3.gd" type="Script" id=49]
+[ext_resource path="res://Levels/Layer5.gd" type="Script" id=50]
+[ext_resource path="res://Placeables/HollowWall.tscn" type="PackedScene" id=51]
+[ext_resource path="res://Levels/Locus.gd" type="Script" id=52]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -272,6 +292,90 @@ points = PoolVector2Array( 96, 0, 128, 64, 96, 128, 32, 128, 0, 64, 32, 0 )
 6/shape_one_way_margin = 0.0
 6/shapes = [  ]
 6/z_index = 0
+7/name = "BloodStain1.png 7"
+7/texture = ExtResource( 43 )
+7/tex_offset = Vector2( 0, 0 )
+7/modulate = Color( 1, 1, 1, 1 )
+7/region = Rect2( 0, 0, 32, 32 )
+7/tile_mode = 0
+7/occluder_offset = Vector2( 0, 0 )
+7/navigation_offset = Vector2( 0, 0 )
+7/shape_offset = Vector2( 0, 0 )
+7/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+7/shape_one_way = false
+7/shape_one_way_margin = 0.0
+7/shapes = [  ]
+7/z_index = 0
+8/name = "BloodStain2.png 8"
+8/texture = ExtResource( 40 )
+8/tex_offset = Vector2( 0, 0 )
+8/modulate = Color( 1, 1, 1, 1 )
+8/region = Rect2( 0, 0, 32, 32 )
+8/tile_mode = 0
+8/occluder_offset = Vector2( 0, 0 )
+8/navigation_offset = Vector2( 0, 0 )
+8/shape_offset = Vector2( 0, 0 )
+8/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+8/shape_one_way = false
+8/shape_one_way_margin = 0.0
+8/shapes = [  ]
+8/z_index = 0
+9/name = "BloodStain3.png 9"
+9/texture = ExtResource( 41 )
+9/tex_offset = Vector2( 0, 0 )
+9/modulate = Color( 1, 1, 1, 1 )
+9/region = Rect2( 0, 0, 32, 32 )
+9/tile_mode = 0
+9/occluder_offset = Vector2( 0, 0 )
+9/navigation_offset = Vector2( 0, 0 )
+9/shape_offset = Vector2( 0, 0 )
+9/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+9/shape_one_way = false
+9/shape_one_way_margin = 0.0
+9/shapes = [  ]
+9/z_index = 0
+10/name = "BloodStain4.png 10"
+10/texture = ExtResource( 42 )
+10/tex_offset = Vector2( 0, 0 )
+10/modulate = Color( 1, 1, 1, 1 )
+10/region = Rect2( 0, 0, 32, 32 )
+10/tile_mode = 0
+10/occluder_offset = Vector2( 0, 0 )
+10/navigation_offset = Vector2( 0, 0 )
+10/shape_offset = Vector2( 0, 0 )
+10/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+10/shape_one_way = false
+10/shape_one_way_margin = 0.0
+10/shapes = [  ]
+10/z_index = 0
+11/name = "BloodStain5.png 11"
+11/texture = ExtResource( 31 )
+11/tex_offset = Vector2( 0, 0 )
+11/modulate = Color( 1, 1, 1, 1 )
+11/region = Rect2( 0, 0, 32, 32 )
+11/tile_mode = 0
+11/occluder_offset = Vector2( 0, 0 )
+11/navigation_offset = Vector2( 0, 0 )
+11/shape_offset = Vector2( 0, 0 )
+11/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+11/shape_one_way = false
+11/shape_one_way_margin = 0.0
+11/shapes = [  ]
+11/z_index = 0
+12/name = "Bricks.png 12"
+12/texture = ExtResource( 34 )
+12/tex_offset = Vector2( 0, 0 )
+12/modulate = Color( 1, 1, 1, 1 )
+12/region = Rect2( 0, 0, 128, 128 )
+12/tile_mode = 0
+12/occluder_offset = Vector2( 0, 0 )
+12/navigation_offset = Vector2( 0, 0 )
+12/shape_offset = Vector2( 0, 0 )
+12/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+12/shape_one_way = false
+12/shape_one_way_margin = 0.0
+12/shapes = [  ]
+12/z_index = 0
 
 [sub_resource type="ConvexPolygonShape2D" id=9]
 points = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -398,6 +502,12 @@ extents = Vector2( 76.5, 93 )
 [sub_resource type="RectangleShape2D" id=14]
 extents = Vector2( 220.5, 251 )
 
+[sub_resource type="RectangleShape2D" id=20]
+extents = Vector2( 138, 147.5 )
+
+[sub_resource type="RectangleShape2D" id=21]
+extents = Vector2( 129.5, 643.5 )
+
 [node name="Level" type="Node2D"]
 script = ExtResource( 29 )
 __meta__ = {
@@ -415,7 +525,7 @@ __meta__ = {
 [node name="Doodads" type="TileMap" parent="Ground"]
 tile_set = SubResource( 8 )
 format = 1
-tile_data = PoolIntArray( -2817991, 1610612737, 0, -2817983, 1610612737, 0, -2817975, 1610612737, 0, -2359136, 1610612736, 0, -2293747, 1, 0, -1769415, 1610612737, 0, -1769407, 1610612737, 0, -1769399, 1610612737, 0, 262161, 3, 0, 1376293, 1, 0, 1376321, 1, 0, 1376345, 1, 0, 1573145, -1073741823, 0, 1573161, -1073741823, 0, 1573177, -1073741823, 0, 1573193, -1073741823, 0, 1573209, -1073741823, 0, 1573225, -1073741823, 0, 1900910, 1, 0, 2097532, 1610612736, 0, 2425198, 1, 0, 2687013, 1, 0, 2687041, 1, 0, 2687065, 1, 0, 2752793, -1073741823, 0, 2752809, -1073741823, 0, 2752825, -1073741823, 0, 2752841, -1073741823, 0, 2752857, -1073741823, 0, 2752873, -1073741823, 0, 4259905, 1, 0, 4259929, 1, 0, 5046273, 1, 0, 5046513, 4, 0, 5308417, 1, 0 )
+tile_data = PoolIntArray( -2817991, 1610612737, 0, -2817983, 1610612737, 0, -2817975, 1610612737, 0, -2359136, 1610612736, 0, -2293747, 1, 0, -1769415, 1610612737, 0, -1769407, 1610612737, 0, -1769399, 1610612737, 0, 262161, 3, 0, 262356, 1610612748, 0, 327894, -2147483636, 0, 327896, 1610612748, 0, 327897, 1610612748, 0, 393431, 1610612748, 0, 393432, 536870924, 0, 393433, 536870924, 0, 393434, -536870900, 0, 393435, 536870919, 0, 458966, 536870924, 0, 524504, 12, 0, 524506, 536870924, 0, 590035, 536870923, 0, 590039, 7, 0, 590041, 12, 0, 655574, 1073741831, 0, 655576, 12, 0, 655578, 536870924, 0, 655579, 536870920, 0, 655580, -2147483636, 0, 721110, 10, 0, 721111, -1610612724, 0, 786646, -2147483636, 0, 786647, -1610612724, 0, 852178, 1610612748, 0, 852185, 1073741834, 0, 852188, -1610612724, 0, 1376293, 1, 0, 1376321, 1, 0, 1376345, 1, 0, 1573145, -1073741823, 0, 1573161, -1073741823, 0, 1573177, -1073741823, 0, 1573193, -1073741823, 0, 1573209, -1073741823, 0, 1573225, -1073741823, 0, 1900910, 1, 0, 2097532, 1610612736, 0, 2425198, 1, 0, 2687013, 1, 0, 2687041, 1, 0, 2687065, 1, 0, 2752793, -1073741823, 0, 2752809, -1073741823, 0, 2752825, -1073741823, 0, 2752841, -1073741823, 0, 2752857, -1073741823, 0, 2752873, -1073741823, 0, 3407993, 9, 0, 3539066, 7, 0, 3604601, 8, 0, 3735671, -1073741812, 0, 3735672, 536870924, 0, 3735673, 10, 0, 3801207, 536870924, 0, 3801208, 536870921, 0, 4259905, 1, 0, 4259929, 1, 0, 5046273, 1, 0, 5046513, 4, 0, 5308417, 1, 0 )
 __meta__ = {
 "_edit_lock_": true
 }
@@ -428,19 +538,61 @@ __meta__ = {
 "_edit_lock_": true
 }
 
+[node name="Shambler2" parent="." instance=ExtResource( 33 )]
+position = Vector2( 647, -2179 )
+
+[node name="Shambler5" parent="." instance=ExtResource( 33 )]
+position = Vector2( 24190, 2168 )
+
 [node name="StaffGrade" type="Sprite" parent="."]
-position = Vector2( 1166, 392 )
+position = Vector2( 1174, 428 )
 rotation = 1.39626
 scale = Vector2( 0.4, 0.35 )
 texture = ExtResource( 32 )
 
 [node name="TestWeapon" type="Area2D" parent="StaffGrade"]
+monitoring = false
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaffGrade/TestWeapon"]
 shape = SubResource( 19 )
+__meta__ = {
+"_edit_lock_": true
+}
 
-[node name="Shambler" parent="." instance=ExtResource( 31 )]
-position = Vector2( -113, 1926 )
+[node name="SmartStaff" parent="StaffGrade" instance=ExtResource( 9 )]
+position = Vector2( 3.7644, -7.94507 )
+rotation = -1.41771
+scale = Vector2( 1.70822, 0.627878 )
+__meta__ = {
+"_edit_lock_": true
+}
+dialogueKeyToPlay = "StaffSmart"
+InteractTrigger = "OnInteract"
+
+[node name="BuffStaff" parent="StaffGrade" instance=ExtResource( 9 )]
+position = Vector2( 3.7644, -7.94507 )
+rotation = -1.41771
+scale = Vector2( 1.70822, 0.627878 )
+__meta__ = {
+"_edit_lock_": true
+}
+dialogueKeyToPlay = "StaffBuff"
+InteractTrigger = "OnInteract"
+
+[node name="Pickup" type="Timer" parent="StaffGrade"]
+wait_time = 0.2
+one_shot = true
+
+[node name="InteractZone" parent="StaffGrade" instance=ExtResource( 30 )]
+position = Vector2( 10.1969, -7.99939 )
+rotation = 0.132645
+scale = Vector2( 4, 6 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Player" parent="." instance=ExtResource( 7 )]
 position = Vector2( 71, 101 )
@@ -489,28 +641,37 @@ position = Vector2( 7.5, 0 )
 shape = SubResource( 18 )
 
 [node name="ExplorerDiary" type="Node2D" parent="."]
-position = Vector2( 903, 130 )
+position = Vector2( 933, 62 )
 
 [node name="Sprite" type="Sprite" parent="ExplorerDiary"]
 position = Vector2( 297, 114 )
 rotation = 4.71239
 scale = Vector2( 0.6, 0.6 )
 texture = ExtResource( 28 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Smart" parent="ExplorerDiary" instance=ExtResource( 9 )]
 position = Vector2( 296, 116 )
 scale = Vector2( 0.3, 0.2 )
+__meta__ = {
+"_edit_lock_": true
+}
 dialogueKeyToPlay = "DiarySmart"
 InteractTrigger = "OnInteract"
 
 [node name="Buff" parent="ExplorerDiary" instance=ExtResource( 9 )]
 position = Vector2( 296, 116 )
 scale = Vector2( 0.3, 0.2 )
+__meta__ = {
+"_edit_lock_": true
+}
 dialogueKeyToPlay = "DiaryBuff"
 InteractTrigger = "OnInteract"
 
 [node name="ApproachBody" type="Area2D" parent="ExplorerDiary"]
-position = Vector2( 296, 116 )
+position = Vector2( 276, 209 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="ExplorerDiary/ApproachBody"]
 position = Vector2( -115, -22 )
@@ -522,6 +683,9 @@ __meta__ = {
 [node name="InteractZone" parent="ExplorerDiary" instance=ExtResource( 30 )]
 position = Vector2( 296, 115 )
 rotation = 1.5708
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="DoorPuzzle" type="Node2D" parent="."]
 position = Vector2( 5488, -2176 )
@@ -552,11 +716,11 @@ position = Vector2( 2108, -88 )
 
 [node name="Portal" parent="." instance=ExtResource( 8 )]
 position = Vector2( 10369, -2166 )
-LevelToGoTo = "res://UI/EndingWIP.tscn"
+LevelToGoTo = "res://Levels/EndingPlaceholder.tscn"
 
 [node name="Portal2" parent="." instance=ExtResource( 8 )]
 position = Vector2( 24450, 2183 )
-LevelToGoTo = "res://UI/EndingWIP.tscn"
+LevelToGoTo = "res://Levels/EndingPlaceholder.tscn"
 
 [node name="DestructibleWall" parent="." instance=ExtResource( 22 )]
 position = Vector2( 1410, 384 )
@@ -614,9 +778,18 @@ position = Vector2( -2, 255 )
 [node name="DestructibleWall5" parent="." instance=ExtResource( 22 )]
 position = Vector2( 23682, 2174 )
 
+[node name="DestructibleWall" parent="DestructibleWall5" instance=ExtResource( 23 )]
+position = Vector2( 253, 1 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [node name="IllusoryWall" parent="DestructibleWall5" instance=ExtResource( 24 )]
-position = Vector2( 259, 0 )
+position = Vector2( 256, 0 )
 rotation = 1.5708
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="IllusoryWall2" parent="DestructibleWall5" instance=ExtResource( 24 )]
 position = Vector2( 256, -254 )
@@ -627,7 +800,7 @@ position = Vector2( 255, 255 )
 rotation = 1.5708
 
 [node name="IllusoryWall4" parent="DestructibleWall5" instance=ExtResource( 24 )]
-position = Vector2( 512, 2 )
+position = Vector2( 511, 2 )
 rotation = 1.5708
 
 [node name="IllusoryWall5" parent="DestructibleWall5" instance=ExtResource( 24 )]
@@ -650,7 +823,399 @@ rotation = 1.5708
 position = Vector2( 763, 255 )
 rotation = 1.5708
 
+[node name="Set1" type="Node2D" parent="."]
+position = Vector2( 2151, 2668 )
+script = ExtResource( 35 )
+
+[node name="FalseWall" parent="Set1" instance=ExtResource( 39 )]
+position = Vector2( -2020, -494 )
+
+[node name="FalseWall2" parent="Set1" instance=ExtResource( 39 )]
+position = Vector2( 2331, 786 )
+
+[node name="FalseWall3" parent="Set1" instance=ExtResource( 39 )]
+position = Vector2( 7962, 2326 )
+
+[node name="Set2" type="Node2D" parent="."]
+position = Vector2( 8021, 2761 )
+script = ExtResource( 38 )
+
+[node name="FalseWall" parent="Set2" instance=ExtResource( 39 )]
+position = Vector2( -8404, -328 )
+
+[node name="FalseWall2" parent="Set2" instance=ExtResource( 39 )]
+position = Vector2( -3025, -331 )
+
+[node name="FalseWall3" parent="Set2" instance=ExtResource( 39 )]
+position = Vector2( -211, 3000 )
+
+[node name="Set3" type="Node2D" parent="."]
+position = Vector2( 5442, 2817 )
+script = ExtResource( 37 )
+
+[node name="FalseWall" parent="Set3" instance=ExtResource( 39 )]
+position = Vector2( 2111, 1153 )
+
+[node name="FalseWall2" parent="Set3" instance=ExtResource( 39 )]
+position = Vector2( 3905, -625 )
+
+[node name="FalseWall3" parent="Set3" instance=ExtResource( 39 )]
+position = Vector2( 1087, 1670 )
+
+[node name="SetConstant1" type="Node2D" parent="."]
+position = Vector2( 3310, 2207 )
+script = ExtResource( 36 )
+
+[node name="FalseWall" parent="SetConstant1" instance=ExtResource( 39 )]
+position = Vector2( -2157, 3296 )
+
+[node name="FalseWall2" parent="SetConstant1" instance=ExtResource( 39 )]
+position = Vector2( -2157, 2529 )
+
+[node name="FalseWall3" parent="SetConstant1" instance=ExtResource( 39 )]
+position = Vector2( 402, -1575 )
+
+[node name="FalseWall4" parent="SetConstant1" instance=ExtResource( 39 )]
+position = Vector2( 659, -1574 )
+
+[node name="FalseWall5" parent="SetConstant1" instance=ExtResource( 39 )]
+position = Vector2( 653, -1828 )
+
+[node name="FalseWall6" parent="SetConstant1" instance=ExtResource( 39 )]
+position = Vector2( 402, -1828 )
+
+[node name="Shambler" parent="." instance=ExtResource( 33 )]
+position = Vector2( 13795, 667 )
+
+[node name="Shambler3" parent="." instance=ExtResource( 33 )]
+position = Vector2( 13965, 479 )
+
+[node name="Shambler4" parent="." instance=ExtResource( 33 )]
+position = Vector2( 13968, 861 )
+
+[node name="Breakables" type="Node2D" parent="."]
+position = Vector2( 11918, 3070 )
+
+[node name="DestructibleWall6" parent="Breakables" instance=ExtResource( 22 )]
+position = Vector2( 1011, 127 )
+
+[node name="DestructibleWall7" parent="Breakables" instance=ExtResource( 23 )]
+position = Vector2( 1268, 128 )
+
+[node name="DestructibleWall8" parent="Breakables" instance=ExtResource( 23 )]
+position = Vector2( 1011, -122 )
+
+[node name="DestructibleWall9" parent="Breakables" instance=ExtResource( 23 )]
+position = Vector2( 1268, -123 )
+
+[node name="Gauntlet" type="Node2D" parent="."]
+position = Vector2( 18051, 2178 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Ambient" type="AudioStreamPlayer2D" parent="Gauntlet"]
+stream = ExtResource( 44 )
+volume_db = 5.532
+max_distance = 3000.0
+script = ExtResource( 45 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Area2D" type="Area2D" parent="Gauntlet/Ambient"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gauntlet/Ambient/Area2D"]
+position = Vector2( -2065, 257.5 )
+shape = SubResource( 20 )
+
+[node name="Layer1" type="Node2D" parent="Gauntlet"]
+position = Vector2( 1031, 3 )
+script = ExtResource( 46 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shambler2" parent="Gauntlet/Layer1" groups=["Enemy"] instance=ExtResource( 33 )]
+position = Vector2( -770, -790 )
+
+[node name="Shambler3" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -523, -1029 )
+
+[node name="Shambler4" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -267, -790 )
+
+[node name="Shambler" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -511, -786 )
+
+[node name="Shambler5" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -770, 763 )
+
+[node name="Shambler6" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -509, 1037 )
+
+[node name="Shambler7" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -267, 763 )
+
+[node name="Shambler8" parent="Gauntlet/Layer1" instance=ExtResource( 33 )]
+position = Vector2( -511, 767 )
+
+[node name="HollowWall" parent="Gauntlet/Layer1" instance=ExtResource( 51 )]
+position = Vector2( -522, -773 )
+
+[node name="IllusoryWall" parent="Gauntlet/Layer1/HollowWall" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="HollowWall2" parent="Gauntlet/Layer1" instance=ExtResource( 51 )]
+position = Vector2( -523, 766 )
+rotation = 3.14159
+
+[node name="IllusoryWall" parent="Gauntlet/Layer1/HollowWall2" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="LayerTrigger" type="Area2D" parent="Gauntlet/Layer1"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gauntlet/Layer1/LayerTrigger"]
+position = Vector2( -1.5, -15.5 )
+shape = SubResource( 21 )
+
+[node name="Layer2" type="Node2D" parent="Gauntlet"]
+position = Vector2( 2061, 3 )
+script = ExtResource( 47 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shambler2" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -770, -790 )
+
+[node name="Shambler3" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -523, -1029 )
+
+[node name="Shambler4" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -267, -790 )
+
+[node name="Shambler" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -511, -786 )
+
+[node name="Shambler5" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -770, 763 )
+
+[node name="Shambler6" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -509, 1037 )
+
+[node name="Shambler7" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -267, 763 )
+
+[node name="Shambler8" parent="Gauntlet/Layer2" instance=ExtResource( 33 )]
+position = Vector2( -511, 767 )
+
+[node name="HollowWall" parent="Gauntlet/Layer2" instance=ExtResource( 51 )]
+position = Vector2( -522, -773 )
+
+[node name="IllusoryWall" parent="Gauntlet/Layer2/HollowWall" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="HollowWall2" parent="Gauntlet/Layer2" instance=ExtResource( 51 )]
+position = Vector2( -523, 766 )
+rotation = 3.14159
+
+[node name="IllusoryWall" parent="Gauntlet/Layer2/HollowWall2" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="LayerTrigger" type="Area2D" parent="Gauntlet/Layer2"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gauntlet/Layer2/LayerTrigger"]
+position = Vector2( -1.5, -15.5 )
+shape = SubResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Layer3" type="Node2D" parent="Gauntlet"]
+position = Vector2( 3077, 14 )
+script = ExtResource( 49 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Shambler2" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -770, -790 )
+
+[node name="Shambler3" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -523, -1029 )
+
+[node name="Shambler4" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -267, -790 )
+
+[node name="Shambler" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -511, -786 )
+
+[node name="Shambler5" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -770, 763 )
+
+[node name="Shambler6" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -509, 1037 )
+
+[node name="Shambler7" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -267, 763 )
+
+[node name="Shambler8" parent="Gauntlet/Layer3" instance=ExtResource( 33 )]
+position = Vector2( -511, 767 )
+
+[node name="HollowWall" parent="Gauntlet/Layer3" instance=ExtResource( 51 )]
+position = Vector2( -522, -773 )
+
+[node name="IllusoryWall" parent="Gauntlet/Layer3/HollowWall" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="HollowWall2" parent="Gauntlet/Layer3" instance=ExtResource( 51 )]
+position = Vector2( -523, 766 )
+rotation = 3.14159
+
+[node name="IllusoryWall" parent="Gauntlet/Layer3/HollowWall2" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="LayerTrigger" type="Area2D" parent="Gauntlet/Layer3"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gauntlet/Layer3/LayerTrigger"]
+position = Vector2( -1.5, -15.5 )
+shape = SubResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Layer4" type="Node2D" parent="Gauntlet"]
+position = Vector2( 4113, 3 )
+script = ExtResource( 48 )
+
+[node name="Shambler2" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -770, -790 )
+
+[node name="Shambler3" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -523, -1029 )
+
+[node name="Shambler4" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -267, -790 )
+
+[node name="Shambler" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -511, -786 )
+
+[node name="Shambler5" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -770, 763 )
+
+[node name="Shambler6" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -509, 1037 )
+
+[node name="Shambler7" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -267, 763 )
+
+[node name="Shambler8" parent="Gauntlet/Layer4" instance=ExtResource( 33 )]
+position = Vector2( -511, 767 )
+
+[node name="HollowWall" parent="Gauntlet/Layer4" instance=ExtResource( 51 )]
+position = Vector2( -522, -773 )
+
+[node name="IllusoryWall" parent="Gauntlet/Layer4/HollowWall" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="HollowWall2" parent="Gauntlet/Layer4" instance=ExtResource( 51 )]
+position = Vector2( -523, 766 )
+rotation = 3.14159
+
+[node name="IllusoryWall" parent="Gauntlet/Layer4/HollowWall2" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="LayerTrigger" type="Area2D" parent="Gauntlet/Layer4"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gauntlet/Layer4/LayerTrigger"]
+position = Vector2( -1.5, -15.5 )
+shape = SubResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Layer5" type="Node2D" parent="Gauntlet"]
+position = Vector2( 5140, 3 )
+script = ExtResource( 50 )
+
+[node name="Shambler2" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -770, -790 )
+
+[node name="Shambler3" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -523, -1029 )
+
+[node name="Shambler4" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -267, -790 )
+
+[node name="Shambler" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -511, -786 )
+
+[node name="Shambler5" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -770, 763 )
+
+[node name="Shambler6" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -509, 1037 )
+
+[node name="Shambler7" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -267, 763 )
+
+[node name="Shambler8" parent="Gauntlet/Layer5" instance=ExtResource( 33 )]
+position = Vector2( -511, 767 )
+
+[node name="HollowWall" parent="Gauntlet/Layer5" instance=ExtResource( 51 )]
+position = Vector2( -522, -773 )
+
+[node name="IllusoryWall" parent="Gauntlet/Layer5/HollowWall" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="HollowWall2" parent="Gauntlet/Layer5" instance=ExtResource( 51 )]
+position = Vector2( -523, 766 )
+rotation = 3.14159
+
+[node name="IllusoryWall" parent="Gauntlet/Layer5/HollowWall2" instance=ExtResource( 24 )]
+position = Vector2( 0, -256 )
+
+[node name="LayerTrigger" type="Area2D" parent="Gauntlet/Layer5"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Gauntlet/Layer5/LayerTrigger"]
+position = Vector2( -1.5, -15.5 )
+shape = SubResource( 21 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Stigma" type="Node2D" parent="Gauntlet"]
+position = Vector2( 2566, 3 )
+script = ExtResource( 52 )
+
+[connection signal="set1" from="." to="Set1" method="_on_Level_set1"]
+[connection signal="set2" from="." to="Set2" method="_on_Level_set2"]
+[connection signal="set3" from="." to="Set3" method="_on_Level_set3"]
 [connection signal="body_entered" from="StaffGrade/TestWeapon" to="Player" method="_on_TestWeapon_body_entered"]
+[connection signal="stopped_talking" from="StaffGrade/SmartStaff" to="Player" method="_on_SmartStaff_stopped_talking"]
+[connection signal="talking" from="StaffGrade/SmartStaff" to="Player" method="_on_SmartStaff_talking"]
+[connection signal="stopped_talking" from="StaffGrade/BuffStaff" to="." method="_on_BuffStaff_stopped_talking"]
+[connection signal="stopped_talking" from="StaffGrade/BuffStaff" to="Player" method="_on_BuffStaff_stopped_talking"]
+[connection signal="talking" from="StaffGrade/BuffStaff" to="Player" method="_on_BuffStaff_talking"]
+[connection signal="timeout" from="StaffGrade/Pickup" to="." method="_on_Pickup_timeout"]
+[connection signal="body_entered" from="StaffGrade/InteractZone" to="." method="_on_InteractZone_body_entered"]
+[connection signal="body_exited" from="StaffGrade/InteractZone" to="." method="_on_InteractZone_body_exited"]
 [connection signal="stopped_talking" from="Ghost/Tera/Help" to="Player" method="_on_Help_stopped_talking"]
 [connection signal="talking" from="Ghost/Tera/Help" to="Player" method="_on_Help_talking"]
 [connection signal="stopped_talking" from="Ghost/Tera/Shun" to="Player" method="_on_Shun_stopped_talking"]
@@ -676,3 +1241,9 @@ rotation = 1.5708
 [connection signal="magicicalburst" from="DoorPuzzle/RedRuneDoor" to="DoorPuzzle/CrystalSconce2" method="_on_RedRuneDoor_magicicalburst"]
 [connection signal="magicicalburst" from="DoorPuzzle/RedRuneDoor" to="DoorPuzzle/CrystalSconce3" method="_on_RedRuneDoor_magicicalburst"]
 [connection signal="magicicalburst" from="DoorPuzzle/RedRuneDoor" to="DoorPuzzle/CrystalSconce4" method="_on_RedRuneDoor_magicicalburst"]
+[connection signal="body_entered" from="Gauntlet/Ambient/Area2D" to="Gauntlet/Ambient" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="Gauntlet/Layer1/LayerTrigger" to="Gauntlet/Layer1" method="_on_LayerTrigger_body_entered"]
+[connection signal="body_entered" from="Gauntlet/Layer2/LayerTrigger" to="Gauntlet/Layer2" method="_on_LayerTrigger_body_entered"]
+[connection signal="body_entered" from="Gauntlet/Layer3/LayerTrigger" to="Gauntlet/Layer3" method="_on_LayerTrigger_body_entered"]
+[connection signal="body_entered" from="Gauntlet/Layer4/LayerTrigger" to="Gauntlet/Layer4" method="_on_LayerTrigger_body_entered"]
+[connection signal="body_entered" from="Gauntlet/Layer5/LayerTrigger" to="Gauntlet/Layer5" method="_on_LayerTrigger_body_entered"]

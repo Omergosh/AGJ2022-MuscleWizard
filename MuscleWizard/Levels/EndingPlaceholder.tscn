@@ -1,0 +1,52 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Sprites/_art_/Environment/GreenBlock.png" type="Texture" id=1]
+[ext_resource path="res://Creatures/Player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Placeables/Portal.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Sprites/_art_/Environment/DarkBlockMauve.png" type="Texture" id=4]
+
+[sub_resource type="TileSet" id=1]
+0/name = "DarkBlockMauve.png 0"
+0/texture = ExtResource( 4 )
+0/tex_offset = Vector2( 0, 0 )
+0/modulate = Color( 1, 1, 1, 1 )
+0/region = Rect2( 0, 0, 256, 256 )
+0/tile_mode = 0
+0/occluder_offset = Vector2( 0, 0 )
+0/navigation_offset = Vector2( 0, 0 )
+0/shape_offset = Vector2( 0, 0 )
+0/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+0/shape_one_way = false
+0/shape_one_way_margin = 0.0
+0/shapes = [  ]
+0/z_index = 0
+1/name = "GreenBlock.png 1"
+1/texture = ExtResource( 1 )
+1/tex_offset = Vector2( 0, 0 )
+1/modulate = Color( 1, 1, 1, 1 )
+1/region = Rect2( 0, 0, 256, 256 )
+1/tile_mode = 0
+1/occluder_offset = Vector2( 0, 0 )
+1/navigation_offset = Vector2( 0, 0 )
+1/shape_offset = Vector2( 0, 0 )
+1/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+1/shape_one_way = false
+1/shape_one_way_margin = 0.0
+1/shapes = [  ]
+1/z_index = 0
+
+[node name="Level" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource( 1 )
+format = 1
+tile_data = PoolIntArray( -327686, -1073741824, 0, -327682, -1073741824, 0, -393214, -1073741823, 0, -393210, -1073741823, 0, -393206, -1073741823, 0, -65542, -1073741824, 0, -65538, -1073741824, 0, -131070, -1073741823, 0, -131066, -1073741823, 0, -131062, -1073741823, 0, 196602, -1073741824, 0, 196606, -1073741824, 0, 131074, -1073741823, 0, 131078, -1073741823, 0, 131082, -1073741823, 0 )
+
+[node name="TileMap2" type="TileMap" parent="."]
+format = 1
+
+[node name="Player" parent="." instance=ExtResource( 2 )]
+
+[node name="Portal" parent="." instance=ExtResource( 3 )]
+position = Vector2( 771, 0 )
+LevelToGoTo = "res://UI/EndingWIP.tscn"

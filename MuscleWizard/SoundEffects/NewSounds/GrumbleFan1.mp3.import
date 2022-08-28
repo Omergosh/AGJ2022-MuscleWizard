@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/GrumbleFan1.mp3-9389d75f616ff84866a04903165a7eb5.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/GrumbleFan1.mp3"
+dest_files=[ "res://.import/GrumbleFan1.mp3-9389d75f616ff84866a04903165a7eb5.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

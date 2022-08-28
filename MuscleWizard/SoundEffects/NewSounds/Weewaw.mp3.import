@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Weewaw.mp3-24196cc50bff09b8f893246a1827e785.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/Weewaw.mp3"
+dest_files=[ "res://.import/Weewaw.mp3-24196cc50bff09b8f893246a1827e785.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

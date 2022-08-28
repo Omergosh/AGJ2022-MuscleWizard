@@ -6,6 +6,35 @@
 			"text": "This area seems somewhat sanctified compared to the rest of the ruinous crypt.",
 		},
 	],
+	"StaffSmart":[
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "Hmm this staff is still intact. It's pretty well made too.",
+		},
+		{
+			"name": "Long Staff",
+			"portrait": "res://Sprites/_art_/player/LongStaff.png",
+			"text": "It's longer and heavier, but about the same quality as my own. I don't really have a reason to take it. It'd just slow me down.",
+		},
+	],
+	"StaffBuff":[
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "Hey there's a big stick over here.",
+		},
+		{
+			"name": "Long Staff",
+			"portrait": "res://Sprites/_art_/player/LongStaff.png",
+			"text": "It's kinda magical like my staff. But it's bigger and heavier... Which means I can hit things harder with it!",
+		},
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "I'll take it. Using it will be a better workout anyways.",
+		},
+	],
 	"GhostHelp":[
 		{
 			"name": "Ghost",

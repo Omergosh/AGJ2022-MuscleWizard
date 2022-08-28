@@ -1,7 +1,7 @@
 extends Node2D
 
 var health = 10
-var armor = 4
+var armor = 5
 signal bashed
 signal unlocked
 var keyholeleft = 0

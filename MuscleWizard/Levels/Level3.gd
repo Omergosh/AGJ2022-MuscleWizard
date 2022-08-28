@@ -5,11 +5,18 @@ extends Node2D
 # var a = 2
 onready var player = $Player
 var diary_set = false
-onready var dairy = get_node('ExplorerDiary/Buff')
 
+signal set1
+signal set2
+signal set3
+
+var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	rng.randomize()
 	_check_pyro()
+	set_traps()
+	set_traps()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -19,16 +26,26 @@ func _process(delta):
 func _set_diary():
 	if player.jacked == true:
 		$ExplorerDiary/Smart.queue_free()
-		var dairy = get_node('ExplorerDiary/Buff')
+		$StaffGrade/SmartStaff.queue_free()
 	if player.smart == true:
 		$ExplorerDiary/Buff.queue_free()
-		var dairy = get_node('ExplorerDiary/Smart')
+		$StaffGrade/BuffStaff.queue_free()
 
 func _check_pyro():
 	if $Player.pyromancy == true:
 		get_node("Ghost/Tera/Help").queue_free()
 	if $Player.pyromancy == false:
 		get_node("Ghost/Tera/Shun").queue_free()
+
+func set_traps():
+	var trap = rng.randi_range(1,3)
+	print(trap)
+	if trap == 1:
+		emit_signal("set1")
+	if trap == 2:
+		emit_signal("set2")
+	if trap == 3:
+		emit_signal("set3")
 
 func _on_ApproachBody_body_entered(body):
 	if body.is_in_group('Player'):
@@ -61,3 +78,16 @@ func _on_ExitFade_body_exited(body):
 
 
 
+
+
+
+
+
+
+func _on_Pickup_timeout():
+	$StaffGrade.queue_free()
+
+
+func _on_BuffStaff_stopped_talking():
+	$StaffGrade/Pickup.start()
+	

@@ -44,7 +44,7 @@ func take_damage(instigatorHitBox):
 	if hurt == false and dead == false:
 		$HurtTime.start()
 		hurt = true
-		$Hurt.play()
+		$Hurt.play() 
 	var p = bloodParticles.instance()
 	var delta = instigatorHitBox.global_position - global_position
 	get_parent().add_child(p)

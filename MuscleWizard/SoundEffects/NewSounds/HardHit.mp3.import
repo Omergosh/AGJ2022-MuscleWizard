@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/HardHit.mp3-9fd56bf3745ae328500764637ba60dfe.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/HardHit.mp3"
+dest_files=[ "res://.import/HardHit.mp3-9fd56bf3745ae328500764637ba60dfe.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0

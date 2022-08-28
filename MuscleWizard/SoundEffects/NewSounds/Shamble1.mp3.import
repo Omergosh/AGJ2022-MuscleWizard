@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Shamble1.mp3-e40acdbc27b54b69a64de415c8972c39.mp3str"
+
+[deps]
+
+source_file="res://SoundEffects/NewSounds/Shamble1.mp3"
+dest_files=[ "res://.import/Shamble1.mp3-e40acdbc27b54b69a64de415c8972c39.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
