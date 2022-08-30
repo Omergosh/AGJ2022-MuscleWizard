@@ -91,3 +91,7 @@ func _on_Pickup_timeout():
 func _on_BuffStaff_stopped_talking():
 	$StaffGrade/Pickup.start()
 	
+
+
+func _on_CharredSkull_delete_interact():
+	$PyroSkull/CharredSkull/InteractZone.queue_free()

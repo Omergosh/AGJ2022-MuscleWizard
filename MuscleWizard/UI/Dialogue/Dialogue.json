@@ -6,6 +6,25 @@
 			"text": "This area seems somewhat sanctified compared to the rest of the ruinous crypt.",
 		},
 	],
+	"CreepySkullPyro":[
+		{
+			"name": "Charred Skull",
+			"portrait": "res://Sprites/Doodads/CharredSkull.png",
+			"text": "This charred skull seems to hold a trace of ancient essence that calls to you",
+		},
+		{
+			"name": "Lost Essence",
+			"portrait": "res://Sprites/Doodads/CharredSkull.png",
+			"text": "Feed on my embers... burn brighter... consume...",
+		},
+	],
+	"CreepySkullNormal":[
+		{
+			"name": "Charred Skull",
+			"portrait": "res://Sprites/Doodads/CharredSkull.png",
+			"text": "There is something unsettling about this charred skull, but you can't quite place it.",
+		},
+	],
 	"StaffSmart":[
 		{
 			"name": "Examine",

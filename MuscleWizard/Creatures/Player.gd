@@ -398,3 +398,5 @@ func _on_SmartStaff_stopped_talking():
 	print("stop talking", isBusyReadingDialogue)
 	
 
+
+

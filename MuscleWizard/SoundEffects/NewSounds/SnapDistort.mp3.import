@@ -11,5 +11,5 @@ dest_files=[ "res://.import/SnapDistort.mp3-3dbbfc11b45f5eb79456a6767683f35b.mp3
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0
