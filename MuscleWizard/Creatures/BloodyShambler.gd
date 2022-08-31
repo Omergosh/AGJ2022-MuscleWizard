@@ -1,6 +1,6 @@
 extends KinematicBody2D
 
-export var moveSpeed = 5
+export var moveSpeed = 200
 var health = 20
 var damage = 6
 

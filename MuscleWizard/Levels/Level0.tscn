@@ -174,7 +174,7 @@ stream = ExtResource( 12 )
 volume_db = 2.622
 
 [node name="OpenTimer" type="Timer" parent="DialogueDoor"]
-wait_time = 0.5
+wait_time = 0.2
 
 [node name="InteractableBase" parent="." instance=ExtResource( 11 )]
 position = Vector2( -129, 113 )

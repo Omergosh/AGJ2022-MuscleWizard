@@ -21,13 +21,15 @@ func _on_Pyrosense_body_entered(body):
 			if player_seen == false:
 				ember = true
 				player_seen = true
-			$PyroNormal.queue_free()
+				$PyroNormal.queue_free()
 			$Embers.emitting = true
 			$Trigger/Burning.play()
 		if body.pyromancy == false:
 			ember = false
-			$PyroInteract.queue_free()
-			$Trigger.queue_free()
+			if player_seen == false:
+				$PyroInteract.queue_free()
+				player_seen = true
+				$Trigger.queue_free()
 
 
 

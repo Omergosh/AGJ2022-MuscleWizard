@@ -2,7 +2,7 @@ extends Node2D
 
 
 # Declare member variables here. Examples:
-var health = 30
+var health = 50
 var dead = false
 
 
