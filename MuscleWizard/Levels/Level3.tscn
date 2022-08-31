@@ -1,4 +1,4 @@
-[gd_scene load_steps=79 format=2]
+[gd_scene load_steps=81 format=2]
 
 [ext_resource path="res://Sprites/_art_/Environment/DarkGreyBlueBlock.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=2]
@@ -56,6 +56,7 @@
 [ext_resource path="res://Music/Quietude.mp3" type="AudioStream" id=54]
 [ext_resource path="res://Music/TrueQuietude.mp3" type="AudioStream" id=55]
 [ext_resource path="res://Levels/MusicPlayer.gd" type="Script" id=56]
+[ext_resource path="res://Creatures/Lich.tscn" type="PackedScene" id=57]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -514,6 +515,9 @@ extents = Vector2( 138, 147.5 )
 
 [sub_resource type="RectangleShape2D" id=21]
 extents = Vector2( 129.5, 643.5 )
+
+[sub_resource type="RectangleShape2D" id=23]
+extents = Vector2( 50, 121.5 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 29 )
@@ -1259,6 +1263,22 @@ __meta__ = {
 position = Vector2( 2566, 3 )
 script = ExtResource( 52 )
 
+[node name="Lich" parent="." instance=ExtResource( 57 )]
+position = Vector2( 9087, -2175 )
+
+[node name="BossArea" type="Node2D" parent="."]
+position = Vector2( 7682, -2166 )
+
+[node name="Area2D" type="Area2D" parent="BossArea"]
+position = Vector2( -816, -13 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea/Area2D"]
+position = Vector2( 0, 1.5 )
+shape = SubResource( 23 )
+__meta__ = {
+"_edit_lock_": true
+}
+
 [connection signal="set1" from="." to="Set1" method="_on_Level_set1"]
 [connection signal="set2" from="." to="Set2" method="_on_Level_set2"]
 [connection signal="set3" from="." to="Set3" method="_on_Level_set3"]
@@ -1311,3 +1331,4 @@ script = ExtResource( 52 )
 [connection signal="body_entered" from="Gauntlet/Layer3/LayerTrigger" to="Gauntlet/Layer3" method="_on_LayerTrigger_body_entered"]
 [connection signal="body_entered" from="Gauntlet/Layer4/LayerTrigger" to="Gauntlet/Layer4" method="_on_LayerTrigger_body_entered"]
 [connection signal="body_entered" from="Gauntlet/Layer5/LayerTrigger" to="Gauntlet/Layer5" method="_on_LayerTrigger_body_entered"]
+[connection signal="body_entered" from="BossArea/Area2D" to="Lich" method="_on_Area2D_body_entered"]

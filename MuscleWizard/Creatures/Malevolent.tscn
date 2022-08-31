@@ -231,7 +231,7 @@ disabled = true
 [node name="Body" type="AnimatedSprite" parent="."]
 frames = SubResource( 3 )
 animation = "BodyIdle"
-frame = 1
+frame = 2
 playing = true
 
 [node name="Head" type="AnimatedSprite" parent="Body"]
