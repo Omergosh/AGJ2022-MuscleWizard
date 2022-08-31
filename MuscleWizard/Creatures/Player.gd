@@ -341,25 +341,25 @@ func _on_Shun_talking():
 
 func _on_Smart_stopped_talking():
 	isBusyReadingDialogue = false
-	print("stop talking", isBusyReadingDialogue)
+	print("stop talking smart diary", isBusyReadingDialogue)
 	pass # toggle spellcasting on
 
 
 func _on_Smart_talking():
 	isBusyReadingDialogue = true
-	print("start talking", isBusyReadingDialogue)
+	print("start talking smart diary", isBusyReadingDialogue)
 	pass # toggle spellcasting off
 
 
 func _on_Buff_stopped_talking():
 	isBusyReadingDialogue = false
-	print("stop talking", isBusyReadingDialogue)
+	print("stop talking buff diary", isBusyReadingDialogue)
 	pass # toggle spellcasting on
 
 
 func _on_Buff_talking():
 	isBusyReadingDialogue = true
-	print("start talking", isBusyReadingDialogue)
+	print("start talking buff diary", isBusyReadingDialogue)
 	pass # toggle spellcasting off
 
 
@@ -377,12 +377,12 @@ func _on_TestWeapon_body_entered(body):
 
 func _on_SmartStaff_talking():
 	isBusyReadingDialogue = true
-	print("start talking", isBusyReadingDialogue)
+	print("start talking smart staff", isBusyReadingDialogue)
 
 
 func _on_BuffStaff_stopped_talking():
 	isBusyReadingDialogue = false
-	print("stop talking", isBusyReadingDialogue)
+	print("stop talking buff staff equip", isBusyReadingDialogue)
 	if staff_upgrade == false:
 		equip_longer_staff()
 		staff_upgrade = true
@@ -390,12 +390,12 @@ func _on_BuffStaff_stopped_talking():
 
 func _on_BuffStaff_talking():
 	isBusyReadingDialogue = true
-	print("start talking", isBusyReadingDialogue)
+	print("start talking buff staff", isBusyReadingDialogue)
 
 
 func _on_SmartStaff_stopped_talking():
 	isBusyReadingDialogue = false
-	print("stop talking", isBusyReadingDialogue)
+	print("stop talking smart staff", isBusyReadingDialogue)
 	
 
 
