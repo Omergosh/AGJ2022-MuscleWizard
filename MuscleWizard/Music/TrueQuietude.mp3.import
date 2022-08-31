@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/TrueQuietude.mp3-b075889d754a8d6d573bf4e683f2a0d8.mp3str"
+
+[deps]
+
+source_file="res://Music/TrueQuietude.mp3"
+dest_files=[ "res://.import/TrueQuietude.mp3-b075889d754a8d6d573bf4e683f2a0d8.mp3str" ]
+
+[params]
+
+loop=false
+loop_offset=0
