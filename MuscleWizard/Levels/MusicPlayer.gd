@@ -29,8 +29,12 @@ func toggle_music():
 			$Quietude.stop()
 		if $TrueQuietude.playing == true:
 			$TrueQuietude.stop()
-	if music_on == false:
+		music_on = false
+		print('music off')
+	elif music_on == false:
+		music_on = true
 		play_track()
+		print('music on')
 
 
 func _on_QuietSwitchBoss_body_entered(body):
