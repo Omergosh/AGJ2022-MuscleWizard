@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://LichSconce.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/_art_/Lich/LichEffects/AttackSconce/LichSconceBroke.png" type="Texture" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://Sprites/_art_/Lich/LichEffects/AttackSconce/LichSconce1.png" type="Texture" id=8]
 [ext_resource path="res://Sprites/_art_/Lich/LichEffects/AttackSconce/LichSconce5.png" type="Texture" id=9]
 [ext_resource path="res://Hurtbox.gd" type="Script" id=10]
+[ext_resource path="res://SoundEffects/NewSounds/GrumbleFan1.mp3" type="AudioStream" id=11]
+[ext_resource path="res://SoundEffects/NewSounds/MetalClank.mp3" type="AudioStream" id=12]
+[ext_resource path="res://SoundEffects/NewSounds/SnapDistort.mp3" type="AudioStream" id=13]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -41,7 +44,7 @@ orbit_velocity = 0.1
 orbit_velocity_random = 0.0
 radial_accel = -100.0
 scale = 0.7
-color = Color( 0.172549, 0.0509804, 0.552941, 1 )
+color = Color( 0.294118, 0.0823529, 0.607843, 1 )
 
 [sub_resource type="ParticlesMaterial" id=5]
 emission_shape = 1
@@ -51,8 +54,27 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 radial_accel = 100.0
-scale = 0.3
+scale = 0.7
 color = Color( 0.494118, 0.184314, 0.988235, 1 )
+
+[sub_resource type="Gradient" id=6]
+colors = PoolColorArray( 0.282799, 0, 0.716797, 1, 0, 0.121094, 1, 1 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=8]
+emission_shape = 1
+emission_sphere_radius = 1.0
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 40.0
+angular_velocity = 1.0
+orbit_velocity = 0.1
+orbit_velocity_random = 0.0
+linear_accel = 50.0
+color_ramp = SubResource( 7 )
 
 [node name="LichSconce" type="Node2D" groups=["Enemy", "Lich"]]
 script = ExtResource( 1 )
@@ -90,12 +112,15 @@ position = Vector2( -1, -17 )
 shape = SubResource( 3 )
 
 [node name="FocalPoint" type="Node2D" parent="."]
-position = Vector2( 0, -22 )
+position = Vector2( -1, -22 )
 
 [node name="GatherPower" type="Particles2D" parent="FocalPoint"]
 emitting = false
 amount = 12
 process_material = SubResource( 4 )
+__meta__ = {
+"_edit_lock_": true
+}
 
 [node name="Cast" type="Particles2D" parent="FocalPoint"]
 emitting = false
@@ -103,3 +128,36 @@ amount = 50
 one_shot = true
 explosiveness = 1.0
 process_material = SubResource( 5 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Broken" type="Particles2D" parent="FocalPoint"]
+position = Vector2( 0, 6 )
+emitting = false
+amount = 20
+one_shot = true
+explosiveness = 0.8
+process_material = SubResource( 8 )
+
+[node name="ChargeSeek" type="AudioStreamPlayer2D" parent="FocalPoint"]
+stream = ExtResource( 11 )
+pitch_scale = 4.0
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="DischargeSeek" type="AudioStreamPlayer2D" parent="FocalPoint"]
+stream = ExtResource( 13 )
+pitch_scale = 1.19
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Break" type="AudioStreamPlayer2D" parent="FocalPoint"]
+position = Vector2( 0, 22 )
+stream = ExtResource( 12 )
+pitch_scale = 0.66
+__meta__ = {
+"_edit_lock_": true
+}

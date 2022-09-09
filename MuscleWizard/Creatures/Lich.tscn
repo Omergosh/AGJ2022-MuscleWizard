@@ -182,6 +182,10 @@ stream = ExtResource( 14 )
 stream = ExtResource( 13 )
 pitch_scale = 2.04
 
+[node name="ChargeSeek" type="AudioStreamPlayer2D" parent="Sounds"]
+
+[node name="DischargeSeek" type="AudioStreamPlayer2D" parent="Sounds"]
+
 [node name="Timers" type="Node" parent="."]
 
 [node name="BlastTimer" type="Timer" parent="Timers"]

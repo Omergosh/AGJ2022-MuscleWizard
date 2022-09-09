@@ -1,13 +1,14 @@
-[gd_scene load_steps=8 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://LichSeeker.gd" type="Script" id=1]
 [ext_resource path="res://Hitbox.gd" type="Script" id=2]
+[ext_resource path="res://SoundEffects/NewSounds/GrumbleFan1PaulstretchLoop.mp3" type="AudioStream" id=3]
 
 [sub_resource type="CircleShape2D" id=4]
 radius = 6.0
 
 [sub_resource type="Gradient" id=1]
-colors = PoolColorArray( 0.389639, 0, 0.724121, 1, 1, 1, 1, 1 )
+colors = PoolColorArray( 0.576973, 0.217855, 0.885254, 1, 0.169763, 0.156168, 0.975098, 1 )
 
 [sub_resource type="GradientTexture" id=2]
 gradient = SubResource( 1 )
@@ -20,7 +21,6 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 1.0
 orbit_velocity_random = 0.0
 radial_accel = -100.0
-color = Color( 0.219608, 0, 0.85098, 1 )
 color_ramp = SubResource( 2 )
 
 [sub_resource type="CircleShape2D" id=5]
@@ -50,4 +50,7 @@ shape = SubResource( 5 )
 
 [node name="Timer" type="Timer" parent="."]
 
-[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+[node name="SpellSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+pitch_scale = 4.0
+autoplay = true
