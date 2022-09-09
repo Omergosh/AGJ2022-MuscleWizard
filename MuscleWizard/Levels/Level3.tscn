@@ -589,11 +589,24 @@ rotation = 1.39626
 scale = Vector2( 0.4, 0.35 )
 texture = ExtResource( 32 )
 
-[node name="TestWeapon" type="Area2D" parent="StaffGrade"]
-monitoring = false
+[node name="BuffStaff" parent="StaffGrade" instance=ExtResource( 9 )]
+position = Vector2( 3.7644, -7.94507 )
+rotation = -1.41771
+scale = Vector2( 1.9, 0.628 )
 __meta__ = {
 "_edit_lock_": true
 }
+dialogueKeyToPlay = "StaffBuff"
+InteractTrigger = "OnOverlap"
+
+[node name="TestWeapon" type="Area2D" parent="StaffGrade"]
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="Pickup" type="Timer" parent="StaffGrade/TestWeapon"]
+wait_time = 0.2
+one_shot = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaffGrade/TestWeapon"]
 shape = SubResource( 19 )
@@ -610,20 +623,6 @@ __meta__ = {
 }
 dialogueKeyToPlay = "StaffSmart"
 InteractTrigger = "OnInteract"
-
-[node name="BuffStaff" parent="StaffGrade" instance=ExtResource( 9 )]
-position = Vector2( 3.7644, -7.94507 )
-rotation = -1.41771
-scale = Vector2( 1.70822, 0.627878 )
-__meta__ = {
-"_edit_lock_": true
-}
-dialogueKeyToPlay = "StaffBuff"
-InteractTrigger = "OnInteract"
-
-[node name="Pickup" type="Timer" parent="StaffGrade"]
-wait_time = 0.2
-one_shot = true
 
 [node name="InteractZone" parent="StaffGrade" instance=ExtResource( 30 )]
 position = Vector2( 10.1969, -7.99939 )
@@ -1288,13 +1287,14 @@ __meta__ = {
 [connection signal="body_exited" from="MusicPlayer/QuietSwitchBoss" to="MusicPlayer" method="_on_QuietSwitchBoss_body_exited"]
 [connection signal="body_entered" from="MusicPlayer/QuietSwitchBoss2" to="MusicPlayer" method="_on_QuietSwitchBoss_body_entered"]
 [connection signal="body_exited" from="MusicPlayer/QuietSwitchBoss2" to="MusicPlayer" method="_on_QuietSwitchBoss_body_exited"]
-[connection signal="body_entered" from="StaffGrade/TestWeapon" to="Player" method="_on_TestWeapon_body_entered"]
-[connection signal="stopped_talking" from="StaffGrade/SmartStaff" to="Player" method="_on_SmartStaff_stopped_talking"]
-[connection signal="talking" from="StaffGrade/SmartStaff" to="Player" method="_on_SmartStaff_talking"]
 [connection signal="stopped_talking" from="StaffGrade/BuffStaff" to="." method="_on_BuffStaff_stopped_talking"]
 [connection signal="stopped_talking" from="StaffGrade/BuffStaff" to="Player" method="_on_BuffStaff_stopped_talking"]
 [connection signal="talking" from="StaffGrade/BuffStaff" to="Player" method="_on_BuffStaff_talking"]
-[connection signal="timeout" from="StaffGrade/Pickup" to="." method="_on_Pickup_timeout"]
+[connection signal="body_entered" from="StaffGrade/TestWeapon" to="." method="_on_TestWeapon_body_entered"]
+[connection signal="body_entered" from="StaffGrade/TestWeapon" to="Player" method="_on_TestWeapon_body_entered"]
+[connection signal="timeout" from="StaffGrade/TestWeapon/Pickup" to="." method="_on_Pickup_timeout"]
+[connection signal="stopped_talking" from="StaffGrade/SmartStaff" to="Player" method="_on_SmartStaff_stopped_talking"]
+[connection signal="talking" from="StaffGrade/SmartStaff" to="Player" method="_on_SmartStaff_talking"]
 [connection signal="body_entered" from="StaffGrade/InteractZone" to="." method="_on_InteractZone_body_entered"]
 [connection signal="body_exited" from="StaffGrade/InteractZone" to="." method="_on_InteractZone_body_exited"]
 [connection signal="stopped_talking" from="Ghost/Tera/Help" to="Player" method="_on_Help_stopped_talking"]

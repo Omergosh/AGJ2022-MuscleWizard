@@ -51,7 +51,7 @@
 		{
 			"name": "Examine",
 			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
-			"text": "I'll take it. Using it will be a better workout anyways.",
+			"text": "Maybe I should take it. Using it will be a better workout anyways.",
 		},
 	],
 	"GhostHelp":[

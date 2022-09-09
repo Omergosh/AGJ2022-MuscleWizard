@@ -26,9 +26,11 @@ func _process(delta):
 func _set_diary():
 	if player.jacked == true:
 		$ExplorerDiary/Smart.queue_free()
-		$StaffGrade/SmartStaff.queue_free()
+		$StaffGrade/SmartStaff.queue_free() 
+		$StaffGrade/InteractZone.queue_free() #deletes 'press e to interact' prompt since buffwizard just auto interacts here
 	if player.smart == true:
 		$ExplorerDiary/Buff.queue_free()
+		$StaffGrade/TestWeapon.queue_free() 
 		$StaffGrade/BuffStaff.queue_free()
 
 func _check_pyro():
@@ -85,13 +87,18 @@ func _on_ExitFade_body_exited(body):
 
 
 func _on_Pickup_timeout():
+	print('deleted staff, level code')
 	$StaffGrade.queue_free()
 
 
-func _on_BuffStaff_stopped_talking():
-	$StaffGrade/Pickup.start()
-	
+
 
 
 func _on_CharredSkull_delete_interact():
 	$PyroSkull/CharredSkull/InteractZone.queue_free()
+
+
+func _on_TestWeapon_body_entered(body):
+	if body.is_in_group('Player'):
+		print('delet timer for staff')
+		$StaffGrade/TestWeapon/Pickup.start()

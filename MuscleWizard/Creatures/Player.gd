@@ -301,6 +301,11 @@ func _on_FireDelay_timeout():
 	$Sprite.position.x = 0
 	isBusyReadingDialogue = false
 
+func swap_staff():
+	if staff_upgrade == false:
+		equip_longer_staff()
+		$PickupSound.play()
+		staff_upgrade = true
 
 
 func _on_InteractableBase2_talking():
@@ -367,12 +372,11 @@ func _on_Buff_talking():
 
 
 func _on_TestWeapon_body_entered(body):
-	#if body.is_in_group("Player"):
-		#if staff_upgrade == false:
-			#equip_longer_staff()
+	if body.is_in_group("Player"):	
+		swap_staff()
 			#staff_upgrade = true
-	pass
-	#used to test powerup
+	
+	#used to test powerup, using to see if workaround for dialogue
 
 
 func _on_SmartStaff_talking():
@@ -382,10 +386,8 @@ func _on_SmartStaff_talking():
 
 func _on_BuffStaff_stopped_talking():
 	isBusyReadingDialogue = false
-	print("stop talking buff staff equip", isBusyReadingDialogue)
-	if staff_upgrade == false:
-		equip_longer_staff()
-		staff_upgrade = true
+	print("stop talking buff staff equip, playerside", isBusyReadingDialogue)
+	#swap_staff()
 	
 
 func _on_BuffStaff_talking():
