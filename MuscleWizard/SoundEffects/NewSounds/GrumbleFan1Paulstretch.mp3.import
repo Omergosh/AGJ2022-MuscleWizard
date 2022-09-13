@@ -11,5 +11,5 @@ dest_files=[ "res://.import/GrumbleFan1Paulstretch.mp3-1414490ef14ac8b5b27c577f4
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

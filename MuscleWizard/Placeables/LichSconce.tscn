@@ -43,7 +43,7 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.1
 orbit_velocity_random = 0.0
 radial_accel = -100.0
-scale = 0.7
+scale = 1.5
 color = Color( 0.294118, 0.0823529, 0.607843, 1 )
 
 [sub_resource type="ParticlesMaterial" id=5]
@@ -54,7 +54,7 @@ gravity = Vector3( 0, 0, 0 )
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 radial_accel = 100.0
-scale = 0.7
+scale = 1.2
 color = Color( 0.494118, 0.184314, 0.988235, 1 )
 
 [sub_resource type="Gradient" id=6]
@@ -74,6 +74,7 @@ angular_velocity = 1.0
 orbit_velocity = 0.1
 orbit_velocity_random = 0.0
 linear_accel = 50.0
+scale = 1.5
 color_ramp = SubResource( 7 )
 
 [node name="LichSconce" type="Node2D" groups=["Enemy", "Lich"]]
@@ -86,7 +87,7 @@ __meta__ = {
 scale = Vector2( 0.5, 0.5 )
 frames = SubResource( 1 )
 animation = "Idle"
-frame = 1
+frame = 4
 playing = true
 __meta__ = {
 "_edit_lock_": true
@@ -115,7 +116,7 @@ shape = SubResource( 3 )
 position = Vector2( -1, -22 )
 
 [node name="GatherPower" type="Particles2D" parent="FocalPoint"]
-emitting = false
+visible = false
 amount = 12
 process_material = SubResource( 4 )
 __meta__ = {
