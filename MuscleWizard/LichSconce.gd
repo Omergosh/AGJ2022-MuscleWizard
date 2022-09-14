@@ -28,6 +28,7 @@ func take_damage(instigatorHitBox):
 	var damageTaken = instigatorHitBox.damage
 	print('SconceDamage, ', damageTaken)
 	health -= damageTaken
+	#hurt sound?
 
 
 func _on_Lich_ready_sconce():
