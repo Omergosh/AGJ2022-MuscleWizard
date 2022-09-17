@@ -241,13 +241,10 @@ one_shot = true
 one_shot = true
 
 [node name="Blink" type="Particles2D" parent="."]
-amount = 12
-explosiveness = 0.78
-process_material = SubResource( 12 )
-
-[node name="BoneDust" type="Particles2D" parent="."]
 emitting = false
 amount = 12
+one_shot = true
+speed_scale = 2.0
 explosiveness = 0.78
 process_material = SubResource( 12 )
 
