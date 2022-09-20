@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=32 format=2]
 
 [ext_resource path="res://KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Sprites/_art_/Lich/LichOof.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://SpecialEffectAnimations/LichBubble.tscn" type="PackedScene" id=15]
 [ext_resource path="res://SoundEffects/MagicSounds/ShadowBolt.mp3" type="AudioStream" id=16]
 [ext_resource path="res://SoundEffects/NewSounds/GrumbleFan1Paulstretch.mp3" type="AudioStream" id=17]
+[ext_resource path="res://SoundEffects/MagicSounds/BoingMagic.mp3" type="AudioStream" id=18]
 
 [sub_resource type="CapsuleShape2D" id=1]
 radius = 29.0
@@ -119,11 +120,26 @@ flag_disable_z = true
 direction = Vector3( 0, 0, 0 )
 spread = 180.0
 gravity = Vector3( 0, 0, 0 )
-initial_velocity = 80.0
+initial_velocity = 90.0
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
+linear_accel = -80.0
 scale = 3.0
 color_ramp = SubResource( 11 )
+
+[sub_resource type="ParticlesMaterial" id=13]
+emission_shape = 2
+emission_box_extents = Vector3( 13, 50, 1 )
+flag_disable_z = true
+direction = Vector3( 0, 0, 0 )
+spread = 180.0
+gravity = Vector3( 0, 50, 0 )
+initial_velocity = 50.0
+orbit_velocity = 0.0
+orbit_velocity_random = 0.0
+linear_accel = -10.0
+linear_accel_random = 0.54
+scale = 1.5
 
 [node name="Lich" type="KinematicBody2D" groups=["Enemy", "Lich"]]
 script = ExtResource( 1 )
@@ -223,6 +239,11 @@ stream = ExtResource( 16 )
 volume_db = 15.0
 pitch_scale = 1.53
 
+[node name="Teleport" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 18 )
+volume_db = 8.298
+pitch_scale = 0.7
+
 [node name="Timers" type="Node" parent="."]
 
 [node name="BlastTimer" type="Timer" parent="Timers"]
@@ -240,15 +261,44 @@ one_shot = true
 [node name="HurtTimer" type="Timer" parent="Timers"]
 one_shot = true
 
+[node name="TeleportTimer" type="Timer" parent="Timers"]
+wait_time = 0.1
+one_shot = true
+
+[node name="TeleCooldown" type="Timer" parent="Timers"]
+wait_time = 8.0
+one_shot = true
+
+[node name="DyingRefresh" type="Timer" parent="Timers"]
+one_shot = true
+
+[node name="SummonTimer" type="Timer" parent="Timers"]
+wait_time = 2.0
+one_shot = true
+
 [node name="Blink" type="Particles2D" parent="."]
 emitting = false
-amount = 12
+amount = 30
+lifetime = 1.5
 one_shot = true
 speed_scale = 2.0
 explosiveness = 0.78
 process_material = SubResource( 12 )
 
+[node name="BoneDust" type="Particles2D" parent="."]
+emitting = false
+amount = 12
+lifetime = 0.8
+one_shot = true
+speed_scale = 1.5
+explosiveness = 0.81
+process_material = SubResource( 13 )
+
 [connection signal="timeout" from="Timers/BlastTimer" to="." method="_on_BlastTimer_timeout"]
 [connection signal="timeout" from="Timers/TestTimer" to="." method="_on_TestTimer_timeout"]
 [connection signal="timeout" from="Timers/SeekerTimer" to="." method="_on_SeekerTimer_timeout"]
 [connection signal="timeout" from="Timers/HurtTimer" to="." method="_on_HurtTimer_timeout"]
+[connection signal="timeout" from="Timers/TeleportTimer" to="." method="_on_TeleportTimer_timeout"]
+[connection signal="timeout" from="Timers/TeleCooldown" to="." method="_on_TeleCooldown_timeout"]
+[connection signal="timeout" from="Timers/DyingRefresh" to="." method="_on_DyingRefresh_timeout"]
+[connection signal="timeout" from="Timers/SummonTimer" to="." method="_on_SummonTimer_timeout"]

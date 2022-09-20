@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Spawner.gd" type="Script" id=1]
+
+[sub_resource type="Curve" id=1]
+min_value = -200.0
+max_value = 200.0
+_data = [ Vector2( 0.0152439, 64.5455 ), 0.0, 0.0, 0, 0, Vector2( 0.972561, -179.091 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+flag_disable_z = true
+spread = 180.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 60.0
+orbit_velocity = 0.5
+orbit_velocity_random = 0.0
+linear_accel = 10.0
+linear_accel_curve = SubResource( 2 )
+radial_accel = 1.0
+scale = 4.0
+color = Color( 0.313726, 0.00784314, 0.00784314, 1 )
+hue_variation = -0.02
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 30.0167
+
+[node name="Spawner" type="Node2D" groups=["SummonCircle"]]
+script = ExtResource( 1 )
+
+[node name="Summon" type="Particles2D" parent="."]
+emitting = false
+amount = 40
+lifetime = 4.0
+one_shot = true
+speed_scale = 2.0
+explosiveness = 0.7
+process_material = SubResource( 3 )
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource( 4 )
+
+[node name="SummonTimer" type="Timer" parent="."]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]

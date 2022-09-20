@@ -1,4 +1,4 @@
-[gd_scene load_steps=82 format=2]
+[gd_scene load_steps=83 format=2]
 
 [ext_resource path="res://Sprites/_art_/Environment/DarkGreyBlueBlock.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=2]
@@ -58,6 +58,7 @@
 [ext_resource path="res://Levels/MusicPlayer.gd" type="Script" id=56]
 [ext_resource path="res://Creatures/Lich.tscn" type="PackedScene" id=57]
 [ext_resource path="res://Placeables/LichSconce.tscn" type="PackedScene" id=58]
+[ext_resource path="res://Placeables/Spawner.tscn" type="PackedScene" id=59]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -1298,6 +1299,9 @@ scale = Vector2( 2, 2 )
 position = Vector2( 1405, 447 )
 scale = Vector2( 2, 2 )
 
+[node name="Spawner" parent="." instance=ExtResource( 59 )]
+position = Vector2( 8574, -2177 )
+
 [connection signal="set1" from="." to="Set1" method="_on_Level_set1"]
 [connection signal="set2" from="." to="Set2" method="_on_Level_set2"]
 [connection signal="set3" from="." to="Set3" method="_on_Level_set3"]
@@ -1360,3 +1364,4 @@ scale = Vector2( 2, 2 )
 [connection signal="sconce_seeker" from="Lich" to="BossArea/LichSconce3" method="_on_Lich_sconce_seeker"]
 [connection signal="sconce_seeker" from="Lich" to="BossArea/LichSconce4" method="_on_Lich_sconce_seeker"]
 [connection signal="body_entered" from="BossArea/Area2D" to="Lich" method="_on_Area2D_body_entered"]
+[connection signal="spawn_active" from="Spawner" to="Lich" method="_on_Spawner_spawn_active"]

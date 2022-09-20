@@ -45,4 +45,8 @@ func _on_Lich_sconce_seeker():
 		$FocalPoint/Cast.emitting = true
 		var s = seekerspell.instance()
 		$FocalPoint.add_child(s)
+	else:
+		$FocalPoint/GatherPower.visible = false
+		$FocalPoint/ChargeSeek.playing = false
+		
 	

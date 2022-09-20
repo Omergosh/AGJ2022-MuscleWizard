@@ -11,19 +11,28 @@ var armor = 2
 
 var lichblast = preload("res://Spells/LichBlast.tscn")
 var seekerspell = preload("res://Spells/LichSeeker.tscn")
+var bloodball = preload("res://Spells/LichSummon.tscn")
 
 #aggro and behavior
+
+var zombie_out = false #checks whether or not spell has been cast
+var zombie_number = 0
 
 var staggered = false #whether Lich has been interrupted by damage
 var unstoppable = false #whether Lich can be interrupted by damage
 var casting = false #whether Lich is currently casting a spell, should prevent casting of multiple spells
 var cast_time_active = false
 
+var tele_cooldown = false # when true prevents another teleport
+var decide_teleport = false #whether Lich is about to teleport
+var location_start = true #if true, means lich is at start position
+
 var hurt = false
 
 var conversing = false
 var aggro = false #starts false
-var serious_phase = false
+var serious_phase = false #starts false
+var dying = false
 
 signal ready_sconce
 signal sconce_seeker
@@ -42,7 +51,14 @@ func _process(delta):
 	IdlePose()
 	if health <= 0:
 		print('lichdead')
-		queue_free()
+		aggro = false
+		if dying == false:
+			dying = true
+			die()
+
+func phase2():
+	$Timers/TestTimer.wait_time = 2
+	serious_phase = true
 
 func take_damage(instigatorHitBox):
 	var damageType = instigatorHitBox.owner.get_groups()[0]
@@ -50,13 +66,22 @@ func take_damage(instigatorHitBox):
 	print("Boss Damage: ", damageTaken, "- armor", armor)
 	damageTaken -= armor
 	health -= damageTaken
+	if serious_phase == false:
+		if health <= 70:
+			phase2()
+			serious_phase = true
 	hurting()
 	print('hurt is ', hurt)
 	
+func die():
+	$AnimatedSprite.play("Cast")
+	$Timers/DyingRefresh.start()
+
 
 
 func hurting():
 	#flinching?
+	$BoneDust.emitting = true
 	if hurt == false:
 		$Timers/HurtTimer.start()
 		var coin = rng.randi_range(0,1)
@@ -66,6 +91,12 @@ func hurting():
 		if coin == 0:
 			$Sounds/Crack2.play()
 		hurt = true
+	if hurt == true:
+		if tele_cooldown == false:
+			decide_teleport = true
+			tele_cooldown = true
+			$Timers/TeleCooldown.start()
+			print('tele_cooldown is ', tele_cooldown)
 
 func LichBlast():
 	var player_position = player.position
@@ -98,8 +129,12 @@ func IdlePose():
 			$Timers/TestTimer.start() #timer determines time between casts
 			cast_time_active = true
 
-
-
+func SummonUndead():
+	casting = true
+	$Timers/SummonTimer.start()
+	$Sounds/ChargeSeek.play()
+	$AnimatedSprite.play("Point")
+	$SomaticSpawn/BloodyCharge.emitting = true
 
 func _on_BlastTimer_timeout():
 	var b = lichblast.instance()
@@ -115,13 +150,22 @@ func _on_BlastTimer_timeout():
 	casting = false
 
 func cast_spell():
+	rng.randomize()
 	var choice = rng.randi_range(1,3)
 	print(choice)
 	if choice == 1:
 		print('lichblast')
 		LichBlast()
 	if choice == 2:
-		print('no spell yet')
+		if serious_phase == false:
+			print('no spell yet')
+		else:
+			if zombie_out == false:
+				SummonUndead()
+			else:
+				print('Summon already used!, casting other spell')
+				LichBlast()
+				zombie_out = false #resets so it can be cast again
 	if choice == 3:
 		print('seeker')
 		SeekerCast()
@@ -129,8 +173,14 @@ func cast_spell():
 # triggers lich spellcasting, should only trigger if aggroed, will choose spells
 func _on_TestTimer_timeout():
 	if aggro == true:
-		cast_spell()
-		print('Lich is spellcasting!')
+		if decide_teleport == true:
+			print('Oh shit!')
+			$Timers/TeleportTimer.start()
+			$Blink.emitting = true
+			$Sounds/Teleport.play()
+		elif decide_teleport == false: 
+			cast_spell()
+			print('Lich is spellcasting!')
 
 
 func _on_Area2D_body_entered(body):
@@ -154,3 +204,42 @@ func _on_SeekerTimer_timeout():
 	casting = false
 	cast_time_active = false
 
+
+
+func _on_TeleportTimer_timeout():
+	print("I'm getting the fuck out of here!!")
+	if location_start == true:
+		self.position.x = 7682
+		self.position.y = -2166
+		location_start = false
+	else:
+		self.position.x = 9087
+		self.position.y = -2175
+		location_start = true
+	#cast_spell() weird double casting
+	decide_teleport = false
+
+
+func _on_TeleCooldown_timeout():
+	tele_cooldown = false
+	print('tele_cooldown is ', tele_cooldown)
+
+
+func _on_DyingRefresh_timeout():
+	$BoneDust.emitting = true
+	$Sounds/Crack1.play()
+	$Timers/DyingRefresh.start()
+
+
+func _on_SummonTimer_timeout():
+	$Sounds/ChargeSeek.stop()
+	$Sounds/DischargeSeek.play() #add new sounds later?
+	$SomaticSpawn/BloodyCharge.emitting = false
+	var b = bloodball.instance()
+	$SomaticSpawn.add_child(b)
+	casting = false
+
+
+func _on_Spawner_spawn_active():
+	zombie_out = true
+	zombie_number += 1
