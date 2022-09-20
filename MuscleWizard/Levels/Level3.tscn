@@ -1,4 +1,4 @@
-[gd_scene load_steps=84 format=2]
+[gd_scene load_steps=88 format=2]
 
 [ext_resource path="res://Sprites/_art_/Environment/DarkGreyBlueBlock.png" type="Texture" id=1]
 [ext_resource path="res://Sprites/_art_/Environment/DarkBlock.png" type="Texture" id=2]
@@ -60,6 +60,8 @@
 [ext_resource path="res://Placeables/LichSconce.tscn" type="PackedScene" id=58]
 [ext_resource path="res://Placeables/Spawner.tscn" type="PackedScene" id=59]
 [ext_resource path="res://Placeables/SpellWall.tscn" type="PackedScene" id=60]
+[ext_resource path="res://Placeables/FalseLich.tscn" type="PackedScene" id=61]
+[ext_resource path="res://Levels/BossArea.gd" type="Script" id=62]
 
 [sub_resource type="NavigationPolygon" id=1]
 vertices = PoolVector2Array( 256, 256, 0, 256, 0, 0, 256, 0 )
@@ -521,6 +523,12 @@ extents = Vector2( 129.5, 643.5 )
 
 [sub_resource type="RectangleShape2D" id=23]
 extents = Vector2( 50, 121.5 )
+
+[sub_resource type="RectangleShape2D" id=24]
+extents = Vector2( 75, 382 )
+
+[sub_resource type="RectangleShape2D" id=25]
+extents = Vector2( 69, 92.5 )
 
 [node name="Level" type="Node2D"]
 script = ExtResource( 29 )
@@ -1270,12 +1278,13 @@ position = Vector2( 9087, -2175 )
 
 [node name="BossArea" type="Node2D" parent="."]
 position = Vector2( 7682, -2166 )
+script = ExtResource( 62 )
 __meta__ = {
 "_edit_lock_": true
 }
 
 [node name="Area2D" type="Area2D" parent="BossArea"]
-position = Vector2( -816, -13 )
+position = Vector2( -806, -12 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea/Area2D"]
 position = Vector2( 0, 1.5 )
@@ -1301,10 +1310,83 @@ position = Vector2( 1405, 419 )
 scale = Vector2( 2, 2 )
 
 [node name="SpellWall" parent="BossArea" instance=ExtResource( 60 )]
-position = Vector2( -1153, 0 )
+position = Vector2( -1093, 0 )
 
 [node name="SpellWall2" parent="BossArea" instance=ExtResource( 60 )]
 position = Vector2( 2431, 0 )
+
+[node name="FalseLich" parent="BossArea" instance=ExtResource( 61 )]
+position = Vector2( -257, 0 )
+
+[node name="BossTalkBuff" parent="BossArea" instance=ExtResource( 9 )]
+position = Vector2( -779, -4 )
+scale = Vector2( 0.5, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+dialogueKeyToPlay = "LichBuff"
+InteractTrigger = "OnOverlap"
+
+[node name="BossTalkSmart" parent="BossArea" instance=ExtResource( 9 )]
+position = Vector2( -779, -4 )
+scale = Vector2( 0.5, 1 )
+__meta__ = {
+"_edit_group_": true,
+"_edit_lock_": true
+}
+dialogueKeyToPlay = "LichSmart"
+InteractTrigger = "OnOverlap"
+
+[node name="FinalWordZone" type="Area2D" parent="BossArea"]
+position = Vector2( -612, -12 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea/FinalWordZone"]
+position = Vector2( -15, -4 )
+shape = SubResource( 24 )
+__meta__ = {
+"_edit_lock_": true
+}
+
+[node name="PyroComment" parent="BossArea" instance=ExtResource( 9 )]
+position = Vector2( -628, 0 )
+scale = Vector2( 0.5, 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+dialogueKeyToPlay = "LichPyro"
+InteractTrigger = "OnOverlap"
+
+[node name="QuestInsult" parent="BossArea" instance=ExtResource( 9 )]
+position = Vector2( -628, 0 )
+scale = Vector2( 0.5, 3 )
+__meta__ = {
+"_edit_lock_": true
+}
+dialogueKeyToPlay = "LichQuest"
+InteractTrigger = "OnOverlap"
+
+[node name="VictoryBuff" parent="BossArea" instance=ExtResource( 9 )]
+position = Vector2( -692, -1863 )
+dialogueKeyToPlay = "LichDeathBuff"
+InteractTrigger = "OnOverlap"
+
+[node name="ExitArea" type="Area2D" parent="BossArea/VictoryBuff"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea/VictoryBuff/ExitArea"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 25 )
+
+[node name="VictorySmart" parent="BossArea" instance=ExtResource( 9 )]
+position = Vector2( -404, -1863 )
+dialogueKeyToPlay = "LichDeathSmart"
+InteractTrigger = "OnOverlap"
+
+[node name="ExitArea2" type="Area2D" parent="BossArea/VictorySmart"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="BossArea/VictorySmart/ExitArea2"]
+position = Vector2( 0, 0.5 )
+shape = SubResource( 25 )
 
 [node name="Spawner" parent="." instance=ExtResource( 59 )]
 position = Vector2( 8574, -2177 )
@@ -1362,6 +1444,7 @@ position = Vector2( 8574, -2177 )
 [connection signal="body_entered" from="Gauntlet/Layer3/LayerTrigger" to="Gauntlet/Layer3" method="_on_LayerTrigger_body_entered"]
 [connection signal="body_entered" from="Gauntlet/Layer4/LayerTrigger" to="Gauntlet/Layer4" method="_on_LayerTrigger_body_entered"]
 [connection signal="body_entered" from="Gauntlet/Layer5/LayerTrigger" to="Gauntlet/Layer5" method="_on_LayerTrigger_body_entered"]
+[connection signal="defeated" from="Lich" to="." method="_on_Lich_defeated"]
 [connection signal="defeated" from="Lich" to="BossArea/SpellWall" method="_on_Lich_defeated"]
 [connection signal="defeated" from="Lich" to="BossArea/SpellWall2" method="_on_Lich_defeated"]
 [connection signal="ready_sconce" from="Lich" to="BossArea/LichSconce" method="_on_Lich_ready_sconce"]
@@ -1372,7 +1455,27 @@ position = Vector2( 8574, -2177 )
 [connection signal="sconce_seeker" from="Lich" to="BossArea/LichSconce2" method="_on_Lich_sconce_seeker"]
 [connection signal="sconce_seeker" from="Lich" to="BossArea/LichSconce3" method="_on_Lich_sconce_seeker"]
 [connection signal="sconce_seeker" from="Lich" to="BossArea/LichSconce4" method="_on_Lich_sconce_seeker"]
+[connection signal="body_entered" from="BossArea/Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="BossArea/Area2D" to="Lich" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="BossArea/Area2D" to="BossArea" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="BossArea/Area2D" to="BossArea/SpellWall" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="BossArea/Area2D" to="BossArea/SpellWall2" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="BossArea/Area2D" to="." method="_on_Area2D_body_exited"]
+[connection signal="stopped_talking" from="BossArea/BossTalkBuff" to="Player" method="_on_BossTalkBuff_stopped_talking"]
+[connection signal="talking" from="BossArea/BossTalkBuff" to="Player" method="_on_BossTalkBuff_talking"]
+[connection signal="stopped_talking" from="BossArea/BossTalkSmart" to="Player" method="_on_BossTalkSmart_stopped_talking"]
+[connection signal="talking" from="BossArea/BossTalkSmart" to="Player" method="_on_BossTalkSmart_talking"]
+[connection signal="body_entered" from="BossArea/FinalWordZone" to="BossArea" method="_on_FinalWordZone_body_entered"]
+[connection signal="body_exited" from="BossArea/FinalWordZone" to="Lich" method="_on_FinalWordZone_body_exited"]
+[connection signal="body_exited" from="BossArea/FinalWordZone" to="BossArea" method="_on_FinalWordZone_body_exited"]
+[connection signal="stopped_talking" from="BossArea/PyroComment" to="Player" method="_on_PyroComment_stopped_talking"]
+[connection signal="talking" from="BossArea/PyroComment" to="Player" method="_on_PyroComment_talking"]
+[connection signal="stopped_talking" from="BossArea/QuestInsult" to="Player" method="_on_QuestInsult_stopped_talking"]
+[connection signal="talking" from="BossArea/QuestInsult" to="Player" method="_on_QuestInsult_talking"]
+[connection signal="stopped_talking" from="BossArea/VictoryBuff" to="Player" method="_on_VictoryBuff_stopped_talking"]
+[connection signal="talking" from="BossArea/VictoryBuff" to="Player" method="_on_VictoryBuff_talking"]
+[connection signal="body_exited" from="BossArea/VictoryBuff/ExitArea" to="." method="_on_ExitArea_body_exited"]
+[connection signal="stopped_talking" from="BossArea/VictorySmart" to="Player" method="_on_VictorySmart_stopped_talking"]
+[connection signal="talking" from="BossArea/VictorySmart" to="Player" method="_on_VictorySmart_talking"]
+[connection signal="body_exited" from="BossArea/VictorySmart/ExitArea2" to="." method="_on_ExitArea2_body_exited"]
 [connection signal="spawn_active" from="Spawner" to="Lich" method="_on_Spawner_spawn_active"]

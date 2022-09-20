@@ -20,7 +20,7 @@ var staff_upgrade = false
 
 #spells known
 var denied_knowledge = false
-var pyromancy = false #should be false at start
+var pyromancy = true #should be false at start
 var abjure = false
 var arcane = true
 
@@ -402,3 +402,63 @@ func _on_SmartStaff_stopped_talking():
 
 
 
+
+
+func _on_BossTalkBuff_talking():
+	isBusyReadingDialogue = true
+	print("start talking buff boss", isBusyReadingDialogue)
+
+
+func _on_BossTalkBuff_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking buff boss", isBusyReadingDialogue)
+
+
+
+func _on_BossTalkSmart_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking smart boss", isBusyReadingDialogue)
+
+
+func _on_BossTalkSmart_talking():
+	isBusyReadingDialogue = true
+	print("start talking smart boss", isBusyReadingDialogue)
+	
+
+
+func _on_QuestInsult_talking():
+	isBusyReadingDialogue = true
+	print("start talking insultboss", isBusyReadingDialogue)
+
+func _on_PyroComment_talking():
+	isBusyReadingDialogue = true
+	print("start talking pyroboss", isBusyReadingDialogue)
+
+func _on_PyroComment_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking pyroboss", isBusyReadingDialogue)
+
+
+func _on_QuestInsult_stopped_talking():
+	isBusyReadingDialogue = false
+	print("start talking insult", isBusyReadingDialogue)
+
+
+func _on_VictoryBuff_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking buff victory", isBusyReadingDialogue)
+
+
+func _on_VictoryBuff_talking():
+	isBusyReadingDialogue = true
+	print("start talking buff victory", isBusyReadingDialogue)
+
+
+func _on_VictorySmart_stopped_talking():
+	isBusyReadingDialogue = false
+	print("stop talking smart victory", isBusyReadingDialogue)
+
+
+func _on_VictorySmart_talking():
+	isBusyReadingDialogue = true
+	print("start talking buff victory", isBusyReadingDialogue)

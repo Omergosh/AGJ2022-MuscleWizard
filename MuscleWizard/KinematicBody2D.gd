@@ -4,7 +4,7 @@ extends KinematicBody2D
 #stats
 
 var health = 200
-var armor = 2
+var armor = -20
 
 
 #spells/summons
@@ -125,11 +125,17 @@ func SeekerCast():
 	$SomaticSpawn/PinkCharge.emitting = true
 
 func IdlePose():
-	if casting == false:
-		$AnimatedSprite.play("Idle")
-		if cast_time_active == false:
-			$Timers/TestTimer.start() #timer determines time between casts
-			cast_time_active = true
+	if dying == false:
+		if casting == false:
+			if hurt == false:
+				$AnimatedSprite.play("Idle")
+			elif hurt == true:
+				$AnimatedSprite.play("Oof")
+			if cast_time_active == false and hurt == false:
+				$Timers/TestTimer.start() #timer determines time between casts
+				cast_time_active = true
+	else:
+		$AnimatedSprite.play('Oof')
 
 func SummonUndead():
 	casting = true
@@ -186,10 +192,11 @@ func _on_TestTimer_timeout():
 
 
 func _on_Area2D_body_entered(body):
-	if body.is_in_group("Player"):
-		aggro = true
-		print(aggro)
-		$Sounds/Crack1.play()
+	pass
+	#if body.is_in_group("Player"):
+		#aggro = true
+		#print(aggro)
+		#$Sounds/Crack1.play()
 
 
 func _on_HurtTimer_timeout():
@@ -245,3 +252,12 @@ func _on_SummonTimer_timeout():
 func _on_Spawner_spawn_active():
 	zombie_out = true
 	zombie_number += 1
+
+
+
+
+func _on_FinalWordZone_body_exited(body):
+	if body.is_in_group("Player"):
+		aggro = true
+		print(aggro)
+		$Sounds/Crack1.play()

@@ -114,6 +114,52 @@
 			"text": "You dare speak that name in my presence? I will feed you your own eyeballs!",
 		},
 	],
+	"LichDeathBuff":[
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitDying.png",
+			"text": "This is impossible! How could I be bested by a mortal mage?",
+		},
+		{
+			"name": "The Muscle Wizard",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "When you gave up the weakness of flesh, you also gave up all its strength.",
+		},
+		
+		{
+			"name": "Dirty Larry",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitDying.png",
+			"text": "AAAAUUUUUuuuughhhalghgshlsghlhgsdghl…..",
+		},
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitDead.png",
+			"text": "*The anguished screams of the lich fade into incomprehensible whispers as you destroy his physical form*",
+		},
+	],
+	"LichDeathSmart":[
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitDying.png",
+			"text": "This is impossible! How could I be bested by a mortal mage?",
+		},
+		{
+			"name": "The Aspiring Sage",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "Life, death: It's’ all a cycle. It’s simple, you chose to stagnate. I chose to learn from your mistakes.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitDying.png",
+			"text": "This isn’t the ennnnndddddddd I will have my revennnnnngeee.…..
+",
+		},
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitDead.png",
+			"text": "*The anguished screams of the lich fade into incomprehensible whispers as you destroy his physical form*.",
+		},
+	],
 	"StaffSmart":[
 		{
 			"name": "Examine",

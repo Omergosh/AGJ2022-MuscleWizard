@@ -6,6 +6,7 @@ onready var aura = get_node("Aura")
 onready var centre = get_node('Centre')
 onready var blockcollision = get_node("Blocker/CollisionShape2D")
 onready var hitcollision = get_node("Hitbox/CollisionShape2D")
+onready var friendlyfire = get_node("Hitbox2/CollisionShape2D")
 # Called when the node enters the scene tree for the first time.
 var damage_tick = false
 var on = false
@@ -30,11 +31,13 @@ func deactivate():
 func _on_DamageTimer_timeout():
 	if damage_tick == false:
 		hitcollision.disabled = false
+		friendlyfire.disabled = false
 		aura.emitting = true
 		$Burst.play()
 		damage_tick = true
 	else:
 		hitcollision.disabled = true
+		friendlyfire.disabled = true
 		damage_tick = false
 
 
