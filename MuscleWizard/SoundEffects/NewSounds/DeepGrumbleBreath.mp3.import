@@ -11,5 +11,5 @@ dest_files=[ "res://.import/DeepGrumbleBreath.mp3-d02c0cccda8767598e36d9a0fb751f
 
 [params]
 
-loop=true
+loop=false
 loop_offset=0

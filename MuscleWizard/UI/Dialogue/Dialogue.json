@@ -25,6 +25,95 @@
 			"text": "There is something unsettling about this charred skull, but you can't quite place it.",
 		},
 	],
+	"LichBuff":[
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "What?? How did you get in here? You dare disturb the work of Larrathman the Unclean?",
+		},
+		{
+			"name": "The Muscle Wizard",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "Your door wasn’t that hard to break.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "No matter, you are no match for me. I left behind the weakness of flesh long ago. Whatever paltry magics you have at your disposal are no match for the powers I’ve accrued over centuries!",
+		},
+		{
+			"name": "The Muscle Wizard",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "Shut it Dirty Larry, I don’t care if you’re a lich. I’ll beat the shit out of you all the same.",
+		},
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitQuizzical.png",
+			"text": "The lich momentarily appears at a loss for words. Although his eyes are but specks of glowing light he looks you up and down. His silence speaks for itself, you know how people react to your physique.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "You’re an interesting specimen. I’ll enjoy pulling your flesh apart, fibre by fibre.",
+		},
+	],
+	"LichSmart":[
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "What?? How did you get in here? You dare disturb the work of Larrathman the Unclean?",
+		},
+		{
+			"name": "The Aspiring Sage",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "Your rune door was not too difficult to overcome.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "Childsplay. You’ve merely proved you have the potential to become a more powerful thrall in death to me. It’s not too late to beg for your life, you magical novice. I could use another living graverobber.",
+		},
+		{
+			"name": "The Aspiring Sage",
+			"portrait": "res://Sprites/_art_/MentorExpressions/PlayerPortrait.png",
+			"text": "I’ve studied the history of the Old Kingdom, and the nature of its mages. Overconfidence has always been your downfall, alive or dead. Shut up and die, again.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAngry.png",
+			"text": "Well then, you fit right in with us. When I kill you, you’ll get to see if you’re strong enough to swim against the torrent of damned souls back to the material realm like I was.",
+		},
+
+	],
+	"LichPyro":[
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "A glint of recognition shines in the glowing balls of light in the lich’s eyesockets.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "Although, I already sense a consumptive aura about you. Such a marked soul should have no issue navigating the damned.",
+		},
+	],
+	"LichQuest":[
+		{
+			"name": "Maazara's last student",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "By the way, Maazara sends her regards.",
+		},
+		{
+			"name": "Examine",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "The globules of light that make up the lich’s eyes shake with rage.",
+		},
+		{
+			"name": "Larrathman the Unclean",
+			"portrait": "res://Sprites/_art_/Lich/LichSkullPortraitAwake.png",
+			"text": "You dare speak that name in my presence? I will feed you your own eyeballs!",
+		},
+	],
 	"StaffSmart":[
 		{
 			"name": "Examine",

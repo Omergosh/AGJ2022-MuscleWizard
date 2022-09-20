@@ -65,7 +65,7 @@ func take_damage(instigatorHitBox):
 	if health <= 0:
 		GameManager.alive = false
 		SceneTransition.transitionTo("res://UI/EndingWIP.tscn")
-		queue_free()
+
 ### BASIC MAGIC ATTACK ###
 var ArcaneProjectile = preload("res://Spells/ArcaneBlast.tscn")
 

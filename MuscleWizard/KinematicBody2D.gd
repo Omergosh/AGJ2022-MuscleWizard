@@ -36,6 +36,7 @@ var dying = false
 
 signal ready_sconce
 signal sconce_seeker
+signal defeated
 
 onready var player = get_node("../Player")
 
@@ -75,6 +76,7 @@ func take_damage(instigatorHitBox):
 	
 func die():
 	$AnimatedSprite.play("Cast")
+	emit_signal("defeated")
 	$Timers/DyingRefresh.start()
 
 
