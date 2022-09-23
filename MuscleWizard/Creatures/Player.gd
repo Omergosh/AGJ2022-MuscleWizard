@@ -20,7 +20,7 @@ var staff_upgrade = false
 
 #spells known
 var denied_knowledge = false
-var pyromancy = true #should be false at start
+var pyromancy = false #should be false at start
 var abjure = false
 var arcane = true
 

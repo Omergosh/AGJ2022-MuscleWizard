@@ -4,7 +4,7 @@ extends KinematicBody2D
 #stats
 
 var health = 200
-var armor = -20
+var armor = 2
 
 
 #spells/summons
@@ -77,6 +77,12 @@ func take_damage(instigatorHitBox):
 func die():
 	$AnimatedSprite.play("Cast")
 	emit_signal("defeated")
+	$Timers/BlastTimer.stop()
+	$Timers/TestTimer.stop()
+	$Timers/SeekerTimer.stop()
+	$Timers/TeleportTimer.stop()
+	$Timers/TeleCooldown.stop()
+	$Timers/SummonTimer.stop()
 	$Timers/DyingRefresh.start()
 
 
@@ -94,7 +100,7 @@ func hurting():
 			$Sounds/Crack2.play()
 		hurt = true
 	if hurt == true:
-		if tele_cooldown == false:
+		if tele_cooldown == false and dying == false:
 			decide_teleport = true
 			tele_cooldown = true
 			$Timers/TeleCooldown.start()
